@@ -1,0 +1,68 @@
+*{box-sizing: border-box}
+.mainbg{width: 100%;height:99vh;;min-height: 1000px;}
+
+.wrap{position: absolute;
+    width: 100%;
+    bottom:100px;
+    left: 0px;
+    background: url(img/bg_tilte_blur.jpg) no-repeat center center;
+    background-size: cover;}
+
+h1{position: absolute;
+    left:20%;top:-380px}
+h1 img{width:600px;}
+
+
+.list li{position: relative;
+    font-size: 19px;font-weight: bold;
+        padding-left: 15%;line-height:50px;
+        color: #fff;width:100%;height: 50px;
+        border-bottom:1px solid #2e7ba7; }
+/* .list li:hover{color: #2e7ba7} */
+
+h2{color: #000;margin-bottom: 55px;margin-top: 10px}
+.box1{position: absolute;
+    top:50px;left: 0;
+    display:none;
+    padding-left:300px;
+    width: 100%;height:580px;
+    background: rgb(255, 255, 255,.5);}
+
+.box1 article{float: left;margin-left: 50px;
+    width: 370px;z-index:99;color:#000;background: #fff;
+    font-size:12px;line-height:2 }
+/*  */
+
+
+.box2{position: absolute;
+    top:50px;left: 0;
+    display:block;
+    padding-left:300px;
+    width: 100%;height:580px;
+    background: rgb(255, 255, 255,.5);}
+
+.box2 article{float: left;
+    text-align: center;margin:2px;
+    width:300px;z-index:99;color:#000;background: #fff;
+    font-size:12px;line-height:2 }
+
+.box2 article p{width: 200px;margin: auto}
+
+
+
+
+
+
+
+
+
+
+
+
+
+address{position: absolute;
+    bottom:30px;right:30px;
+    color: #fff;font-style: normal;
+    font-size:12px}
+.footerimg{position: absolute;
+    bottom:25px;right:450px;}

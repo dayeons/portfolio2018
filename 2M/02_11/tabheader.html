@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {font-family: "Lato", sans-serif;}
+
+        .btn button{
+        background-color: #555;
+        color: white;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 17px;
+        width: 25%;
+        }
+
+
+        .btn button:nth-child(1).on{background-color:red;}
+        .btn button:nth-child(2).on{background-color:green;}
+        .btn button:nth-child(3).on{background-color:blue;}
+        .btn button:nth-child(4).on{background-color:orange;}
+        
+        .btn button:hover {
+        background-color: #777;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+        color: white;
+        display: none;
+        padding: 50px;
+        text-align: center;
+        }
+        .tabcontent.on{display: block}
+
+
+        #London {background-color:red;}
+        #Paris {background-color:green;}
+        #Tokyo {background-color:blue;}
+        #Oslo {background-color:orange;}
+    </style>
+</head>
+
+<body>
+
+    <p>Click on the buttons inside the tabbed menu:</p>
+
+    <div id="London" class="tabcontent on">
+    <h1>London</h1>
+    <p>London is the capital city of England.</p>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+    <h1>Paris</h1>
+    <p>Paris is the capital of France.</p> 
+    </div>
+
+    <div id="Tokyo" class="tabcontent">
+    <h1>Tokyo</h1>
+    <p>Tokyo is the capital of Japan.</p>
+    </div>
+
+    <div id="Oslo" class="tabcontent">
+    <h1>Oslo</h1>
+    <p>Oslo is the capital of Norway.</p>
+    </div>
+
+    <div class="btn">
+        <button class="tablink on">London</button>
+        <button class="tablink">Paris</button>
+        <button class="tablink">Tokyo</button>
+        <button class="tablink">Oslo</button>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(function(){
+        $('button').click(function(){
+            var idx=$(this).index()
+            $('.tabcontent').removeClass('on')
+            $('.tabcontent').eq(idx).addClass('on')
+
+
+            $('button').removeClass('on')
+            $(this).addClass('on')
+        })
+
+    });
+</script>
+
+</body>
+</html> 

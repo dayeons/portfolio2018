@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>colorbox</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/colorbox.css">
+    <!-- 칼라박스 링크css -->
+    <style>
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/jquery.colorbox.js"></script>
+    <!-- 컬러박스  링크 js -->
+    <script>
+        $(function () {
+            $(".group1").colorbox({ rel: 'group1' });
+            $(".iframe").colorbox({ iframe: true, width: "80%", height: "80%" });
+            $(".youtube").colorbox({ iframe: true, innerWidth: 640, innerHeight: 390 });
+        });
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li><a href="e.jpg" class="group1">이미지</a></li>
+        <li><a href="http://dy7326.com" class='iframe'>html</a></li>
+        <li><a href="https://www.youtube.com/embed/sCptN9888p0" class='youtube'>유튜브</a></li>
+    </ul>
+</body>
+
+</html>

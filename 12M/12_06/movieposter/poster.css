@@ -1,0 +1,53 @@
+.wrap{width: 752px;margin:50px auto;
+    display: flex;border: 1px solid #000;
+    overflow: hidden;}
+.wrap img{width: 100%; vertical-align:top}
+
+ul.nav{position: relative;z-index: 9999;}
+ul.contents{position: relative;height:895px;width:625px;perspective: 800px}
+
+ul.contents li{position: absolute;left: 0;top: 0;
+                z-index: 1; }
+
+ul.contents li.on{z-index: 10;}
+
+.contents li:nth-child(1):target{animation:listAni1 .5s linear;}
+
+@keyframes listAni1{
+    0%{transform: translate(-625px)}
+    100%{transform: translate(0px);z-index: 999;}
+ 
+}
+
+
+
+.contents li:nth-child(2):target{animation:listAni2 .5s linear;z-index:99999;}
+@keyframes listAni2{
+    
+    0%{transform: translateY(-625px)}
+    100%{transform: translateY(0px)}
+
+}
+
+.contents li:nth-child(3):target{animation:listAni3 .5s linear;z-index:9999999;}
+@keyframes listAni3{  
+    0%{transform: scale(3)}
+    100%{transform: scale(1)}
+
+}
+.contents li:nth-child(4):target{animation:listAni4 .5s linear;z-index:9999999;}
+@keyframes listAni4{  
+    0%{transform: rotatey(180deg)}
+    100%{transform: rotatey(0deg)}
+
+}
+
+
+.contents li:nth-child(5):target{animation:listAni5 .5s linear;z-index:9999999;}
+@keyframes listAni5{  
+    0%{transform: rotatex(180deg)}
+    100%{transform: rotatex(0deg)}
+
+}
+
+

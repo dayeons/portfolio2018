@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>videoplay</title>
+    <style>
+  
+    button{border: 0;padding:10px;background: rgb(255, 0, 0);color: #fff;
+            cursor: pointer;}
+
+    
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+       var v=$('.video').get(0)
+
+        $('.play').click(function(){
+            v.play()
+        })
+        $('.stop').click(function(){
+            v.pause()
+            v.currentTime=0
+            //순서 중요 현재재생위치 0으로
+        })
+        $('.pause').click(function(){
+            v.pause()
+        })
+        $('.rate1').click(function(){
+            v.playbackRate=1
+        })
+        $('.rate2').click(function(){
+            v.playbackRate=2
+        })
+        $('.rew').click(function(){
+            v.currentTime-=2
+        })
+        $('.rwd').click(function(){
+            v.currentTime+=2
+        })
+        $('.sizenormal').click(function(){
+            v.width=800
+        })
+        $('.sizebig').click(function(){
+            v.width=1600
+        })
+        $('.sizesmall').click(function(){
+            v.width=400
+        })
+
+    });  
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <video src="badboyteaser.mp4" width='800' class="video"></video>
+        <button class="play">PLAY</button>
+        <button class="stop">STOP</button>
+        <button class="pause">PAUSE</button>
+        <button class="rate1">1배속</button>
+        <button class="rate2">2배속</button>
+        <button class="rew">&lt&lt</button>
+        <button class="rwd">&gt&gt</button>
+        <button class="sizenormal">기본화면</button>
+        <button class="sizebig">2베</button>
+        <button class="sizesmall">1/2배</button>
+ 
+    </div>
+</body>
+</html>

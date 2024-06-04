@@ -1,0 +1,37 @@
+*{box-sizing: border-box}
+body{font-size: 0.7vw;font-family: 'Quicksand', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    display: flex;width: 600%;}
+.header{width:55%;display: block;z-index: 66;
+        position: fixed;left:25%;}
+h1{float: left;}
+h1 img{width:120px;margin:15px}
+.nav{float: right}
+.nav li{float: left;padding:20px;}
+.nav li a{color: #fff}
+
+
+.nav ul li:nth-child(2) a.on{color:#62a9c5;}
+.nav ul li:nth-child(3) a.on{color:#2a9d8f;}
+.nav ul li:nth-child(4) a.on{color:#e9c46a;}
+.nav ul li:nth-child(5) a.on{color:#f4a261;}
+.nav ul li:nth-child(6) a.on{color:#e76f51;}
+
+section{position: relative;height:98vh;background-size: cover;
+    display: flex;width: 600%}
+
+video{width: 100%;}
+
+
+section::before{content: '';background: rgb(0, 0, 0,.2);width: 100%;height: 98vh;position: absolute}
+
+
+#sect2{background-image: url(main_doraemon_02.png)}
+#sect3{background-image: url(main_minions_03.png)}
+#sect4{background-image: url(feature_2.png)}
+#sect5{background-image: url(bg_wave_feature_6.jpg)}
+
+
+
+.inner{position: absolute;top: 20%;left: 30%;color: #fff;}
+

@@ -1,0 +1,410 @@
+@charset "UTF-8";
+*{box-sizing: border-box}
+body{
+    font-family: 'Nanum Gothic', sans-serif;
+    background:#f5f5f5;
+}
+/* background: rgb(4, 100, 179);background: rgb(0, 82, 149); */
+#headernav{
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.5);
+} 
+
+#headernav.on1{background: #005295;}
+#headernav.on2{background: #E74C78;}
+#headernav.on3{background: #e3a436;}
+#headernav.on4{background: #b24564;}
+#headernav.on5{background: #32DB8A;}
+
+/* class의 중복을 피하기위해 id 로 지정한다. */
+
+#headernav ul{
+    width:800px;
+    margin: auto;
+    display: flex;
+}
+#headernav ul li{padding:20px 0}
+
+#headernav ul li a{
+    color:rgb(156, 156, 156);
+    padding-left:30px;
+    font-size:18px
+}
+
+#headernav ul li a.on{color: #fff}
+
+
+
+
+/*  */
+.intro{
+    width:100% !important;
+    height:100vh !important;
+    overflow: hidden;
+}
+    
+.intro video{
+    position: absolute;
+    top:0; 
+}
+
+
+h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    font-size:45px
+}
+
+/*  */
+
+.wrap section{
+    position: relative;
+    height: 150vh;
+    width: 1200px;
+    margin: auto;
+    background: #eeeeee;
+}
+
+.number{
+    margin-left: -45px;
+    color: #fff;
+    font-size:150px;
+    font-weight: bold
+}
+
+
+.title{
+    position: absolute;
+    top:315px;
+    font-size:80px;
+    text-align: right;
+    font-weight:bold;
+    line-height:70px;
+}
+
+.tt{
+    position: absolute;
+    width:370px;
+    height:370px;
+}
+
+section .tt.on{
+    position: fixed;
+    top: 0;
+    width:370px;
+    height:370px;
+}
+
+/*  */
+
+
+.titlebox1{
+    width:370px;
+    height:370px;
+    background:#005295
+}
+   
+.titlebox1 .title{left:82px;}
+
+.aboutImg{
+    position: absolute;
+    top:26%;
+    width:800px;
+    margin-left:370px;
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+}
+.aboutImg div{
+    width:50%;
+    height: 200px;
+    padding: 90px 0;
+    font-size:18px;
+    background-size: cover;
+    color: #fff;
+    text-align: center
+}
+
+
+.aboutImg .img1{background-image: url(amore/about_\ \(1\).jpg);}
+.aboutImg .img2{background-image: url(amore/about_\ \(2\).jpg);}
+.aboutImg .img4{background-image: url(amore/about_\ \(3\).jpg);}
+.aboutImg .img5{background-image: url(amore/about_\ \(4\).jpg);}
+.aboutImg .img6{background-image: url(amore/about_\ \(5\).jpg);}
+
+
+.ataglance{
+    position: absolute;
+    top:70%;
+    width:800px;
+    margin:50px 0 0 370px ;
+    background: #005295
+}
+.ataglance img{width: 100%;}
+
+
+
+
+
+
+/*  */
+
+
+.titlebox2 {
+    width:370px;
+    height:370px;
+    margin-left:800px;
+    background:#E74C78;
+}
+
+.philoImg{
+    width:800px;
+    display: block;
+    overflow: hidden;
+    background: #fff;
+}
+.philointro img{
+    width:100%;
+    height: 300px;
+} 
+.philointro h2{
+    position: absolute;
+    top:30%;
+    left:28%;
+    color: #fff
+}
+
+
+
+
+.quote img{width: 100%;}
+.ex{
+    display: block;
+    width:800px;
+    height: 900px;
+    padding:20px 0;
+}
+
+.pbox{
+    float: left;
+    width:45%;
+    padding: 30px 0 0 40px;
+    line-height:30px
+}
+    
+
+.eximg{
+    width:350px;
+    height: 550px;
+    float: right;
+    margin:200px 50px 100px 0px;
+    background-image: url(amore/philo.jpg)
+}
+
+
+/*  */
+
+.titlebox3{
+    width:370px;
+    height:370px;
+    background:#e3a436 ;
+}
+
+
+
+
+
+.titlebox3 .title{left:35px}
+
+
+.brandImg{
+    position: absolute;
+    top:26%;
+    width:800px;
+    margin-left:370px;
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap
+}
+.brandImg div{
+    width:33.3333%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.brandImg img{
+    width:100%;
+    vertical-align:top;
+    transform: scale(.8)
+}
+
+.brandImg img:hover{
+    transform: scale(1.1);
+    transition: all .3s linear
+}
+
+
+
+/*  */
+
+.titlebox4{
+    width:370px;
+    height:370px;
+    margin-left:800px;
+    background: #b24564
+}
+
+
+
+.susImg{width: 800px;}
+.overview img{width: 100%;}
+
+.sustainImg{
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap
+}
+
+
+.sustainImg div{
+    background: #e8ecf1;
+    width:33%;
+    height: 400px;
+    margin:20px 2px 0px 0px;
+    color: #fff;
+    padding:40px 0;
+    background-size: cover
+}
+.sustainImg .img2,.sustainImg .img3{color: #222}
+.sustainImg .img1{background-image: url(amore/sus_\ \(3\).jpg)}
+.sustainImg .img4{background-image: url(amore/sus_\ \(1\).jpg)}
+.sustainImg .img5{background-image: url(amore/sus_\ \(2\).jpg)}
+
+.sustainImg .img1:hover,
+.sustainImg .img4:hover,
+.sustainImg .img5:hover{
+    background: rgb(4, 100, 179);
+    color:#fff;
+}
+
+.sustainImg .img2:hover,
+.sustainImg .img3:hover{
+    background: #e0e0e0;
+}
+
+
+
+
+
+.sustainImg h3{
+    text-align: center;
+    font-weight:lighter;
+}
+.sustainImg p{
+    white-space: normal;
+    padding:20px;
+    overflow: hidden;
+    font-size:12px;
+    line-height:20px
+}
+
+.susImg h2{
+    text-align: center;
+    padding:30px 0
+}
+
+/*  */
+
+.titlebox5{
+    width:370px;
+    height:370px;
+    background:#32DB8A
+}
+
+
+
+.titlebox5 .title{left:135px;}
+
+.newsImg{
+    position: absolute;
+    top:26%;
+    width:800px;
+    margin-left:370px;
+    background: #fff;
+    height:650px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.newsImg div{
+    width:190px;
+    margin:10px 5px 0px 5px;
+    cursor: pointer
+}
+
+.newsImg p{
+    font-size:12px;
+    font-weight:bold;
+    padding:10px 10px 30px 10px
+}
+
+.newsImg div:hover p{text-decoration: underline}
+.newsImg span{
+    display: block;
+    font-weight: lighter;
+    font-size: 10px;
+    text-align: end 
+}
+
+
+
+.zoom{
+    overflow: hidden;
+    width:190px;
+    height: 200px;
+}
+.zoom img{
+    width:190px;
+    height: 200px;
+}
+.zoom img:hover{
+    transform: scale(1.1);
+    transition: all .3s linear
+}
+
+/* footer */
+.footer{
+    width: 100%;
+    background: #fff;
+    height:200px;
+    margin-top:300px;
+    border-top: 1px solid #e0e0e0
+}
+.footer ul{
+    width:700px;
+    margin: auto;
+    padding-top: 43px;
+}
+.footer ul li{
+    float: left;
+    padding:0 10px 0 10px;
+    font-size:12px;
+}
+
+/*  */
+
+
+/* .titlebox1,.titlebox2,.titlebox3,.titlebox4,.titlebox5
+{position:-webkit-sticky;position: sticky;top:60px;} */
+
+
+/* .titlebox1,.titlebox2,.titlebox3,.titlebox4,.titlebox5
+    {position: absolute;;
+    width:370px;height:370px;
+    top:0px;} */
+
+
+

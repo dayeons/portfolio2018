@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>모바일 iframe</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+
+    <style>
+        body {
+            background: rgb(88, 88, 141);
+        }
+
+        .mobile {
+            background-image: url(img/iphone_PNG5724.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 925px;
+            height: 100vh;
+            position: relative;
+        }
+
+        .display {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 15%;
+            width: 400px;
+            height: 640px;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 3000px;
+            border: none
+        }
+
+
+
+
+        .mCSB_inside>.mCSB_container {
+            margin-right: 4px;
+        }
+    </style>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script>
+        $(function () {
+            $('.display').mCustomScrollbar({
+                theme: "dark"
+            });
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="mobile">
+
+        <div class="display">
+            <iframe src="../01_14/index.html"></iframe>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

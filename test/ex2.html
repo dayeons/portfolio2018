@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<title>My Example</title>
+ 
+<style>
+  p {
+    background: gold;
+    padding: 20px;
+  }
+</style>
+ 
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ 
+<script>
+ 
+$(function(){
+  
+  $("#hideContent").click(function() {
+    $('p').hide()
+
+   
+  });
+ 
+   $("#showContent").click(function() {
+  
+    $('p').show()
+    
+  });
+ 
+});
+</script>
+<button id="hideContent">Hide</button>
+<button id="showContent">Show</button>
+<p>Look at me!</p>

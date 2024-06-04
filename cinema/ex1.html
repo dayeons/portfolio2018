@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>desk / tablet / mobile</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('.nav ul li').click(function () {
+
+                $('#scene').removeClass()
+                var idx = $(this).index()
+                var scene
+
+                $('.nav ul li').removeClass('on')
+                $(this).addClass('on')
+
+                if (idx == 0) {
+                    $('#scene').addClass('desk')
+                }
+                else if (idx == 1) {
+                    $('#scene').addClass('tablet')
+                }
+                else if (idx == 2) {
+                    $('#scene').addClass('mobile')
+                }
+            })
+        })
+    </script>
+    <style>
+        @charset "UTF-8";
+
+        * {
+            box-sizing: border-box
+        }
+
+        .nav {
+            width: 700px;
+            margin: 10px auto;
+            height: 80px;
+        }
+
+        .nav ul {
+            display: flex;
+            justify-content: center
+        }
+
+        .nav ul li {
+            cursor: pointer;
+            padding: 20px
+        }
+
+        .nav ul li.on {
+            background: #eee;
+        }
+
+        #scene {
+            width: 1540px;
+            margin: auto;
+            height: 500vh;
+            transition: all.5s linear
+        }
+
+        #scene.desk {
+            width: 1540px
+        }
+
+        #scene.tablet {
+            width: 1000px
+        }
+
+        #scene.mobile {
+            width: 480px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+
+
+        .btn {
+            position: absolute;
+            ;
+            left: 10%;
+            top: 5%;
+            color: #ff9900;
+            border: 1px solid #ff9900;
+            border-radius: 5px;
+            padding: 5px 50px 5px 50px;
+        }
+
+
+        .btn:hover {
+            background: #ff9900;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="http://www.daehancinema.co.kr/" target="_blank" class="btn">기존사이트</a>
+    <div class="nav">
+        <ul>
+            <li class="on"><i class="fa fa-desktop" style="font-size:48px;color:tomato"></i></li>
+            <li><i class="fa fa-tablet" style="font-size:48px;color:tomato"></i></li>
+            <li><i class="fa fa-mobile-phone" style="font-size:48px;color:tomato"></i></li>
+        </ul>
+    </div>
+
+    <div id="scene" class="desk">
+        <iframe src="/cinema/index.html" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+
+</body>
+
+</html>

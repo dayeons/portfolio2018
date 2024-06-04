@@ -1,0 +1,73 @@
+*{box-sizing: border-box}
+body{font-size:.5vw;background: #eaeff5;}
+.box{width: 100%;height: 5px;margin: auto;background: #1a75d0;}
+h2{font-size: 28px;padding: 10px;text-shadow: 2px 2px #1a75d0;color:#eee}
+.wrap{width:94%;margin:auto;}
+ol li a:hover{color: #007bc5}
+span b{height: 50px;overflow: hidden;}
+
+
+
+@media only screen and (max-width: 600px) {
+    .mast{position: relative;}
+    h1{position: absolute;top:90px;left:25%;width: 100%;height:450px;
+      background: url(img/gnb_logo.png)no-repeat;text-indent: -9999px}
+    .nav{display: flex;justify-content: space-around;;padding-top: 20px;}
+    .nav li{width: 25%;text-align: center;padding-bottom: 20px;border-bottom:1px solid #007bc5}
+    .nav li a:hover{color: #007bc5}
+
+    .intro{margin-top:120px;text-align: center;padding-bottom: 30px;border-bottom: 1px solid #007bc5}
+    .main{text-align: center;padding-top: 20px;padding-bottom: 20px;}
+    .main p{padding-bottom:30px}
+    span b{display: block}
+
+    .figure{float: left;width:30%;margin-left:10px}
+    .figure img{width: 100%;}
+    
+    .footer{clear: both}
+  }
+  @media only screen and (min-width: 601px)and (max-width:1299px) {
+
+    .mast{width: 32%;float: left;height: 100%;;background: #007bc5;}
+    .section{width: 66%;float: right;}
+    h1{width:60%;margin:auto;height:80px;;margin-top: 50px;
+      background: url(img/gnb_logo_w.png)no-repeat;text-indent:-9999px;background-size:100%}
+    .nav{margin-top:80px;}
+    .nav li{padding:10px;text-align: center;
+      width:70%;margin:30px;padding-bottom:20px;}
+    .nav li a{color: #FFF;}
+    .nav li a:hover{color: #000000}
+    .intro{margin-top:150px;text-align: center;padding-bottom: 30px;border-bottom: 2px solid #007bc5}
+    .main{text-align: center;padding-top: 20px;padding-bottom: 20px;border-bottom: 2px solid #007bc5;}
+    .main p{padding-bottom:30px}
+    span b{display: block;;}
+
+    .figure{float: left;width:30%;margin-left:10px}
+    .figure img{width: 100%;}
+    .footer{clear: both;width: 66%;float: right;}
+   
+  }
+  @media only screen and (min-width: 1300px) {
+    .mast{display: block}
+    h1{width:20%;height:80px; margin:auto;float: left;margin-top:30px;margin-left: 100px;
+      background: url(img/gnb_logo.png)no-repeat;text-indent: -999px}
+    .nav{width: 66%;float: right;display: block;text-align: center;margin:10PX;font-size:20px;font-weight: bold}
+    .nav li{float: left;width:25%;margin:30px;padding-bottom:20px;border-bottom: 3px solid #007bc5}
+    .nav li a:hover{color: #1a75d0}
+    
+  
+    .section{width: 70%;float: right;margin: 20px}
+    .intro{text-align: center}
+    h2{font-size: 30px;padding: 20px}
+    
+    .main{display: block;border-top: 1px solid #000;text-align: center}
+    .main p{margin-bottom:20px}
+    span b{display: block;}
+    
+    ol{width:70%;margin: auto;overflow: hidden;}
+    .figure{float: left;width:128px;margin-left:10px;}
+    .figure img{width: 100%;}
+    .footer{clear: both;width: 66%;float: right;}
+
+
+  }

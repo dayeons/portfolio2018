@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>밥블레스유</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('.level1').mouseenter(function () {
+                $('.level1').removeClass('on')
+                $(this).addClass('on')
+            });
+
+            $('.sidebg').mouseenter(function () {
+                $('.btn').addClass('on')
+            })
+
+            $('.sidebg').mouseleave(function () {
+                $('.btn').removeClass('on')
+            })
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <figure>
+        <video src="img/videoplayback.mp4" autoplay muted loop></video>
+    </figure>
+
+    <div class="header">
+        <h1><img src="img/bg_logo_01.png" alt=""></h1>
+        <ul class="nav">
+            <li class="level1 on"><em>소개</em>
+                <ul class="level2">
+                    <li><em>프로그램 소개</em></li>
+                    <li><em>언니들 소개</em></li>
+                </ul>
+            </li>
+            <li class="level1"><em>갤러리</em></li>
+            <li class="level1"><em>동영상</em>
+                <ul class="level2">
+                    <li><em>다시보기</em></li>
+                    <li><em>클립영상</em></li>
+                    <li><em>예고편</em></li>
+                    <li><em>스페셜</em></li>
+                </ul>
+            </li>
+            <li class="level1"><em>푸드테라PICK!</em></li>
+            <li class="level1"><em>시청후기</em></li>
+            <li class="level1"><em>공식 SNS</em></li>
+        </ul>
+    </div>
+    <!-- header -------------------------------------------------->
+
+    <div class="btn">
+        <i class="fa fa-angle-double-left"></i>
+        <i class="fa fa-angle-double-left"></i>
+        <i class="fa fa-angle-double-left"></i>
+    </div>
+    <!-- btn ----------------------------------------------------->
+
+    <div class="sidebg">
+        <div class="side">
+            <ul class="sideimg">
+                <li><img src="img/macao1.jpg" alt=""></li>
+                <li><img src="img/macao2.jpg" alt=""></li>
+                <li><img src="img/macao3.jpg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

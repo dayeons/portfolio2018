@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+        var text;
+        document.write('car[0]<br>')//=  document.write('car[0]'+'<br>')
+        document.write('car[1]'+'<br>')
+        document.write('car[2]'+'<br>')
+        document.write('car[3]'+'<br>')
+        document.write('car[4]'+'<br>')
+        document.write('car[5]'+'<br>')
+    });
+
+    $(function(){
+        var i;
+        for (i = 0; i <=10; i++) { 
+            document.write(i+'<br>')
+       
+        }
+
+        var i;
+        for (i = 1; i <= 9; i++) { 
+            document.write(2+"*"+i+"="+2*i+'<br>')
+       
+        }
+        //2단
+        var i;
+        for (i = 1; i <= 9; i++) { 
+            for (j = 2; j <= 9; i++) { 
+                var dap=i*j;
+                if(dap<10){dap='0'+dap}
+                document.write(i+"*"+j+"="+dap+'&nbsp&nbsp&nbsp')
+        
+            }
+            document.write('<br>')
+        }
+
+        var i;
+        for (i = 2; i <= 9; i++) { 
+            for (j = 1; j <= 9; i++) { 
+                var dap=i*j;
+                if(dap<10){dap='0'+dap}
+                document.write(i+'*'+j+'='+dap+'&nbsp&nbsp&nbsp')
+        
+            }
+            document.write('<br>')
+        }
+    })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

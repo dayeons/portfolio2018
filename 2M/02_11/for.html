@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+       //
+        // for(var i=0;i<3;i++){
+        //     var id=window.prompt('아이디를 입력하세요')
+        //     var pw=window.prompt('비밀번호를 입력하세요.')
+          
+        //     if(id=='admin' && pw=='1234'){
+        //         console.log('환영합니다.'+id+'님')
+        //         //login=true;
+        //         break;//빠져나오는거
+        //     }else{
+        //         alert('아이디와 비밀번호가 일치하지 않습니다.')
+        //     }
+
+
+        // };//for문
+        
+        // alert('비밀번호를 재설정하세요')
+
+    
+    var login=false//조건을 체크하기 위해 사용자가 지정한 변수
+    //!는 거짓
+    while(!login){//조건이 거짓이면 실행
+        var id=window.prompt('아이디를 입력하세요')
+        var pw=window.prompt('비밀번호를 입력하세요.')
+        if(id=='admin' && pw=='1234'){
+            console.log('환영합니다.'+id+'님')
+            login=true;//만족하면 참인 값을 지정하여 루프를 벗어나게 함
+
+        }else{
+            alert('아이디와 비밀번호가 일치하지 않습니다.')
+        }
+
+    };//조건식 틀리면 계속 반복 무한 루프
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

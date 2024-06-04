@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>My Example</title>
+ 
+<style>
+  #slideMe {
+    background: gold;
+    padding: 20px;
+  }
+</style>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ 
+<script>
+ 
+$(document).ready(function(){
+  
+  $("button").click(function() {
+  $('#slideMe').slideToggle()
+  });
+  
+});
+
+</script>
+<button>Slide it!</button>
+<p id="slideMe">Slide me up!</p>

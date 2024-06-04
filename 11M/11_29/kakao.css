@@ -1,0 +1,17 @@
+*{box-sizing: border-box}
+
+body{background: #fafafa; font-size: 12px}
+.header{height: 80px;background: #ffe400;display: block}
+.logo{float: left;width:300px;}
+.logo li{float: left;padding: 30px 30px}
+.nav{float: right}
+.level1{float: left;padding: 30px 30px} 
+
+.wrap{max-width: 1080px;margin: auto}
+
+.info{height: 125px; padding-top:40px ;border-bottom: 1px solid #ccc}
+.info p{width:952px;}
+h1{font-size: 30px;float: left;}
+
+
+

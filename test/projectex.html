@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <style>
+        .project {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            opacity: 1;
+        }
+
+        .projectBg {
+            width: 100%;
+            height: 98vh;
+        }
+
+        .bg li:nth-child(1) {
+            background: #eee;
+        }
+
+        .bg li:nth-child(2) {
+            background: rgb(254, 193, 204);
+        }
+
+        .bg li:nth-child(3) {
+            background: rgb(231, 238, 137);
+        }
+
+        .bg li:nth-child(4) {
+            background: rgb(197, 193, 255);
+        }
+
+        .bg li:nth-child(5) {
+            background: rgb(255, 192, 57);
+        }
+
+
+        .bg {
+            display: flex;
+            width: 500%;
+            height: 100%
+        }
+
+        .bg li {
+            width: 20%;
+        }
+
+        .bg .bgslide {
+            width: 100%;
+            height: 100%;
+        }
+
+        .bg li img {
+            width: 100%;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/jquery.mousewheel.js"></script>
+    <script>
+        $(function () {
+
+
+            $('.bg .bgslide').mousewheel(function (event, delta) {
+
+
+                if (delta > 0) {
+                    var prev = $(this).prev().offset().left
+                    $('html,body').stop().animate({ 'scrollLeft': prev }, 1000)
+
+                } else if (delta < 0) {
+
+                    var next = $(this).next().offset().left
+                    $('html,body').stop().animate({ 'scrollLeft': next }, 1000)
+                }
+
+            });//mousewheel
+
+
+
+
+
+
+        });//function
+    </script>
+</head>
+
+<body>
+    <section class="project">
+
+        <div class="projectBg">
+            <ul class="bg">
+                <li class="bgslide"><img src="" alt=""></li>
+                <li class="bgslide"><img src="" alt=""></li>
+                <li class="bgslide"><img src="" alt=""></li>
+                <li class="bgslide"><img src="" alt=""></li>
+                <li class="bgslide"><img src="" alt=""></li>
+            </ul>
+        </div>
+    </section>
+</body>
+
+</html>

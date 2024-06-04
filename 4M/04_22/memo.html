@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>메모장 돔조작</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <style>
+        ul.output {
+            padding: 10px;
+            border: 1px solid #555
+        }
+
+        ul.output li {
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        li.select {
+            background: #ffffcc;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('#inputData').focus(function () {
+                $(this).val('')
+                $(this).css({ "background": "#ffff00" })
+            }).blur(function () {
+                $(this).css({ "background": "#fff" })
+            })
+
+
+
+            //$ = 제이쿼리 객체변수 element 요소
+            var $inputData = $('#inputData');
+            var $output = $('ul.output');
+            var $active = null;
+
+
+
+            function additem() {
+                var inputData = $inputData.val()
+                var newitem = '<li>' + inputData + '</li>'
+
+
+                if ($active) {
+                    $active.after(newitem)
+
+                } else {
+                    $output.append(newitem)
+                };
+                $active.removeClass('select')
+                $active = null;
+
+            }
+
+
+
+            function selectitem($item) {
+                if ($active != null) {
+                    $active.removeClass('select')
+                }
+                $active = $item;
+                $active.addClass('select')
+            }
+
+
+            function updateitem() {
+                if ($active) {
+                    var inputData = $inputData.val()
+                    $active.text(inputData)
+                    //html text 둘 다 가능
+
+                } else {
+                    alert('선택된 리스트가 없어')
+                }
+
+
+
+
+            }
+
+            function removeitem() {
+
+                if ($active) {
+
+                    $active.remove();
+                    $active = null;
+
+
+                } else {
+                    alert('선택된 리스트가 없어')
+                }
+
+
+
+            }
+            function upitem() {
+                if ($active) {
+                    var $prev = $active.prev()
+                    if ($prev) {
+                        $active.insertBefore($prev)
+                    }
+
+                } else {
+                    alert('선택된 리스트가 없어')
+                }
+
+
+            }
+            function downitem() {
+                if ($active) {
+                    var $next = $active.next()
+                    if ($next) {
+                        $active.insertAfter($next)
+                    }
+
+                } else {
+                    alert('선택된 리스트가 없어')
+                }
+
+            }
+
+
+
+
+
+            $('ul.output').on('click', 'li', function () {
+                selectitem($(this))
+            })
+
+
+
+            $('#add').click(function () {
+                additem()
+            })
+
+            $('#update').click(function () {
+                updateitem()
+            })
+
+            $('#remove').click(function () {
+                removeitem()
+            })
+
+            $('#up').click(function () {
+                upitem()
+            })
+
+            $('#down').click(function () {
+                downitem()
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+        });//function
+    </script>
+
+</head>
+
+<body>
+    <div>
+        <input type="text" id="inputData" onfocus="this.value=''">
+        <button id="add">추가</button>
+        <button id="update">수정</button>
+        <button id="remove">삭제</button>
+        <button id="up">up</button>
+        <button id="down">down</button>
+    </div>
+    <ul class="output">
+        <li>111</li>
+        <li>222</li>
+    </ul>
+</body>
+
+</html>

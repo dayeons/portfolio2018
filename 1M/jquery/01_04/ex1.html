@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('.show').click(function () {
+                $('.google').show()
+            });
+            $('.hide').click(function () {
+                $('.google').hide()
+            });
+            $('.fadeIn').click(function () {
+                $('.naver').fadeIn()
+            });
+            $('.fadeOut').click(function () {
+                $('.naver').fadeOut()
+            });
+            $('.fadeToggle').click(function () {
+                $('.naver').fadeToggle()
+            });
+
+            $('a').click(function () {
+                $('a').removeClass('on')
+                $(this).addClass('on')
+            })
+
+
+            $('.slidedown').click(function () {
+                $('.daum').slideDown(1000)
+            })
+            $('.slideup').click(function () {
+                $('.daum').slideUp(1000)
+            })
+            $('.slidedown').click(function () {
+                $('.daum').slideToggle(1000)
+            })
+
+
+        });
+    </script>
+    <style>
+        body {
+            font-size: 20px
+        }
+
+        table img {
+            width: 300px;
+        }
+
+        table {
+            width: 500px;
+            margin: auto;
+            border-collapse: collapse
+        }
+
+        td {
+            height: 20px;
+        }
+
+        a {
+            display: block;
+            padding: 10px;
+            height: 100%;
+        }
+
+        a.on {
+            background: tomato;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <td rowspan="2"><img src="1.png" alt="" class="google"></td>
+            <td><a href="#" class="show">show</a></td>
+        </tr>
+        <tr>
+
+            <td><a href="#" class="hide">hide</a></td>
+        </tr>
+
+        <tr>
+            <td rowspan="3"><img src="2.JPG" alt="" class="naver"></td>
+            <td><a href="#" class="fade">fadeIn</a></td>
+        </tr>
+        <tr>
+
+            <td><a href="#" class="fadeOut">fadeOut</a></td>
+        </tr>
+        <tr>
+
+            <td><a href="#" class="fadeToggle">fadeToggle</a></td>
+        </tr>
+        <tr>
+            <td rowspan="3">
+                <div class="daum">
+                    <img src="3.png" alt="" class="daum">
+                </div>
+            </td>
+            <td><a href="#" class="slidedown">slidedown</a></td>
+        </tr>
+        <tr>
+
+            <td><a href="#" class="slideup">slideup</a></td>
+        </tr>
+        <tr>
+
+            <td><a href="#" class="slideToggle">slideToggle</a></td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+*{box-sizing: border-box}
+
+.wrap{width:1920px;margin:20px auto;height: 1040px;position: relative;}
+.header{overflow: hidden;}
+h1{float: left;padding-left:30px }
+.nav{width:29px; height:29px; float: right;
+   background: url(http://agal2.co.kr/newdin/img/hd_btns.png)-35px 0;
+   margin-right: 25px}
+
+body{background-image:url(bg_buildings.gif),url(bg_ground.gif);
+      background-repeat:repeat-x,repeat-x;
+      background-position:left 79%,left bottom;
+      height:900px;
+      overflow: hidden;}
+
+.tree{position: absolute;left: 100px ;bottom:230px}
+
+.hgroup{width:1740px;;margin:auto;text-align: center}
+
+.cloud{position: absolute;left:300px;
+     animation-name: moveAni;
+     animation-duration: 5s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;}
+
+ @keyframes moveAni{
+     from{bottom:800px;}
+     to{bottom: 900px;} }
+
+.cloud2{position: absolute;right:300px;
+      animation-name: moveAni2;
+      animation-duration: 6s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;}
+ 
+  @keyframes moveAni2{
+      from{bottom:500px;}
+      to{bottom: 600px;} }
+
+.cloud3{position: absolute;right:500px; 
+      animation-name: moveAni3;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;}
+
+.cloud3 img{width: 100px;}
+      
+  @keyframes moveAni3{
+      from{bottom:800px;}
+      to{bottom: 750px;} }
+ 
+.cloud4{position: absolute;left:500px;
+      animation-name: moveAni4;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;}
+
+.cloud4 img{width: 100px;}
+      
+  @keyframes moveAni4{
+      from{bottom:780px;}
+      to{bottom: 750px;} }
+ 
+
+
+.blue{width: 900px;margin:90px auto;}
+.bnav{display: flex;justify-content: space-between;}
+
+
+
+
+.footer{width: 100%;height: 60px;background: #7a7d7f;
+       position: absolute;bottom: 80px}
+
+
+.bus{position: absolute; bottom: 40px;
+      animation:busAni 25s infinite }
+@keyframes busAni{
+      0%{left:-200px;transform:rotatey(0deg)}
+      49.9999%{left:2000px;transform: rotatey(0deg)}
+      50%{left:2000px; transform: rotatey(180deg)}
+      99.999%{left:-200px;transform: rotateY(180deg)}
+      100%{left:-200px;transform: rotateY(0deg)}
+
+}
+.car1{position: absolute; bottom: 5px;
+      animation:car1Ani 30s infinite}
+
+@keyframes car1Ani{
+      0%{left:-200px;transform:rotatey(0deg)}
+      49.9999%{left:2000px;transform: rotatey(0deg)}
+      50%{left:2000px; transform: rotatey(180deg)}
+      99.999%{left:-200px;transform: rotateY(180deg)}
+      100%{left:-200px;transform: rotateY(0deg)}
+
+}
+.car2{position: absolute; bottom: 80px;
+      animation:car2Ani 50s infinite; }
+
+@keyframes car2Ani{
+      0%{left:-200px;transform:rotatey(0deg)}
+      49.9999%{left:2000px;transform: rotatey(0deg)}
+      50%{left:2000px; transform: rotatey(180deg)}
+      99.999%{left:-200px;transform: rotateY(180deg)}
+      100%{left:-200px;transform: rotateY(0deg)}
+
+}
+
+.sun{position: absolute; left: 25%;top:45%;
+      width:64px;height: 64px;
+      background: url(buildings.png)-525px 0;
+      animation: sunAni 3s infinite linear}
+
+@keyframes sunAni{
+      from{transform:rotate(0deg)}
+      to{transform:rotate(360deg) }
+}
+
+
+.moon{position: absolute; left:29%;top:50%;
+      width: 36px;height: 66px;
+      background: url(buildings.png)-600px 0}
+
+.star{position: absolute;left:27%;top:53%;
+      width:18px;height:18px;
+      background: url(buildings.png)-600px 0}
+
+.build1{position: absolute;left:23%;top:55%;
+      width:53px;height:228px;
+      background: url(buildings.png)-463px 0}
+.build2{position: absolute; left: 25%;top:66%;
+      width: 63px;height: 122px;
+      background: url(buildings.png)-528px -105px}
+
+.build3{position: absolute; left: 26.5%;top:63%;
+      width: 37px;height: 97px;
+      background: url(buildings.png)-418px 0}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <style>
+        .wrap {
+            display: flex
+        }
+
+        .nav {
+            width: 200px;
+        }
+
+        .nav li {
+            cursor: pointer;
+        }
+
+        .nav li.on {
+            background: #e2e2e2;
+            color: orange
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(function () {
+                $('.nav li').click(function () {
+                    var idx = $(this).index()
+
+                    $('.nav li').removeClass('on')
+                    $(this).addClass('on')
+
+                    // if(idx==0){
+                    //     $('.content').load('html.html')
+                    // }
+                    // else if(idx==1){
+                    //     $('.content').load('css.html')
+
+                    // }
+                    // else if(idx==2){
+                    //     $('.content').load('js.html')
+
+                    // }
+                    // else {
+                    //     $('.content').load('jq.html')
+                    // }
+
+                    if (idx == 0) {
+                        $('.content').load('lang.html #html')
+                    }
+                    else if (idx == 1) {
+                        $('.content').load('lang.html #css')
+
+                    }
+                    else if (idx == 2) {
+                        $('.content').load('lang.html #js')
+
+                    }
+                    else {
+                        $('.content').load('lang.html #jq')
+                    }
+                })
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="nav">
+            <li class="on">html</li>
+            <li>css</li>
+            <li>javascript</li>
+            <li>jquery</li>
+        </ul>
+        <div class="content">
+            <p>HTML은 하이퍼텍스트 마크업 언어(HyperText Markup Language, 문화어: 초본문표식달기언어, 하이퍼본문표식달기언어)라는 의미의 웹 페이지를 위한 지배적인 마크업 언어다.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

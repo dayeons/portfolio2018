@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<title>My Example</title>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $( function() {
+    $( "button" ).click( function() {
+        $('li').has('ul').css({background:"yellow"})
+                //has 가지고 있는 할당량 /애니메이션이 가지고 있는 상태를 체크 /포함하고 있는
+    });
+  });
+</script>
+ 
+<button>Highlight all list items that have nested lists</button>
+ 
+<ul>
+  <li>Apples
+    <ul>
+      <li>Big ones</li>
+      <li>Juicy ones</li>
+      <li>Red ones</li>
+    </ul>
+  </li>
+  <li>Oranges</li>
+  <li>Papaya
+    <ul>
+      <li>Papaya carica</li>
+      <li>Carica</li>
+      <li>Carica pubescens</li>
+    </ul>
+  </li>
+  <li>Lychee</li>
+  <li>Rambutan</li>
+  <li>Passionfruit</li>
+  <li>Mango</li>
+</ul>

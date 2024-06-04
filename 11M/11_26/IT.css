@@ -1,0 +1,50 @@
+*{box-sizing: border-box}
+body{font-size: 12px;background: url(http://itscope.co.kr/kr/images/common/basic_bg01.gif)}
+.wrap{width: 1449px;margin: auto; background: url(http://itscope.co.kr/kr/images/common/basic_bg02.gif)}
+.wrapinner{width: 1230px;margin: auto;display: flex}
+.header{position: relative;width: 183px;height: 914px;background: url(http://itscope.co.kr/kr/images/common/basic_bg01.gif);
+        background: url(http://itscope.co.kr/kr/images/common/nav_bg01.jpg);text-align: center}
+
+.level2{display: none}
+
+/* .level2 li a img{display: block} */
+.level1 a img{vertical-align: top}
+.level2 li a img{vertical-align: top;text-align: center}
+
+
+.container{position: relative;width: 1043px;height: 890px;}
+
+.logo{z-index: 10;position: absolute;left: 900px;top: 17px;display: block}
+.logo ul li{float: left;padding-right: 10px}
+
+.content{width: 976px;margin: auto;display: block;position: absolute; bottom: -10px; left: 50px}
+.content ul li{float: left;margin: 0 4px}
+
+.aside{z-index: 10;position: absolute; bottom:-7px; right:-5px;display: block}
+.notice{width: 243px;height: 172px; padding: 25px;
+  background: url(http://itscope.co.kr/kr/images/main/gridcontents_notice_bg01.jpg)}
+.news{width: 243px;height: 172px;padding: 25px;
+  background: url(http://itscope.co.kr/kr/images/main/gridcontents_pr_bg01.jpg)}
+
+.aside a,.aside span{display:inline-block;}
+.aside a{white-space: nowrap; width: 150px;overflow: hidden;
+        text-overflow: ellipsis;}
+.aside li{display: flex;justify-content: space-between;
+         margin-bottom: 10px}
+.aside ul{margin:30px 0 0 0}
+
+.imgtxt{float: left;}
+.plus{float: right;}
+
+
+.footer{position: absolute;bottom: 186px;width: 183px; height: 169px; text-align: center}
+
+
+.footermenu{height: 19px; margin-bottom: 19px;
+            padding: 7px 0 0 10px;
+         }
+
+.footermenu  ul li{float: left;font-size: 70%;padding: 5px;}
+h4{margin-bottom: 19px}
+
+

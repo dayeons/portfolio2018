@@ -1,0 +1,2055 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<script src="/front/js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript">
+	var input_text = "";
+	var d = new Date();
+	var year = d.getFullYear();
+	var month =  (d.getMonth()+1);
+	var dayLabel = d.getDay();
+	var week = new Array('일', '월', '화', '수', '목', '금', '토');
+	var todayLabel = week[dayLabel];
+	var nextLabel1 = week[(dayLabel+1)%7];
+	var nextLabel2 = week[(dayLabel+2)%7];
+	
+	if(month < 10){
+		month = "0"+month;
+	}
+	var date =  d.getDate();
+	if(date < 10){
+		date = "0"+date;
+	}
+	var day = year+"-"+month+"-"+date; // 날짜
+	var display_day = month+"."+date;
+	
+	
+	$(document).ready(function(){
+		function getWeather(){
+			var d0, d1, d2;
+			$.ajax({
+				url:"/front/kr/board/getWeather.do",
+				type:"POST",
+				dataType:"xml",
+				success:function(data){
+					var data = $(data).find('data');
+					$(data).each(function(){
+						var time = $(this).children().eq(0).text();//시간
+						var day = $(this).children().eq(1).text();//날짜
+						var temp = $(this).children().eq(2).text();//온도
+						var wfKor = $(this).children().eq(7).text();//날씨
+						var wf_img = "";
+						if(wfKor == "맑음"){
+							wf_img = "icon_weather_01";
+						}else if(wfKor == "구름 조금"){
+							wf_img = "icon_weather_02";
+						}else if(wfKor == "구름 많음"){
+							wf_img = "icon_weather_03";
+						}else if(wfKor == "흐림"){
+							wf_img = "icon_weather_04";
+						}else if(wfKor == "비"){
+							wf_img = "icon_weather_05";
+						}else if(wfKor == "눈/비"){
+							wf_img = "icon_weather_06";
+						}else if(wfKor == "눈"){
+							wf_img = "icon_weather_07";
+						}
+						if(!d0 && day=='0'){
+							d0 = "1";
+							$(".today").append(display_day +" " +todayLabel+" " + "<img src=\"/front/img/"+wf_img+".png\" alt=\""+wfKor+"\"/>" + " " + temp+".℃");
+						}
+						if(time=='12'){
+							if(!d1 && day=='1'){
+								d1 = "<img src=\"/front/img/"+wf_img+".png\" alt=\""+wfKor+"\"/>";
+								$("#nextWeather").append("<li>"+nextLabel1+" "+d1+"</li>");
+							}else if(!d2 && day=='2'){
+								d2 = "<img src=\"/front/img/"+wf_img+".png\" alt=\""+wfKor+"\"/>";
+								$("#nextWeather").append("<li>"+nextLabel2+" "+d2+"</li>");
+							}
+						}
+					});
+				},error:function(request,status,error){
+				}
+			});
+			getDust();
+		}
+		//종로기준 최근시간 미세지농도
+		
+		function getDust(){
+			$.ajax({
+				url:"/front/kr/board/getDust.do",
+				type:"POST",
+				dataType:"xml",
+				success:function(data){
+					var item = $(data).find('items').children().eq(0);
+
+					$(".dust").append(" 미세먼지 "+ $(item).children().eq(6).text()+" ㎍/㎥");
+					
+				},error:function(request,status,error){
+					//console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				}
+			});
+		}
+		getWeather();
+	});
+
+	
+function getSearchList(){
+		
+	
+		 //검색 관련 script
+		 var where_srch = "";
+		 
+		var from = "&from=yeyak_services.yeyak_services"; // from
+		var key = "fe7e725bfce74fb5b310c8600e93075d";
+		var url = "http://newsearch.seoul.go.kr/ksearch/searchJson.do?sno="+key+"&select=*"+from;
+		var offset = "&offset=0&limit=10"; // 페이징 관련
+		var where_park = "";
+		var where_str = "";
+			
+		var where_park = " (TELNO='02-2104-9785' allword OR TELNO='02-2104-9785, 9790' allword OR TELNO='02-2104-9752' allword OR TELNO='02-2104-9796' allword OR TELNO='02-2104-9797' allword OR TELNO='02-2104-9787' allword) ";
+		 //var offset = "&offset="+offset_val+"&limit="+limit; // 페이징 관련 
+		var where = "&where="+encodeURIComponent(where_park+" and USEENDDATE >= '"+day+"' "+where_str+" AND MAXCLASSNM='교육' order by USEENDDATE ASC, USEBGNDATE ASC")+offset;
+		var input_append = "";
+		$.ajax({
+				type: "GET",
+				url: url+where, 
+				success: function(html){
+					totalNum = html.result.total_count;
+					if(html.result.rows.length > 0){
+					 for(var i=0; i<html.result.rows.length; i ++){ 
+						 var input_append ="";
+						 var result = html.result.rows;
+						 input_append += " <li>";
+						 input_append += " 		<a href=\""+result[i].fields.SVCURL+"\" target=\"_blank\">";
+						 input_append += "			<span class=\"time\"><i></i></span>"; // 시작시간없음
+						 input_append += "			<span class=\"txt\">"+result[i].fields.SVCNM+"</span>"; // 링크주소
+						 input_append += " 		</a>";
+						 input_append += "	</li>"; // 썸네일 이미지
+						 $("#today_pg").append(input_append);
+					 }
+					}
+				}
+			}); 
+	 }
+	 </script>
+	 
+	 <!-- 팝업추가부분 -->
+	 <script>
+		//쿠키 셋팅
+		function setCookie( name, value, expirehours ) {
+			var todayDate = new Date(); 
+			todayDate.setHours( todayDate.getHours() + expirehours ); 
+			document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";" 
+		} 
+	</script>
+	
+	<div class="popup_window" id="popup_window4" style="position:fixed;left:50%;top:50%;margin-left: -363px;margin-top:-204px;z-index:10000;display:inline-table;width:730px;">
+        <!--p><img src="/front/img/mb1130-1.png" alt="동절기 주제원(온실,주제정원) 관람안내 관람시간 09:00~17:00 입장마감 16:00 대상기간 2018.12.7.~2019.2.28."></p-->
+		<a href="/front/board/newsView.do?sn=861"><p><img src="/front/img/mb190408.png" alt="서울식물원이 5월 개원 준비로 새 단장에 들어갑니다. 4.30(화)까지 온실 지중해관이 통제되니 온실 이용에 참고하시기 바랍니다.*주차장이 매우 협소하오니 가급적 대중교통을 이용해 주시기 바랍니다. 자세히 보기>>"></p></a>
+		<p style="overflow:hidden;padding:5px 10px;background:#000;color:#fff;">
+            <label for="closePop">오늘 하루 보지 않기</label>
+            <input type="checkbox" id="closePop" name="close" onclick="todaycloseWin4();" style="float:left">
+            <a href="#" style="float:right;color:#fff" onClick="closeWin4();">닫기</a>
+        </p>
+    </div>
+			
+	<script type="text/javascript">
+		//쿠키확인후 실행
+		cookiedata = document.cookie; 
+		if ( cookiedata.indexOf("ncookie4=done") < 0 ){ 
+			document.getElementById('popup_window4').style.display = "block";
+		} else {
+			document.getElementById('popup_window4').style.display = "none"; 
+		}
+		
+		function closeWin4() { 
+			document.getElementById('popup_window4').style.display = "none";
+		}
+		function todaycloseWin4() { 
+			setCookie( "ncookie4", "done" , 24 ); 
+			document.getElementById('popup_window4').style.display = "none";
+		}
+	</script>
+	
+	<!-- head_top -->
+	
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, width=device-width"/>
+<meta name="keywords" content="서울식물원">
+<meta name="description" content="서울식물원">
+<link rel="stylesheet" href="/front/css/reset.css">
+<link rel="stylesheet" href="/front/css/layout.css?20190410103549">
+<link rel="stylesheet" href="/front/css/jquery-ui.min.css">
+<link rel="shortcut icon" href="/front/img/favicon.ico">
+<script src="/front/js/jquery-1.12.0.min.js"></script>
+<script src="/front/js/utils.min.js"></script>
+<script src="/front/js/granite.min.js"></script>
+<script src="/front/js/clientlibs.min.js"></script>
+<script src="/front/js/jquery-ui.min.js"></script>
+<script src="/front/js/jquery.easing.1.3.js"></script>
+<script src="/front/js/jquery.bxslider.js"></script>
+<script src="/front/js/jquery.rwdImageMaps.min.js"></script>
+<script src="/front/js/script.js?20190410103549"></script>
+<script src="/front/js/respond.src.js"></script>
+	<!-- //head_top -->	
+	<title>서울식물원</title>
+</head>
+<body>
+	<div id="wrap" class="main">
+
+		<!-- header -->
+		
+<!-- 서울 GNB 스크립트 -->
+<script type="text/javascript" src="//www.seoul.go.kr/seoulgnb/gnb.js"></script>
+<div id="skipNavi">
+	<strong>컨텐츠 바로가기</strong>
+	<ul>
+		<li><a href="#container">본문으로 바로가기</a></li>
+	</ul>
+</div>
+
+<!-- 서울 GNB 영역 (id 는 전체 문서에서 중복이 되지 않으면 됨)-->
+<div id='seoul-common-gnb' class="white"></div>
+
+<div id="header">
+	<div class="inner">
+		<div class="in">
+			<h1><a href="/"><img src="/front/img/img_h1_logo.png" alt="서울식물원"/></a></h1>
+			<ul class="gnb">
+				<li>
+					<a href="/front/introduce/useInfo.do"><span>식물원 이야기</span></a>
+					<div class="gnb_sub">
+						<div class="gnb_sub_in bg01">
+							<strong>식물원 이야기</strong>
+							<ul>
+								<li><a href="/front/introduce/useInfo.do">방문 안내</a>
+									<ul>
+										<li><a href="/front/introduce/useInfo.do">이용안내</a></li>
+										<li><a href="/front/introduce/location.do">오시는 길</a></li>
+										<li><a href="/front/introduce/faq.do">자주하는 질문</a></li>
+									</ul>
+								</li>
+								<li><a href="/front/introduce/greetings.do">식물원 소개</a>
+									<ul>
+										<li><a href="/front/introduce/greetings.do">인사말</a></li>
+										<li><a href="/front/introduce/progress.do">조성경과</a></li>
+										<li><a href="/front/introduce/vision.do">미션과 비전</a></li>
+										<li><a href="/front/introduce/manage.do">운영방향</a></li>
+<!--										<li><a href="/front/introduce/stat.do">조성현황</a></li>-->
+										<li><a href="/front/introduce/bi.do">BI</a></li>
+										<li><a href="/front/introduce/organization.do">조직도</a></li>
+									</ul>
+								</li>
+								<li><a href="/front/board/newsList.do">새소식</a>
+									<ul>
+										<li><a href="/front/board/newsList.do">새소식</a></li>
+										<li><a href="/front/board/newsletterList.do">뉴스레터</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li>
+					<a href="/front/lookaround/botanicGarden02.do"><span>둘러보기</span></a>
+					<div class="gnb_sub">
+					    <div class="gnb_sub_in bg02">
+							<strong>둘러보기</strong>
+							<ul>
+								<li><a href="/front/lookaround/botanicGarden02.do">열린숲</a></li>
+								<li><a href="/front/lookaround/botanicGarden_01.do">주제원</a>
+									<ul>
+										<li><a href="/front/lookaround/botanicGarden_01.do">주제정원</a></li>
+										<li><a href="/front/lookaround/botanicGarden_02.do">온실</a></li>
+										<li><a href="/front/lookaround/botanicGarden_03.do">마곡문화관</a></li>
+									</ul>
+								</li>
+								<li><a href="/front/lookaround/botanicGarden03.do">호수원</a></li>
+								<li><a href="/front/lookaround/botanicGarden04.do">습지원</a></li>
+								<li>
+								    <a href="/front/lookaround/exhibit.do">전시안내</a>
+								</li>
+							</ul>
+						</div>
+<!--					<div class="gnb_sub_in2"></div>-->
+					</div>
+				</li>
+				<li>
+					<a href="http://botanicpark.seoul.go.kr/lib" target="_blank"><span>이용하기</span></a>
+					<div class="gnb_sub">
+					    <div class="gnb_sub_in bg03">
+							<strong>둘러보기</strong>
+							<ul>
+								<li><a href="http://botanicpark.seoul.go.kr/lib" target="_blank">식물전문도서관</a></li>
+								<li><a href="/front/use/seedlibrary.do">씨앗도서관 소개</a>
+								<li><a href="/front/use/facilities.do">편의시설</a></li>
+								<li><a href="/front/use/facilities01.do">식물문화센터</a>
+								<li><a href="/front/use/gardensupport.do">정원지원실 소개</a>								
+								<!--li><a href="/front/use/rental.do">대관,촬영 안내</a></li-->
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li>
+					<a href="/front/participation/volunteer.do"><span>참여하기</span></a>
+					<div class="gnb_sub">
+						<div class="gnb_sub_in bg04">
+							<strong>참여하기</strong>
+							<ul>
+								<li><a href="/front/participation/eduList.do">교육프로그램</a>
+									<ul>
+										<li><a href="/front/participation/eduList.do">교육 신청</a></li>
+										<li><a href="/front/participation/eduList01.do">투어 신청</a></li>
+										<li><a href="/front/participation/reference.do">자료실</a></li>
+									</ul>
+								</li>
+								<li><a href="/front/participation/volunteer.do">참여하기</a>
+									<ul>
+										<li><a href="/front/participation/volunteer.do">자원봉사</a></li>
+										<!--li><a href="/front/participation/volunteer02.do">공원돌보미</a></li-->
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li>
+					<a href="/front/plants/plantsIntro.do"><span>식물정보</span></a>
+					<div class="gnb_sub">
+					    <div class="gnb_sub_in bg02">
+							<strong>식물정보</strong>
+							<ul>
+								<li><a href="/front/plants/plantsIntro.do">식물 소개</a></li>
+								<li><a href="/front/plants/research.do">식물연구소 소개</a></li>
+								<li><a href="/front/plants/plantDataList.do?sCategory=M">이달의 식물</a></li>
+								<li><a href="/front/plants/plantDataList.do?sCategory=C">식물가꾸기</a></li>								
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<a href="#" class="btn_fullmenu"><img src="/front/img/btn_fullmenu.png" alt="메뉴" /></a>
+		</div>
+	</div>
+</div>
+<!-- 디바이스 메뉴 -->
+<div class="fullmenu">
+	<div class="full_btn"><a href="#" class="btn_fullmenu_close"><img src="/front/img/btn_fullmenu_close.png" alt="CLOSE" /></a></div>
+	<div class="full_in">
+		<div>
+			<strong>식물원 이야기</strong>
+			<ul>
+				<li><a href="/front/introduce/useInfo.do">방문 안내</a>
+					<ul>
+						<li><a href="/front/introduce/useInfo.do">- 이용안내</a></li>
+						<li><a href="/front/introduce/location.do">- 오시는 길</a></li>
+						<li><a href="/front/introduce/faq.do">- 자주하는 질문</a></li>
+					</ul>
+				</li>
+				<li><a href="/front/introduce/greetings.do">식물원 소개</a>
+					<ul>
+						<li><a href="/front/introduce/greetings.do">- 인사말</a></li>
+						<li><a href="/front/introduce/progress.do">- 조성경과</a></li>
+						<li><a href="/front/introduce/vision.do">- 미션과 비전</a></li>
+						<li><a href="/front/introduce/manage.do">- 운영방향</a></li>
+						<li><a href="/front/introduce/bi.do">- BI</a></li>
+						<li><a href="/front/introduce/organization.do">- 조직도</a></li>
+					</ul>
+				</li>
+				<li><a href="/front/board/newsList.do">새소식</a>
+					<ul>
+						<li><a href="/front/board/newsList.do">- 새소식</a></li>
+						<li><a href="/front/board/newsletterList.do">- 뉴스레터</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<strong>둘러보기</strong>
+			<ul>
+				<li><a href="/front/lookaround/botanicGarden02.do">열린숲</a></li>
+                <li>
+                    <a href="/front/lookaround/botanicGarden_01.do">주제원</a>
+                    <ul>
+                        <li><a href="/front/lookaround/botanicGarden_01.do">- 주제정원</a></li>
+                        <li><a href="/front/lookaround/botanicGarden_02.do">- 온실</a></li>
+                        <li><a href="/front/lookaround/botanicGarden_03.do">- 마곡문화관</a></li>
+                    </ul>
+                </li>
+                <li><a href="/front/lookaround/botanicGarden03.do">호수원</a></li>
+                <li><a href="/front/lookaround/botanicGarden04.do">습지원</a></li>
+                <li>
+                    <a href="/front/lookaround/exhibit.do">전시 안내</a>
+                </li>
+			</ul>
+		</div>
+		<div>
+			<strong>이용하기</strong>
+			<ul>
+				<li><a href="http://botanicpark.seoul.go.kr/lib" target="_blank">식물전문도서관</a>
+<!--
+					<ul>
+						<li><a href="/front/library/librarySpecialList.do">- 식물전문도서관</a></li>
+						
+						<li><a href="/front/library/archiveList.do">- 아카이브</a></li>
+					</ul>
+-->
+				</li>
+				<li><a href="/front/use/seedlibrary.do">씨앗도서관 소개</a>
+				<li><a href="/front/use/facilities.do">편의시설</a></li>
+				<li><a href="/front/use/facilities01.do">식물문화센터</a></li>
+				<!--li><a href="/front/use/rental.do">대관 · 촬영 안내</a></li-->
+				<li><a href="/front/use/gardensupport.do">정원지원실 소개</a>					
+			</ul>
+		</div>
+		<div>
+			<strong>참여하기</strong>
+			<ul>
+				<li>
+				    <a href="/front/participation/eduList.do">교육 프로그램</a>
+				    <ul>
+				        <li><a href="/front/participation/eduList.do">- 교육 신청</a></li>
+				        <li><a href="/front/participation/eduList01.do">- 투어 신청</a></li>
+				        <li><a href="/front/participation/reference.do">- 자료실</a></li>
+				    </ul>
+				</li>
+			</ul>
+			<ul>
+				<li>
+				    <a href="/front/participation/volunteer.do">참여하기</a>
+				    <ul>
+				        <li><a href="/front/participation/volunteer.do">- 자원봉사</a></li>
+				        <!--li><a href="/front/participation/volunteer02.do">- 공원돌보미</a></li-->
+				    </ul>
+				</li>
+<!--
+				<li><a href="/front/participation/donation.do">- 나눔 · 민간 협력</a></li>
+				<li><a href="/front/participation/groupList.do">- 식물원 소모임</a></li>
+-->
+			</ul>
+		</div>
+		<div>
+			<strong>식물정보</strong>
+			<ul>
+			    <li><a href="/front/plants/plantsIntro.do">식물 소개</a></li>
+				<li><a href="/front/plants/research.do">식물연구소 소개</a></li>
+				<li><a href="/front/plants/plantDataList.do?sCategory=M">이달의 식물</a></li>
+				<li><a href="/front/plants/plantDataList.do?sCategory=C">식물가꾸기</a></li>	
+			</ul>
+		</div>
+	</div>
+</div>
+		<!-- //header -->
+
+		<!-- container -->
+		<div id="container">
+		
+			<!-- main_visual -->
+			<div class="main_visual">
+				<div class="main_visual_in">
+					<ul>
+						
+							<li>
+								
+									<span style="cursor:default; background-image:url(/img/upload/mainBanner/banner_2019030514572569.jpg); ">온실 이용 안내 서울식물원 온실 내부 보완작업으로 인해 관람이 어려울 수 있으므로 방문 전 &lt;새소식&gt; 온실 이용 안내를 꼭 확인해 주시기 바랍니다. 감사합니다.</span>
+								
+								
+							</li>
+						
+							<li>
+								
+									<span style="cursor:default; background-image:url(/img/upload/mainBanner/banner_2018123113442820.jpg); ">온실 이용 안내 서울식물원 온실 내부 보완작업으로 인해 관람이 어려울 수 있으므로 방문 전 &lt;새소식&gt; 온실 이용 안내를 꼭 확인해 주시기 바랍니다. 감사합니다.</span>
+								
+								
+							</li>
+						
+							<li>
+								
+									<span style="cursor:default; background-image:url(/img/upload/mainBanner/banner_20181231134921207.jpg); ">온실 이용 안내 서울식물원 온실 내부 보완작업으로 인해 관람이 어려울 수 있으므로 방문 전 &lt;새소식&gt; 온실 이용 안내를 꼭 확인해 주시기 바랍니다. 감사합니다.</span>
+								
+								
+							</li>
+						
+							<li>
+								
+									<span style="cursor:default; background-image:url(/img/upload/mainBanner/banner_2019022812158849.jpg); ">온실 이용 안내 서울식물원 온실 내부 보완작업으로 인해 관람이 어려울 수 있으므로 방문 전 &lt;새소식&gt; 온실 이용 안내를 꼭 확인해 주시기 바랍니다. 감사합니다.</span>
+								
+								
+							</li>
+						
+							<li>
+								
+									<span style="cursor:default; background-image:url(/img/upload/mainBanner/banner_20181231134916126.jpg); ">온실 이용 안내 서울식물원 온실 내부 보완작업으로 인해 관람이 어려울 수 있으므로 방문 전 &lt;새소식&gt; 온실 이용 안내를 꼭 확인해 주시기 바랍니다. 감사합니다.</span>
+								
+								
+							</li>
+						
+					</ul>
+				</div>
+				<div class="weather">
+					<div class="inner">
+						<div class="left">
+							<div class="today"></div>
+							<div class="dust"></div>
+							<div class="next"><ul id="nextWeather"></ul></div>
+						</div>
+
+
+						<div class="right">
+							<div class="show">
+								<a href="#" class="open_show_list"><img src="/front/img/ico_time.png" alt="오늘의 프로그램"/> 오늘의 프로그램</a>
+								<div class="show_list">
+									<h2>오늘의 프로그램</h2>
+									<a href="#" class="close_show_list"><img src="/front/img/btn_close02.png" alt="Close"/></a>
+									<ul id ="today_pg"></ul>
+								</div>
+							</div>
+						</div>
+
+
+						</div>
+				</div>
+			</div>
+			<!-- //main_visual -->
+			
+			<!-- main_program -->
+			<div class="main_program">
+
+
+
+				<div class="explore-programmes">
+					<!-- 탭 -->
+					<div class="group-filter filter-icon">
+						<ul class="visitor-type active">
+							
+								
+									<li class="family-icon " data-id="visitor-family">
+										<a href="javascript:void(0)" title="식물">식물</a>
+										<span>&nbsp;</span>
+									</li>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+<!--
+							
+								
+							
+								
+									<li class="couple-icon " data-id="visitor-couple">
+										<a href="javascript:void(0)" title="방문">방문</a>
+										<span>&nbsp;</span>
+									</li>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+-->							
+							
+								
+							
+								
+							
+								
+									<li class="schoolgroups-icon selected" data-id="visitor-schoolgroups">
+										<a href="javascript:void(0)" title="뉴스">뉴스</a>
+										<span>&nbsp;</span>
+									</li>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+								
+							
+								
+							
+								
+							
+								
+									<li class="friends-icon " data-id="visitor-friends">
+										<a href="javascript:void(0)" title="공간">공간</a>
+										<span>&nbsp;</span>
+									</li>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+						</ul>
+					</div>
+					<!-- //탭 -->
+					<!-- 초기값 -->
+					<div class="programmes-list">
+						<div class="horizontal-programmes">
+							
+								
+							
+								
+							
+								
+							
+								
+							
+														
+								<div class="programmes-pic">
+									<a href="/front/board/newsView.do?sn=961"><img src="/img/upload/mainTab/tab_20190319115312713.jpg" alt="저자강연회"></a>
+								</div>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								<div class="programmes-info news">
+									<div class="programmes-info-content">
+										<div class="tit"><strong>식물원 소식</strong><a href="/front/board/newsList.do" class="icon-link">MORE</a></div>
+										<ul class="list">
+											
+												<li><a href="/front/board/newsView.do?sn=1001">[ 채용 ]  2019년 서울식물원 전문 해설사 모집 최종합격자 공고</a></li>
+											
+												<li><a href="/front/board/newsView.do?sn=981">[ 채용 ]  2019년 서울식물원 전문 해설사 모집 서류심사 합격자 발표 및 면접심사 공고</a></li>
+											
+												<li><a href="/front/board/newsView.do?sn=961">[ 공지 ]  서울식물원 저자강연회  「나무와 숲, 내 삶으로 들어오다」  안내</a></li>
+											
+												<li><a href="/front/board/newsView.do?sn=941">[ 채용 ]  서울형 뉴딜일자리 「서울식물원 CSR 큐레이터 / 전시공간 운영관리 매니저 사업」최종 합격자 공고</a></li>
+											
+												<li><a href="/front/board/newsView.do?sn=921">[ 채용 ]  서울식물원 뉴딜일자리 &#039;CSR큐레이/전시공간 운영관리 매니저 사업&#039; 서류합격자 공고</a></li>
+											
+										</ul>
+									</div>
+								</div>
+							</div>
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									<div class="vertical-programmes top-vertical-programmes">
+										<div class="programmes-pic">
+											<img src="/img/upload/mainTab/tab_2019030410444558.jpg" alt="">
+										</div>
+										<div class="programmes-info">
+											<div class="programmes-info-content">
+												<h5><span>식물의 구조를 이해하고 표현하는</span><br><br>'식물 세밀화'</h5>
+												<div>	
+													<p></p>
+													<p><a href="/front/participation/eduList.do" class="icon-link">MORE</a></p>
+												</div>
+											</div>
+										</div>
+									</div>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									<div class="vertical-programmes bottom-vertical-programmes">
+										<div class="programmes-info">
+											<div class="programmes-info-content">
+												<h5><span>가족과 함께 하는<br>'식물원 산책'</h5>
+												<div>	
+													<p class="no-icon"><!-- Morning Vinyasa <br />Yoga class --></p>
+													<p><a href="/front/participation/eduList.do" class="icon-link">MORE</a></p>
+												</div>
+											</div>
+										</div>
+										<div class="programmes-pic">
+											<img src="/img/upload/mainTab/tab_20190304103751330.jpg" alt="">
+										</div>
+									</div>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+									
+									<div class="vertical-programmes full-vertical-programmes">
+										<div class="programmes-pic">
+											<a href="/front/lookaround/exhibit_view01.do"><img src="/img/upload/mainTab/tab_20181205113148555.jpg" alt="Seoul Botanic Park Archive:01 서울식물원 탄생기록"></a>
+										</div>
+									</div>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+					</div>
+					<!-- //초기값 -->
+
+					<!-- 식물, 방문, 공간, 뉴스 클릭시 변환값 -->
+					<div class="visitor-programmes-data">
+						<!-- 뉴스 -->
+						<div data-id="visitor-schoolgroups">
+						    <h2>뉴스</h2>
+							<div class="horizontal-programmes">
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<div class="programmes-pic">
+											<a href="/front/board/newsView.do?sn=961">
+											<img src="/img/upload/mainTab/tab_20190319115312713.jpg" alt="저자강연회"></a>
+										</div>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+								<div class="programmes-info news">
+									<div class="programmes-info-content">
+										<div class="tit"><strong>식물원 소식</strong><a href="/front/board/newsList.do" class="icon-link">MORE</a></div>
+										<ul class="list">
+											
+												<li><a href="/front/board/newsView.do?sn=1001">[ 채용 ]  2019년 서울식물원 전문 해설사 모집 최종합격자 공고</a></li>
+											
+												<li><a href="/front/board/newsView.do?sn=981">[ 채용 ]  2019년 서울식물원 전문 해설사 모집 서류심사 합격자 발표 및 면접심사 공고</a></li>
+											
+												<li><a href="/front/board/newsView.do?sn=961">[ 공지 ]  서울식물원 저자강연회  「나무와 숲, 내 삶으로 들어오다」  안내</a></li>
+											
+												<li><a href="/front/board/newsView.do?sn=941">[ 채용 ]  서울형 뉴딜일자리 「서울식물원 CSR 큐레이터 / 전시공간 운영관리 매니저 사업」최종 합격자 공고</a></li>
+											
+												<li><a href="/front/board/newsView.do?sn=921">[ 채용 ]  서울식물원 뉴딜일자리 &#039;CSR큐레이/전시공간 운영관리 매니저 사업&#039; 서류합격자 공고</a></li>
+											
+										</ul>
+									</div>
+								</div>
+							</div>
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									<div class="vertical-programmes top-vertical-programmes">
+										<div class="programmes-pic">
+											<img src="/img/upload/mainTab/tab_2019030410444558.jpg" alt="">
+										</div>
+										<div class="programmes-info">
+											<div class="programmes-info-content">
+												<h5><span>식물의 구조를 이해하고 표현하는</span><br><br>'식물 세밀화'</h5>
+												<div>	
+													<p></p>
+													<p><a href="/front/participation/eduList.do" class="icon-link">MORE</a></p>
+												</div>
+											</div>
+										</div>
+									</div>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									<div class="vertical-programmes bottom-vertical-programmes">
+										<div class="programmes-info">
+											<div class="programmes-info-content">
+												<h5><span>가족과 함께 하는<br>'식물원 산책'</h5>
+												<div>	
+													<p class="no-icon"><!-- Morning Vinyasa <br />Yoga class --></p>
+													<p><a href="/front/participation/eduList.do" class="icon-link">MORE</a></p>
+												</div>
+											</div>
+										</div>
+										<div class="programmes-pic">
+											<img src="/img/upload/mainTab/tab_20190304103751330.jpg" alt="">
+										</div>
+									</div>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									<div class="vertical-programmes full-vertical-programmes">
+										<div class="programmes-pic">
+											<a href="/front/lookaround/exhibit_view01.do">
+											<img src="/img/upload/mainTab/tab_20181205113148555.jpg" alt="Seoul Botanic Park Archive:01 서울식물원 탄생기록">
+											</a>
+										</div>
+									</div>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+						</div>
+						<!-- //뉴스 -->
+						<!-- 공간 -->
+						<div data-id="visitor-friends">
+						    <h2>공간</h2>
+							<div class="horizontal-programmes">
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<div class="programmes-pic">
+											<a href="/front/lookaround/botanicGarden_01.do">
+												<img src="/img/upload/mainTab/tab_2018111214543171.jpg" alt="서울식물원">
+											</a>
+										</div>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+								<div class="programmes-info">
+									<div class="programmes-info-content">
+										<h5>식물문화센터</h5>
+										<strong>
+											<img src="/front/img/img_program_03_dev.jpg" alt="식물문화센터">
+										</strong>
+										<h4>온실</h4>
+										<div>
+											<p class="info">12개 세계도시 식물과<br />식물문화를 만나보세요.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+															
+									<div class="vertical-programmes top-vertical-programmes">
+										<div class="programmes-pic">
+											<img src="/img/upload/mainTab/tab_2018111214526173.jpg" alt="">
+										</div>
+										<div class="programmes-info">
+											<div class="programmes-info-content">
+												<h5>물가에서 서울식물원을 조망하며<br>여가와 휴식을 즐기는<br><br><span>호수원</span></h5>
+												<div>	
+													<p class="no-icon"><!-- Morning Vinyasa <br />Yoga class --></p>
+													<p><a href="/front/lookaround/botanicGarden04.do" class="icon-link">MORE</a></p>
+												</div>
+											</div>
+										</div>
+									</div>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									<div class="vertical-programmes bottom-vertical-programmes">
+										<div class="programmes-info">
+											<div class="programmes-info-content">
+												<h5>탁 트인 진입광장과 잔디마당에서<br>다양한 볼거리가 펼쳐지는<br><br><span>열린숲</span></h5>
+												<div>	
+													<p class="no-icon"><!-- Morning Vinyasa <br />Yoga class --></p>
+													<p><a href="/front/lookaround/botanicGarden02.do" class="icon-link">MORE</a></p>
+												</div>
+											</div>
+										</div>
+										<div class="programmes-pic">
+											<img src="/img/upload/mainTab/tab_2018111214724471.jpg" alt="">
+										</div>
+									</div>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							<div class="vertical-programmes full-vertical-programmes">
+								<div class="programmes-pic">
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											<a href="/front/img/안내도.pdf">
+												<img src="/img/upload/mainTab/tab_20181101202153201.jpg" alt="서울식물원 종합안내도 내려받기">
+											</a>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</div>
+							</div> 
+						</div>
+						<!-- //공간 -->
+						<!-- 식물 -->
+						<div data-id="visitor-family">
+						    <h2>식물</h2>
+							<div class="horizontal-programmes">
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<div class="programmes-pic">
+											<a href="/front/introduce/useInfo.do">
+												<img src="/img/upload/mainTab/tab_20181112144951917.jpg" alt="온실">
+											</a>
+										</div>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+								<div class="programmes-info">
+									<div class="programmes-info-content">
+										
+											<h5>이달의 꽃</h5>
+											<strong>
+												<img src="/img/upload/monthFlower/mf4_1122164032757." alt="도라지">
+											</strong>
+											<h4>도라지</h4>
+											<div>
+												<p class="info">Balloom-Flower</p>
+											</div>
+										
+									</div>
+								</div>
+							</div>
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+															
+									<div class="vertical-programmes top-vertical-programmes">
+										<div class="programmes-pic">
+											<img src="/img/upload/mainTab/tab_20181112145929413.jpg" alt="">
+										</div>
+										<div class="programmes-info">
+											<div class="programmes-info-content">
+												<h5><span>식물전문도서관</span><br><br>이용시간 09:00 ~ 18:00<br>월요일, 공휴일 휴무</h5>
+												<div>	
+													<p class="no-icon"><!-- Morning Vinyasa <br />Yoga class --></p>
+													<p><a href="http://botanicpark.seoul.go.kr/lib/#/" class="icon-link">MORE</a></p>
+												</div>
+											</div>
+										</div>
+									</div>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									<div class="vertical-programmes bottom-vertical-programmes">
+										<div class="programmes-info">
+											<div class="programmes-info-content">
+												<h5><span>자생식물정보</span><br><br>한국의 자생식물원을<br>검색해 보세요!</h5>
+												<div>	
+													<p class="no-icon"><!-- Morning Vinyasa <br />Yoga class --></p>
+													<p><a href="/front/plants/plantsIntro.do" class="icon-link">MORE</a></p>
+												</div>
+											</div>
+										</div>
+										<div class="programmes-pic">
+											<img src="/img/upload/mainTab/tab_20181112165319755.png" alt="">
+										</div>
+									</div>
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							<div class="vertical-programmes full-vertical-programmes">
+								<div class="programmes-pic">
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											<a href="/front/plants/research.do">
+												<img src="/img/upload/mainTab/tab_20181112171452219.png" alt="서울식물원 정원지원실">
+											</a>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</div>
+							</div> 
+						</div>
+						<!-- //식물 -->
+						<!-- 방문 -->
+						<div data-id="visitor-couple">
+						    <h2>방문</h2>
+							<div class="horizontal-programmes">
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<div class="programmes-pic">
+											<a href="">
+												<img src="/img/upload/mainTab/tab_2018111214543171.jpg" alt="서울식물원">
+											</a>
+										</div>
+									
+								
+									
+								
+									
+								
+									
+								
+								<div class="programmes-info">
+									<div class="programmes-info-content">
+										<h5>식물원 관람안내</h5>
+										<strong>
+											<img src="/front/img/img_program_02_dev.jpg" alt="식물원관람안내">
+										</strong>
+										<div>
+											<p class="info">관람시간 10:00 ~ 20:00<br />매주 월요일 휴관</p>
+											<p><a href="/front/introduce/useInfo.do" class="icon-link">MORE</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+															
+									<div class="vertical-programmes top-vertical-programmes">
+										<div class="programmes-pic">
+											<img src="/img/upload/mainTab/tab_2018111214526173.jpg" alt="">
+										</div>
+										<div class="programmes-info">
+											<div class="programmes-info-content">
+												<h5>물가에서 서울식물원을 조망하며<br>여가와 휴식을 즐기는<br><br><span>호수원</span></h5>
+												<div>	
+													<p class="no-icon"><!-- Morning Vinyasa <br />Yoga class --></p>
+													<p><a href="/front/lookaround/botanicGarden04.do" class="icon-link">MORE</a></p>
+												</div>
+											</div>
+										</div>
+									</div>
+								
+							
+								
+							
+								
+							
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+									<div class="vertical-programmes bottom-vertical-programmes">
+										<div class="programmes-info">
+											<div class="programmes-info-content">
+												<h5>탁 트인 진입광장과 잔디마당에서<br>다양한 볼거리가 펼쳐지는<br><br><span>열린숲</span></h5>
+												<div>	
+													<p class="no-icon"><!-- Morning Vinyasa <br />Yoga class --></p>
+													<p><a href="/front/lookaround/botanicGarden02.do" class="icon-link">MORE</a></p>
+												</div>
+											</div>
+										</div>
+										<div class="programmes-pic">
+											<img src="/img/upload/mainTab/tab_2018111214724471.jpg" alt="">
+										</div>
+									</div>
+								
+							
+								
+							
+							<div class="vertical-programmes full-vertical-programmes">
+								<div class="programmes-pic">
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											<a href="/front/img/안내도.pdf">
+												<img src="/img/upload/mainTab/tab_20190103141233142.jpg" alt="서울식물원 종합안내도 내려받기">
+											</a>
+										
+									
+								</div>
+							</div> 
+						</div>
+						<!-- //방문 -->
+					</div>
+					<!-- //식물, 방문, 공간, 뉴스 클릭시 변환값  -->
+				</div>
+
+
+			</div>
+			<!-- //main_program -->
+			
+			<!-- main_notice -->
+			<div class="main_notice">
+				<div class="inner">
+					<ul>
+						<li>
+							<div>
+								<span class="top"><a href="/front/introduce/useInfo.do">확인하고 방문하세요!</a></span>
+								<span class="mid"><a href="/front/introduce/useInfo.do">열린숲, 호수원, 습지원 연중무휴</a></span>
+								<span class="bottom"><a href="/front/introduce/useInfo.do">주제원 09:00 ~ 18:00 (월요일 휴관)</a></span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span class="top"><a href="/front/introduce/location.do">이렇게 찾아오세요!</a></span>
+								<span class="mid1"><a href="/front/introduce/location.do">서울특별시 강서구 마곡동로 161 <br />☎ 02-120</a></span>
+								<a href="https://map.naver.com/?eText=서울식물원&elng=8f246d6b388dbbc8b3bbd1011f1230c7&eelat=&elat=a5e9b949e7ceae8d7e7b9861c2f8f422&eelng=" class="btn_map" target="_blank" title="새창열림">길찾기 <img src="/front/img/bg_main_notice_news.png" alt="▶" /></a>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span class="top">함께 이야기해요!</span>
+								<ul class="btn_sns">
+									<li><a href="https://www.facebook.com/seoulbotanicpark" target="_blank" title="새창열림"><img src="/front/img/btn_sns_01.png" alt="페이스북" /></a></li>
+									<li><a href="https://www.instagram.com/seoulbotanicpark/" target="_blank" title="새창열림"><img src="/front/img/btn_sns_02.png" alt="인스타그램" /></a></li>
+									<li><a href="/front/board/newsletterList.do" target="_blank" title="새창열림"><img src="/front/img/btn_sns_03.png" alt="문서" /></a></li>
+								</ul>
+								<a href="/front/board/newsletterList.do" class="btn_newsletter">뉴스레터 신청 <img src="/front/img/bg_main_notice_news.png" alt="▶" /></a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- //main_notice -->
+			
+		</div>
+		<!-- //container -->
+		
+		<!-- footer -->
+		
+<div id="site_index">
+	<div class="site_in">
+		<div class="site">
+			<div>
+				<strong>식물원 이야기</strong>
+				<ul>
+					<li><a href="/front/introduce/useInfo.do">방문 안내</a>
+						<ul>
+							<li><a href="/front/introduce/useInfo.do">이용안내</a></li>
+							<li><a href="/front/introduce/location.do">오시는 길</a></li>
+							<li><a href="/front/introduce/faq.do">자주하는 질문</a></li>
+						</ul>
+					</li>
+					<li><a href="/front/introduce/greetings.do">식물원 소개</a>
+						<ul>
+							<li><a href="/front/introduce/greetings.do">인사말</a></li>
+							<li><a href="/front/introduce/progress.do">조성경과</a></li>
+							<li><a href="/front/introduce/vision.do">미션과 비전</a></li>
+							<li><a href="/front/introduce/manage.do">운영방향</a></li>
+							<li><a href="/front/introduce/bi.do">BI</a></li>
+							<li><a href="/front/introduce/organization.do">조직도</a></li>
+						</ul>
+					</li>
+					<li><a href="/front/board/newsList.do">새소식</a>
+						<ul>
+							<li><a href="/front/board/newsList.do">새소식</a></li>
+							<li><a href="/front/board/newsletterList.do">뉴스레터</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<strong>둘러보기</strong>
+				<ul>
+                    <li><a href="/front/lookaround/botanicGarden02.do">열린숲</a></li>
+                    <li>
+                        <a href="/front/lookaround/botanicGarden_01.do">주제원</a>
+                        <ul>
+                            <li><a href="/front/lookaround/botanicGarden_01.do">주제정원</a></li>
+                            <li><a href="/front/lookaround/botanicGarden_02.do">온실</a></li>
+                            <li><a href="/front/lookaround/botanicGarden_03.do">마곡문화관</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/front/lookaround/botanicGarden03.do">호수원</a></li>
+                    <li><a href="/front/lookaround/botanicGarden04.do">습지원</a></li>
+                    <li><a href="/front/lookaround/exhibit.do">전시 안내</a></li>
+				</ul>
+			</div>
+			<div>
+				<strong>이용하기</strong>
+				<ul>
+					<li><a href="http://botanicpark.seoul.go.kr/lib" target="_blank">식물전문도서관</a>
+					<li><a href="/front/use/seedlibrary.do">씨앗도서관 소개</a>
+					</li><li><a href="/front/use/facilities.do">편의시설</a></li>
+					<li><a href="/front/use/facilities01.do">식물문화센터</a></li>
+					<!--li><a href="/front/use/rental.do">대관 · 촬영 신청</a></li-->
+					<li><a href="/front/use/gardensupport.do">정원지원실 소개</a>
+				</ul>
+			</div>
+			<div class="short">
+				<strong>참여하기</strong>
+				<ul>
+				    <li>
+				        <a href="/front/participation/eduList.do">교육 프로그램</a>
+				        <ul>
+							<li><a href="/front/participation/eduList.do">교육신청</a></li>
+							<li><a href="/front/participation/eduList01.do">투어신청</a></li>
+							<li><a href="/front/participation/reference.do">자료실</a></li>
+						</ul>
+				    </li>
+					<li><a href="/front/participation/volunteer.do">자원봉사</a>
+						<!--ul>
+							<li><a href="/front/participation/volunteer.do">자원봉사</a></li>
+							<li><a href="/front/participation/volunteer02.do">공원 돌보미</a></li>
+						</ul-->
+					</li>
+				</ul>
+			</div>
+			<div class="short">
+				<strong>식물정보</strong>
+				<ul>
+					<li><a href="/front/plants/plantsIntro.do">식물 소개</a></li>
+                    <li><a href="/front/plants/research.do">식물연구소 소개</a></li>
+					<li><a href="/front/plants/plantDataList.do?sCategory=M">이달의 식물</a></li>
+					<li><a href="/front/plants/plantDataList.do?sCategory=C">식물가꾸기</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<h2><a href="#">SITE INDEX</a></h2>
+</div>
+<div id="footer">
+	<div class="inner">
+		<div class="logo">
+			<a href="http://120dasan.seoul.go.kr/" target="_blank" title="새창열림"><img src="/front/img/img_dasan.png" alt="다산콜센터(문의:120) 정보를 못찾으셨나요? 120 다산콜센터로 물어보세요!"></a>
+		</div>
+		<div class="txt">
+			<div class="foot_menu">
+				<ul>
+					<li><a href="http://www.seoul.go.kr/v2007/help/privacy.html?tr_code=footer_02" target="_blank" title="서울시 개인정보처리방침 새창열림"><strong>개인정보처리방침</strong></a></li>
+					<li><a href="http://www.seoul.go.kr/v2013/helper/copyright.html" target="_blank" title="서울시 저작권 정책 새창열림">저작권 정책</a></li>
+					<li><a href="http://www.seoul.go.kr/v2007/help/media.html" target="_blank" title="서울시 영상정보처리기기 운영 관리방침 새창열림">영상정보처리기기 운영 관리방침</a></li>
+					<li><a href="http://www.seoul.go.kr/HomepageCorrect/index.html" target="_blank" title="서울시 홈페이지 바로잡기 새창열림">홈페이지 바로잡기</a></li>
+					<li><a href="http://eungdapso.seoul.go.kr/Gud/Gud03/Gud0304/Gud0304_not.jsp" target="_blank" title="서울시 행정서비스 헌장 새창열림">행정서비스 헌장</a></li>
+				</ul>
+			</div>
+			<div class="wa">		
+				<a href="http://www.webwatch.or.kr/Situation/WA_Situation.html?MenuCD=110" class="ico_webwatch"><img src="/front/img/wa_mark.png" alt="과학기술정보통신부 WEB ACCESSIBILITY 마크(웹 접근성 품질인증 마크)" title="국가 공인 인증기관 : 웹와치"/></a>
+			</div>
+			<div class="address">
+				<span>Copyright©Seoul Metropolitan Government all rights reserved.</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	// GNB 로딩 스크립트
+	window.onload = function() {
+		Yjs
+		.Gnb.init('G022', 'seoul-common-gnb');
+	};
+</script>
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "b9ad514e2afb98";
+wcs_do();
+</script>
+<script type="text/javascript" src="//weblog.eseoul.go.kr/wlo/js/install.js" ></script>
+		<!-- //footer -->
+
+	</div>
+	<script>getSearchList();</script>
+	
+
+</body>
+</html>

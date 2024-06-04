@@ -1,0 +1,239 @@
+@charset "UTF-8";
+*{box-sizing: border-box}
+body{background: #eef1f2}
+header{
+    width: 1903px;
+    height: 102px; 
+    background: white; 
+    border-bottom: 2px solid black
+}
+
+.head{
+    width:1200px;
+    margin: auto;
+    overflow: hidden;
+    display: block;  
+    padding-top: 30px 
+}
+
+h1{
+    background: url(logo.gif) ; 
+    background-repeat: no-repeat;
+    float: left;
+    width: 254px;
+    text-indent: -9999px;
+}
+.gnb{
+    float: right;  
+}
+.gnb li{  
+    float: left;
+    height: 70px;
+    background: url(bg_gnb.gif);
+    background-repeat: no-repeat; 
+    transition: all .5s;
+    text-indent: -9999px; 
+    margin-right: 100px;
+    cursor: pointer;
+}
+
+.gnb li:nth-child(1){width: 82px; background-position: 0 12px}
+.gnb li:nth-child(2){width: 105px;background-position: -93px 12px}
+.gnb li:nth-child(3){width: 60px; background-position: -205px 12px}
+.gnb li:nth-child(4){width: 79px; background-position: -274px 12px}
+
+.gnb li:nth-child(1):hover{background-position: 0 -60px}
+.gnb li:nth-child(2):hover{background-position: -93px -60px}
+.gnb li:nth-child(3):hover{background-position: -205px -60px}
+.gnb li:nth-child(4):hover{background-position: -274px -60px}
+
+/* ========================================================== */
+.wrap{
+    width:1200px;
+    height: 880px;
+    margin: auto; 
+    overflow: hidden; 
+    margin-top: 30px;
+}
+
+.contents{
+    width: 713px;
+    float: left; 
+
+}
+.contentR>li{
+    float: left; 
+    width: 226px; 
+    height: 206px; 
+    margin:10px 0 0 10px ;
+    transition: all .5s; 
+    cursor: pointer;
+}
+
+.contentR li:hover{background-position:0 bottom}
+
+.contentR li:nth-child(5),
+.contentR li:nth-child(9){width: 463px}
+
+.box1{background: url(bg_goods_info.gif);}
+.box2{background: url(bg_pay_list.gif);}
+.box3{background: url(bg_game_play.gif); }
+.box4{background: url(bg_event_apply.gif);}
+.box5{background: white;}
+
+
+
+.box6{background: url(bg_ip_manage.gif); }
+.box7{background: url(bg_refund_apply.gif)}
+.box8{background: url(bg_taxInvoice.gif);}
+.box9{background: url(download.gif);}
+.box10{background: url(bg_remote_supply.gif);}
+
+
+
+.title{
+    display: block;
+}
+.tit{
+    padding: 25px;
+    float: left;
+}
+.plus{float: right;}
+
+.notice{margin-top: 80px;}
+.notice li{
+    font-size: 10px;
+    padding: 7px;
+    display: flex;
+    justify-content: space-between
+}
+
+
+
+/* ========================================================== */
+
+.side{
+    width: 470px; 
+    margin:10px auto; 
+    float: right;
+}
+
+
+.idlog{
+    display: block;  
+}
+
+.id{
+    float: left;
+    width: 340px;
+}
+.id input{    
+    width: 340px ;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 1px
+}
+.login{
+    float: right;
+}
+
+
+.nav{
+    display:inline-block; 
+    font-size: 13px;
+    margin: 10px
+}
+
+.check{float: left;}
+.find{float: right;}
+.find li{
+    float: left;
+    padding-left:12px
+}
+
+
+.ip{
+    display: inline-block;
+    background: #dcdcdc; 
+    width: 100%; 
+    height: 44px; 
+    padding: 10px; 
+    margin-bottom: 15px 
+}
+.ip p{ 
+    float: left; 
+    background: url(bg_ip.gif);
+    background-repeat: no-repeat;
+    text-indent: 30px;
+}
+
+
+
+.event{
+    width: 100%; 
+    height: 652px;
+    background-image: url(sa_mainBn.jpg); 
+    position: relative;
+}
+
+a.btn{
+    position: absolute;
+    top:0;
+    width: 65px; 
+    height: 65px;
+    background: url(btn_rolling_arrow.gif)
+}
+
+a.pre{
+    right:15%;
+    background-position: left top
+}
+a.next{
+    right: 0%;
+    background-position: right top}
+
+.txt{
+    position: absolute;
+    width: 100%;
+    height: 88px; 
+    background: rgb(0, 0, 0, 0.7); 
+    color: white; 
+    padding: 20px; 
+    bottom: 0px
+}
+
+/* ========================================================== */
+footer{
+    width:1180px;
+    margin:50px auto;
+    padding-top: 10px;
+    height:150px;
+    border-top: 4px solid #000;
+    display: block;
+    font-size: 12px
+}
+
+.footerlogo{
+    float: left;
+    padding: 50px 0;
+}
+.footerright{
+    float: right;
+    width:85%;
+}
+.footerright ul li{
+    float: left;
+    padding:0 20px;
+    font-size: 14px;
+    border-left: 1px solid #c2c4c4 
+ }
+.footerright ul li:nth-child(1){
+    font-weight: bold;
+    border:none
+}
+address{
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #c2c4c4 ;
+    width: 100%
+}

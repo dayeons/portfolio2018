@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="js1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('.nav1 li a').click(function () {
+                var target = $(this).attr('href')
+                //alert(target)
+                $('.tabwrap li').removeClass('on')
+
+                $('.tabContent li').stop().fadeOut()
+                $(target).stop().fadeIn(1000)
+
+
+                $(this).parent('li').addClass('on')
+
+            })
+
+
+
+            $('.nav2 li a').click(function () {
+                var target = $(this).attr('href')
+                //alert(target)
+                $('.tabwrap li').removeClass('on')
+
+                $('.tabContent li').stop().fadeOut()
+                $(target).stop().fadeIn(1000)
+
+
+                $(this).parent('li').addClass('on')
+            })
+
+
+
+            // $('.nav1 li a').click(function(){
+            //     $('.tabwrap').removeClass('on')
+            //     $(this).addClass('on')
+            //     var idx=$(this).index()
+            //     alert(idx)
+            //     $('.tabcontent li').fadeOut()
+            //     $('.tabcontent li').eq(idx).stop().fadeIn()
+            // })
+
+            // $('.nav2 li a').click(function(){
+            //     $('.tabwrap').removeClass('on')
+            //     $(this).addClass('on')
+            //     var idx=$(this).index()+6
+            //     $('.tabcontent li').fadeOut()
+            //     $('.tabcontent li').eq(idx).stop().fadeIn()
+
+            // })
+
+
+        })//function
+    </script>
+
+</head>
+
+<body>
+    <div class="tabwrap">
+        <div class="fl">
+            <h1>보장성보험</h1>
+            <ul class="nav1">
+                <li class="on"><a href="#tab1">암보험</a></li>
+                <li><a href="#tab2">정기보험</a></li>
+                <li><a href="#tab3">든든보장보험</a></li>
+                <li><a href="#tab4">성인질병보험</a></li>
+                <li><a href="#tab5">상해보험</a></li>
+                <li><a href="#tab6">어린이보험</a></li>
+                <li><a href="#tab7">실손의료비보험</a></li>
+            </ul>
+        </div>
+
+        <ul class="tabcontent">
+            <li id="tab1" class="on"><img src="tab1.jpg" alt=""></li>
+            <li id="tab2"><img src="tab2.jpg" alt=""></li>
+            <li id="tab3"><img src="tab3.jpg" alt=""></li>
+            <li id="tab4"><img src="tab4.jpg" alt=""></li>
+            <li id="tab5"><img src="tab5.jpg" alt=""></li>
+            <li id="tab6"><img src="tab6.jpg" alt=""></li>
+            <li id="tab7"><img src="tab7.jpg" alt=""></li>
+            <li id="tab8"><img src="tab8.jpg" alt=""></li>
+            <li id="tab9"><img src="tab9.jpg" alt=""></li>
+            <li id="tab10"><img src="tab10.jpg" alt=""></li>
+        </ul>
+        <div class="fr">
+            <h1>저축성보험</h1>
+            <ul class="nav2">
+
+                <li><a href="#tab8">변액적립보험</a></li>
+                <li><a href="#tab9">변액연금보험</a></li>
+                <li><a href="#tab10">연금저축보험</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

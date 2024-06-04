@@ -1,0 +1,70 @@
+*{box-sizing: border-box}
+
+.tab1Wrap{border: 1px solid #000;
+        width: 620px;margin: auto;height:462px}
+.tab1Contents{width:620px;height:383px;overflow: hidden;position: relative;}
+.tab1Contents li img{width: 100%;}
+ul.tab1Contents li{position: absolute;left: 0;top: 0;
+                    display: none}
+ul.tab1Contents li.on{display: block}
+
+.nav1{display:block;}
+.nav1 img{width:123px;height:80px;}
+
+.nav1 li{float: left; position: relative;cursor: pointer;}
+
+.nav1 li span{width:123px;height: 80px;border: 3px solid rgb(47, 0, 255);
+                position: absolute;top:0;left: 0;
+                display: none}
+.nav1 li:hover span{display: block}
+.nav1 li.on span{display: block}
+
+
+
+
+
+
+
+
+.tab2Wrap{border: 1px solid #000;width:582px;margin: auto;height: 216px;display: block;margin-top: 50px}
+.tab2Contents{width:352px;height: 216px;overflow: hidden;float: left;position: relative;}
+ul.tab2Contents li{position: absolute;left: 0;top: 0;display: none}
+ul.tab2Contents li.on{display: block}
+.tab2Contents img{width:352px;height: 216px;vertical-align: top}
+.nav2{float: right;width: 228px;display: block}
+.nav2 li{padding:5px;cursor: pointer;}
+
+.nav2 li:hover{background:rgb(41, 148, 89);color: #fff}
+.nav2 li.on{background:rgb(41, 148, 89);color: #fff}
+
+
+
+
+
+
+
+
+
+
+
+.tab3Wrap{width:1200px;margin: auto;height:545px;border: 1px solid #000;
+            display:flex;margin-top:50px;margin-bottom:100px }
+.time{position: relative;}
+ul.time li{position: absolute;left: 0;top: 0;display: none}
+ul.time li.on{display: block}
+.time img{vertical-align: top}
+
+.summary{position: relative;}
+ul.summary li{position: absolute;left:630px;top: 0;display: none}
+ul.summary li.on{display:block}
+.summary img{vertical-align: top}
+
+.nav3{width:210px;height: 545px;border: 1px solid #000;text-align: right;display: block}
+.nav3 li{margin:30px;cursor: pointer;}
+
+.nav3 span{display: inline-block;vertical-align: middle;width: 0px;height: 2px;
+;background: rgb(255, 4, 4);transition: all .3s linear }
+.nav3 li:hover span{width: 50px;}
+.nav3 li.on span{width: 50px;}
+
+

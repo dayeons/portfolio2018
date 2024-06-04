@@ -1,0 +1,124 @@
+@charset "UTF-8" ;
+*{box-sizing: border-box} 
+.slideContainer{
+    position: relative;
+    height:100vh;
+}
+
+/* 배경 ===========================*/
+.bgwrap{
+    position: absolute;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg{
+    display: flex;
+    margin-left: -100%;
+    width:600%;
+    height: 100%;
+}
+
+.bg li{width:16.6666667%;}
+.bg li img{width: 100%;}
+
+/* 큰도시락======================= */
+.dosirakslide{
+    position: absolute;
+    width:28%;
+    top:20%;
+    left:9%;
+    overflow: hidden;
+}  
+
+.slideWrap{
+    display: flex;
+    width:600%;
+    margin-left: -100%
+}
+
+.slideWrap li{width:16.6666667%;}
+.slideWrap li img{width: 100%;}
+
+
+/* 작은 도시락======================= */
+.dosirakWrap{
+    position: absolute;
+    width:15%;
+    top:30%;
+    right:8%;
+    overflow: hidden;
+}  
+
+.slidedosirak{
+    display: flex;
+    width:600%;
+    margin-left: -100%
+}
+
+.slidedosirak li{width:16.6666667%;}
+
+.slidedosirak li img{width: 100%;}
+
+
+/* 상세설명======================= */
+h1{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:450px;
+    padding:70px 0;
+    text-align: center;
+    background: #fff;
+    z-index: 999;
+}
+
+
+
+.navWrap{
+    position: absolute;
+    width:450px;
+    height:100vh;
+    top:0;
+    left:45%;
+    z-index: 9;
+    background: #404040;
+}
+
+.navcontent{
+    position: absolute;
+    top:20%;
+    overflow:hidden;
+    width:100%;
+    height: 400px;
+}
+
+.nav{margin-top: -100%}
+.nav li{width: 100%;}
+
+/* 화살표 클릭 ======================= */
+a{
+    position: absolute;
+    top:38%;
+    z-index: 999;
+}
+
+a.prev{left:5%;}
+a.next{left:38%;}
+
+
+.addr{
+    width: 100%;
+    height:7%;
+    z-index: 99;
+    background: #404040;
+    color: #eee;
+    position: absolute;
+    bottom:0
+}
+address{
+    font-style: normal;
+    font-size:5px;
+    text-align: end;
+    padding:10px 20px 0 0
+ }

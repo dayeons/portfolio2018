@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fadeslide2</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            // $('.nav li').click(function(){
+            //     var idx=$(this).index()
+            //     //alert(idx)
+
+            //     $('.slideWrap').animate({'margin-left':-100*idx+'%'},1000)
+            //     $('.nav li').removeClass('on')
+            //     $(this).addClass('on')
+            // })
+
+            var idx = ''
+            var len = $('.slide').length
+            //length(갯수)는 ()필요 없어
+
+            $('.nav li').click(function () {
+                idx = $(this).index()
+
+                slideShow(idx)//인수 전달 호출
+                // alert(idx)
+
+            })
+
+            function slideShow(index) {//전달되는 인수
+
+
+                $('.nav li').removeClass('on')
+                $('.nav li').eq(idx).addClass('on')
+
+                $('.slideWrap').animate({ 'margin-left': -100 * idx + '%' }, 1000)
+
+            }
+
+            $('.next').click(function () {
+
+                if (idx == len - 1) {
+                    idx = 0
+                } else {
+                    idx++
+                }
+                slideShow(idx)
+            })
+
+
+            $('.prev').click(function () {
+
+                if (idx == 0) {
+                    idx = len - 1
+                } else {
+                    idx--
+                }
+                slideShow(idx)
+
+            })
+
+
+        });//function
+
+
+    </script>
+
+    <style>
+        .slideContainer {
+            position: relative;
+            overflow: hidden;
+            width: 500px;
+            margin: auto;
+        }
+
+        /* %는 부모의 기준 왔다갔다 슬라이드는 % / px는 고정이니까 */
+
+        .slideWrap {
+            display: flex;
+            width: 500%;
+            margin: auto;
+        }
+
+        .slideWrap li {
+            width: 20%;
+        }
+
+        .slideWrap li img {
+            width: 100%;
+        }
+
+        a {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+        }
+
+        a.prev {
+            left: 0;
+        }
+
+        a.next {
+            right: 0;
+        }
+
+        .nav {
+            position: absolute;
+            bottom: 60px;
+            width: 100%;
+            z-index: 99;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        .nav li {
+            width: 15px;
+            height: 15px;
+            background: red;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all .5s
+        }
+
+        .nav li.on {
+            background: #fff;
+            height: 30px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slideContainer">
+        <ul class="slideWrap">
+            <li class="slide on"><img src="choco1.jpg" alt=""></li>
+            <li class="slide"><img src="choco2.jpg" alt=""></li>
+            <li class="slide"><img src="choco3.jpg" alt=""></li>
+            <li class="slide"><img src="choco4.jpg" alt=""></li>
+            <li class="slide"><img src="choco2.jpg" alt=""></li>
+        </ul>
+        <ul class="nav">
+            <li class="on"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <a href="#" class="prev"><img src="baseline_keyboard_arrow_left_black_36dp.png" alt=""></i></a>
+        <a href="#" class="next"><img src="baseline_keyboard_arrow_right_black_36dp.png" alt=""></i></a>
+    </div>
+</body>
+
+</html>

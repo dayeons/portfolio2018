@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animation</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <style>
+        div {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid #000;
+            animation-name: moveAni;
+            animation-duration: 3s;
+            /* animation-iteration-count: 3; */
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            /* animation-delay: 5s; */
+            /* animation-fill-mode:forwards; */
+
+        }
+
+        @keyframes moveAni {
+            from {
+                bottom: 0px;
+            }
+
+            to {
+                bottom: 800px;
+            }
+
+        }
+
+        div:nth-child(1) {
+            left: 200px;
+            background: blue;
+            animation-delay: 0s
+        }
+
+        div:nth-child(2) {
+            left: 400px;
+            background: brown;
+            animation-delay: 0.2s
+        }
+
+        div:nth-child(3) {
+            left: 500px;
+            background: coral;
+            animation-delay: 0.7s
+        }
+
+        div:nth-child(4) {
+            left: 700px;
+            background: darkgreen;
+            animation-delay: 0.6s
+        }
+
+        div:nth-child(5) {
+            left: 900px;
+            background: fuchsia;
+            animation-delay: 0.3s
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+
+
+</body>
+
+</html>

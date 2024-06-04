@@ -1,0 +1,25 @@
+.content1{position: absolute;
+            width: 800px;height:500px;
+            top: 50%;left: 50%;transform: translate(-50%,-50%);}
+p.line{position: absolute;background: #000;}
+p.top{left: 0;top:0;width:0%;height: 1px;}
+p.right{right: 0;top: 0;width: 1px;height:0%;}
+p.bottom{left: 0;bottom: 0;width: 0%;height: 1px;;}
+p.left{left: 0;top: 0;width: 1px;height:0%;}
+
+/* js animate - width랑 height값을 설정한 다음
+ css 의 width height 값을 0%로 설정  */
+
+.content1show{position: absolute;
+    left: 0;top: 0;width: 100%;height: 100%;
+    background: rgb(235, 144, 144);display: none}
+
+a.close1{position: absolute;left: 10px;top:10px;z-index: 99;cursor: pointer;}
+.btn{position: absolute;bottom:20%;left:30%}
+.btn button{padding: 10px;background:#eee;border: none;font-size: 20px;cursor: pointer;}
+
+.btn button.on{background: rgb(116, 115, 115);color: #fff;}
+
+
+.mainbanner{position: absolute; width: 800px;height:500px;left:10%;top:20%;background: rgb(244, 248, 0);}
+.mainimg{position: absolute;width:400px;height:90vh;right:-100px;bottom:15%;background: rgb(69, 65, 107);}

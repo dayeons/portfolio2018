@@ -1,0 +1,96 @@
+*{box-sizing: border-box}
+
+body{background: url(yellowBar2.png),url(OpiraHero.jpg);
+    background-repeat:repeat-x,no-repeat;
+    background-position:left 370px,center top;
+    font-size: 12px}
+.wrapbg{width:954px;margin: auto;height:1200px;
+        z-index:3;
+      background:url(yellowSide2.png);
+      background-repeat: repeat-x;
+      background-position: 0 400px}
+.wrap{width: 850px;margin: auto}
+/* 1 */
+
+.header{display: block;position: relative;height:135px;overflow: hidden;}
+.logo img{width: 164px;height: 77px;float: left;margin:30px}
+
+.login{display: flex;
+       position: absolute;right:10px;top:45px}
+.login span{font-weight: bold}
+form{margin-left: 10px;}
+
+
+.headernav{position: absolute;right: 0;top:80px}
+.nav{background:rgb(140, 140,140,.5);}
+.on{background: #8c8c8c;padding: 10px}
+.nav li{display: inline;line-height:3;padding: 10px }
+.nav li a{color: #fff}
+/*2  */
+
+
+.contents{position: relative;height:1050px;overflow: hidden;;}
+.sect1{position: absolute;background: rgb(255,255,255,.5);height:350px;width: 100%;
+    top:3px;font-size: 20px;}
+.sect1 p{padding:80px;color: rgb(93, 92, 92)}
+.imgbox{display:flex;position: absolute;
+       top:245px}
+.box{width:190px;height: 180px;z-index: 10;margin:10px;}
+#box1{background:url(homeButton_01.jpg)}
+#box2{background:url(homeButton_02.jpg)}
+#box3{background:url(homeButton_03.jpg)}
+#box4{background:url(homeButton_04.jpg)}
+
+#box1:hover{background-position: 0 -180px}
+#box2:hover{background-position: 0 -180px}
+#box3:hover{background-position: 0 -180px}
+#box4:hover{background-position: 0 -180px}
+
+
+
+
+.sect2{ position: absolute;top:470px;left: 30px; width: 786px;}
+.link{text-align: center;background: #fae553;height:120PX;padding-top:18px;line-height: 2 }
+.link a{font-size: 20px}
+.link:hover a{color: rgb(255, 238, 0);}
+
+
+
+.article{column-count: 2;margin-top: 30px;}
+article{height:360px;border-top: 5px solid #fae553;}
+article p{border-bottom:1px solid #fae553;padding-bottom:20px}
+h1{color:#fae553;padding-bottom:30px;padding-top: 10px;font-size:30px}
+
+.linkbox{display: block;margin: 30px;}
+.linkbox img{float: left;}
+.link1{width: 200px;height: 77px;}
+.link2{width: 64px;height: 84px;margin-left:30px}
+
+
+.linkclick span{display:block;padding-top: 10px}
+.linkclick span:hover a{color:#fae553}
+.link3{width: 180px;height: 180px;margin-left:100px;margin-top:20px}
+
+/* 4 */
+footer{background: url(footerBG.gif)repeat-x;
+        width: 100%;height:232px;overflow: hidden;;}
+        
+.footer{width: 850px;margin:auto;display: block}
+.footerleft{float: left;width: 437px;
+    margin-right: 12px;
+    height: 186px;
+    padding-top: 26px;}
+.footertop{display: flex;}
+.social{margin-left:50px}
+.social li{float: left;padding:5px}
+
+.footerdown{float: right;display: flex;margin-top:20px}
+.fl,.fr{width:120px;}
+
+.footerright{background:rgb(153,153,153,.3);z-index:11;line-height: 2;   
+    height: 212px;width: 401px;float: right;padding-top:80px;padding-left: 50px }
+
+
+.footernav{width: 850px;margin: auto;height: 300px;;;display: block}
+.footernav ul li{float: left;padding:3px}
+.footernav ul li img{width: 20px;}

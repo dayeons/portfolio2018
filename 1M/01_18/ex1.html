@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>colorBox</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <style>
+        button {
+            font-size: 20px;
+            padding: 10px
+        }
+
+        /* img{display: none;position: absolute;left: 50%;top: 50%;
+    transform: translate(-50%,-50%);z-index: 150;} */
+
+        .pop {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.507);
+            display: none;
+        }
+
+        /* width 100%;height 100% 설정됨 */
+
+
+        .scene {
+            width: 1000px;
+            height: 900px;
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 150
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('button').click(function () {
+                $('.pop').fadeIn(500, function () {
+                    // $('img').fadeIn()
+                    $('div').fadeIn()
+                })
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <button>Press</button>
+    <!-- <img src="e.jpg" alt=""> -->
+    <div class="pop"></div>
+    <div class="scene"><iframe src="\swiper\supercamp\index.html" frameborder="0"></iframe></div>
+</body>
+
+</html>

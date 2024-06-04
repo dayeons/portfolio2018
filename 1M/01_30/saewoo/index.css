@@ -1,0 +1,343 @@
+@charset "UTF-8";
+*{box-sizing: border-box}
+body{background: #fffdf6;}
+
+.header{
+    position: relative;
+    background-image: url(img/bgHeader.png);
+    width: 100%;
+    height: 76px
+}
+.nav{
+    position: absolute;
+    top:25%;
+    left:23%;
+    width:60%;
+    display: block;
+}
+
+h1,.nav ul{
+    float: left;
+    margin-left:70px
+}
+
+.gnb{float: right;}
+.gnb li{
+    float: left;
+    font-size: 12px;
+    padding:8px
+}
+.gnb li a{color: #fff;}
+
+.nav ul li{
+    float: left;
+    padding:10px 20px 10px 20px;
+}
+.nav ul li a{color: #fff;}
+.nav ul li em{
+    position: absolute;
+    top:10px;
+    display: none;
+    text-decoration: underline;
+    font-style: normal;
+    color: orange
+}
+
+
+
+.nav ul li span{
+    background-image: url(img/bulGnb.png);
+    background-repeat: no-repeat;
+    width:10px;
+    height: 10px;
+    position: absolute;
+    top:10%;
+}
+
+
+.nav ul li:hover strong{opacity:0;}
+.nav ul li:hover em{display: block;}
+
+/* header ================================================ */
+
+.remote{
+    position:fixed;
+    top: 35%;
+    left: 15%;
+    z-index: 99;
+    background-image: url(img/remote_bg.png);
+    background-repeat: no-repeat;
+    width:45px;
+    height:207px;
+}
+
+.remote li a{
+    display: block;
+    width:44px;
+    height:36px;
+    background-image: url(img/remote_btnnOff.png);
+    background-repeat:no-repeat;
+    background-position: center
+}
+.remote li a.on{
+    background-image: url(img/remote_btnnOn.png);
+    background-repeat:no-repeat;
+    background-position: center
+}
+
+.remote li:nth-child(1) a{
+    width:44px;
+    height: 44px;
+    background-image: url(img/remote_mainOff.png);
+    background-repeat:no-repeat;
+}
+.remote li:nth-child(1) a.on{
+    width:44px;
+    height: 44px;
+    background-image: url(img/remote_mainOn.png);
+    background-repeat:no-repeat;
+}
+
+
+/* remote==================================================== */
+
+
+section{
+    position: relative;
+    height: 82vh;
+    background: url(img/bgContent.gif);
+    background-repeat: repeat-y;
+    background-position: center;
+
+}
+
+#sect1{height:640px;background:none}
+
+h2,h3{
+    margin-top:20px;
+    text-align: center;
+    padding-top:20px;
+    color: #999999
+}
+
+#sect1 > img{position: absolute;}
+
+.bgMusic{
+    left:50%;
+    transform: translateX(-50%)
+}
+.since{
+    top:30%;
+    left:20%
+}
+
+.bgsnack{
+    bottom: -5%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url(img/bgSnack_ani.png);
+    background-repeat: no-repeat;
+    background-position: center 82px;
+    height: 232px;
+    z-index: 10;
+}
+
+.snack{
+    display: inline; 
+    opacity: 0;
+    animation: bagAni linear 1s 3s forwards 
+}
+
+.rice{
+    top: 40%;
+    left: 32%;
+    animation-delay: 4s
+  
+}
+.hot{
+    top: 40%;
+    left: 53%;
+    animation-delay: 4s
+}
+.basic{
+    top:27%;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+
+@keyframes bagAni{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+
+.shrimp1{
+    animation: shrimp1 2s linear forwards
+}
+    @keyframes shrimp1 {
+
+        0%{ 
+            left:25%;
+            top:25%;
+        } 
+        25%{
+            left:38%;
+            top:30%;
+        } 
+        50%{
+            left:40%;
+            top:45%;
+        } 
+        75%{
+            left:45%;
+            top:48%
+        } 
+        100%{
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%)
+        } 
+
+    }
+.shrimp2{   
+    left:40%;
+    top:25%;
+    animation-name: shrimp2; 
+    animation-duration: 1.5s; 
+    animation-delay: .5s;
+    animation-timing-function: linear; 
+    animation-fill-mode: forwards;
+}
+    @keyframes shrimp2 {
+        25%{
+            left:48%;
+            top:30%
+
+        } 
+        50%{
+            left:50%;
+            top:40%;
+
+        } 
+        100%{   
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%)
+        } 
+
+    } 
+.shrimp3{
+    left:52%;
+    top:25%;
+    animation-name: shrimp3; 
+    animation-duration: 2s; 
+    animation-delay: 1s;
+    animation-timing-function: linear; 
+    animation-fill-mode: forwards;
+}
+    @keyframes shrimp3 {
+        25%{
+            left:48%;
+            top:30%;
+         } 
+        50%{  
+            left:45%;
+            top:40%; 
+        } 
+        100%{    
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%)
+        } 
+
+    }
+.shrimp4{
+    left:65%;
+    top:25%;
+    animation-name: shrimp4; 
+    animation-duration: 2s; 
+    animation-timing-function: linear; 
+    animation-fill-mode: forwards;
+}
+    @keyframes shrimp4 {
+
+        25%{
+            left:55%;
+            top:30%
+         } 
+        50%{
+            left:50%;
+            top:33%
+        } 
+        75%{
+            left:45%;
+            top:30%;
+         } 
+        100%{   
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%)
+        } 
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.fixedbasic{
+    z-index: 99;
+    opacity: 0;
+    transition: all 1s;
+    position: fixed;
+    top:30%;
+    left:50%;
+    transform:translateX(-50%);
+}
+.fixedbasic.on{opacity: 1}
+
+
+
+
+
+section .bgAni{
+    position: absolute;
+    top: 25%;
+    left: 20%;
+}
+section .bgAni.on{
+    animation: bgAni 3s ease-in 0s infinite alternate;
+}
+
+@keyframes bgAni{
+    from{transform: translate(0,-50px)}
+    to{transform: translate(0,0)}
+}
+
+
+#sect5{
+    background:url(img/bgStep04.png), url(img/bgContent.gif);
+    background-repeat: no-repeat, repeat-y;
+    background-position: center bottom , center;
+    
+}
+
+
+footer{
+    margin-top:-15px;
+    height: 220px;
+    background: url(img/bgBodyBottom.png) ;
+    background-repeat: repeat-x ;
+    background-position-y: -135px;
+    transform: rotate(180deg);
+}

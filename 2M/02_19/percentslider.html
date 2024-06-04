@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>percentslide</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+
+            $(".next").click(function (e) {
+                e.preventDefault()
+                $(".slideWrap").animate({ 'margin-left': '-200%' }, 1000, function () {
+                    //$("li:nth-child(1)").appendTo(".slideWrap");
+                    //뒤로 가면서  두개가 땡겨진 것처럼 보임
+
+                    $("li").first().appendTo(".slideWrap")
+                    $(".slideWrap").css({ 'margin-left': '-100%' })
+                })
+
+            });
+
+            $(".prev").click(function (e) {
+                e.preventDefault()
+                $(".slideWrap").animate({ 'margin-left': '0%' }, 1000, function () {
+                    $("li").last().prependTo(".slideWrap")
+                    $(".slideWrap").css({ 'margin-left': '-100%' })
+                })
+            });
+
+        });//function
+
+
+    </script>
+
+    <style>
+        body {
+            background: #eee;
+        }
+
+        .slideContainer {
+            position: relative;
+            width: 500px;
+            margin: auto;
+        }
+
+        /* %는 부모의 기준 왔다갔다 슬라이드는 % / px는 고정이니까 */
+
+        .slideWrap {
+            display: flex;
+            width: 500%;
+            margin: auto;
+            margin-left: -100%
+        }
+
+        .slideWrap li {
+            width: 20%;
+        }
+
+        .slideWrap li img {
+            width: 100%;
+        }
+
+        a {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+        }
+
+        a.prev {
+            left: 0px;
+        }
+
+        a.next {
+            right: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slideContainer">
+        <ul class="slideWrap">
+            <li class="slide on"><img src="/2M/02_14/choco1.jpg" alt=""></li>
+            <li class="slide"><img src="/2M/02_14/choco2.jpg" alt=""></li>
+            <li class="slide"><img src="/2M/02_14/choco3.jpg" alt=""></li>
+            <li class="slide"><img src="/2M/02_14/choco4.jpg" alt=""></li>
+            <li class="slide"><img src="/2M/02_14/choco2.jpg" alt=""></li>
+        </ul>
+
+        <a href="#" class="prev"><img src="/2M/02_14/baseline_keyboard_arrow_left_black_36dp.png" alt=""></i></a>
+        <a href="#" class="next"><img src="/2M/02_14/baseline_keyboard_arrow_right_black_36dp.png" alt=""></i></a>
+    </div>
+</body>
+
+</html>

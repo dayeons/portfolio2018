@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <style>
+        body {
+            background-image: url(bg_buildings.gif), url(bg_ground.gif);
+            background-repeat: repeat-x, repeat-x;
+            background-position: left 79%, left bottom;
+            height: 100vh;
+        }
+
+        .cloud {
+            position: absolute;
+            animation: cloudAni 3s infinite alternate;
+        }
+
+        .cloud1 {
+            left: 10%;
+            top: 10%;
+            animation-delay: 0s
+        }
+
+        .cloud2 {
+            left: 50%;
+            top: 20%;
+            animation-delay: 1s
+        }
+
+
+        @keyframes cloudAni {
+            0% {
+                transform: translatey(0px)
+            }
+
+            100% {
+                transform: translatey(100px)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cloud cloud1"><img src="cloud.gif" alt=""></div>
+    <div class="cloud cloud2"><img src="cloud.gif" alt=""></div>
+</body>
+
+</html>

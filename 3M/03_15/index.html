@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>오버워치</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+    <style>
+        .wrap {
+            position: absolute;
+            width: 100%;
+            height: 10000px
+        }
+
+        .wrap video {
+            position: fixed;
+            width: 100%;
+            top: 10px
+        }
+
+        /* headernav */
+        h1 {
+            position: fixed;
+            top: 80px;
+            left: 36px;
+            z-index: 99;
+        }
+
+        h1 img {
+            width: 300px
+        }
+
+        .nav {
+            position: fixed;
+            top: 30%;
+            left: 4%;
+            width: 200px;
+            z-index: 99;
+        }
+
+        h3 {
+            font-family: 'Sunflower', sans-serif;
+            text-align: center;
+            font-size: 40px;
+            color: #fff
+        }
+
+        .nav ul li {
+            position: relative;
+            margin: 20px;
+            height: 40px;
+            line-height: 36px;
+            color: #fff;
+            transition: all .5s linear;
+            cursor: pointer;
+            font-size: 18px
+        }
+
+        .nav ul li p {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            padding-left: 20px
+        }
+
+        .nav ul li:hover span {
+            width: 100%;
+        }
+
+        .nav ul li.on span {
+            width: 100%;
+        }
+
+        .nav ul li span {
+            position: absolute;
+            display: block;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 100%;
+            ;
+            transform: skew(-10px);
+            transition: all .5s linear
+        }
+
+        .nav ul li:nth-child(1) span {
+            background: #ffb0ee
+        }
+
+        .nav ul li:nth-child(2) span {
+            background: #d9d7ed;
+        }
+
+        .nav ul li:nth-child(3) span {
+            background: #f5d193;
+        }
+
+        .nav ul li:nth-child(4) span {
+            background: #dc8d0b
+        }
+
+        .nav ul li:nth-child(5) span {
+            background: #3a98a5
+        }
+
+        /* section */
+        section {
+            width: 1200px;
+            height: 800px;
+            position: fixed;
+            left: 27%;
+            top: 15%;
+
+            perspective: 800px
+        }
+
+
+
+        section article {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #fff;
+            z-index: 10;
+            opacity: 0.5;
+        }
+
+        section article.on {
+            opacity: 1;
+            z-index: 20
+        }
+
+
+        section article:nth-child(1) {
+            transform: translateZ(0)
+        }
+
+        section article:nth-child(2) {
+            transform: translateZ(-2000px)
+        }
+
+        section article:nth-child(3) {
+            transform: translateZ(-4000px)
+        }
+
+        section article:nth-child(4) {
+            transform: translateZ(-6000px)
+        }
+
+        section article:nth-child(5) {
+            transform: translateZ(-8000px)
+        }
+
+        .detail {
+            position: absolute;
+            width: 550px;
+            padding: 15px
+        }
+
+        section article:nth-child(1) .detail {
+            right: 0;
+            background: rgb(255, 176, 238, .8)
+        }
+
+        section article:nth-child(2) .detail {
+            background: rgb(217, 215, 237, .8);
+        }
+
+        section article:nth-child(3) .detail {
+            right: 0;
+            background: rgb(245, 209, 147, .8);
+        }
+
+        section article:nth-child(4) .detail {
+            background: rgb(220, 141, 11, .8);
+        }
+
+        section article:nth-child(5) .detail {
+            right: 0;
+            background: rgb(58, 152, 165, .8);
+        }
+
+
+
+        section article .characterimg {
+            position: absolute
+        }
+
+        section article .characterimg img {
+            width: 100%;
+        }
+
+        .character1 {
+            left: -5%;
+            top: 21%;
+            ;
+            width: 700px;
+        }
+
+        .character2 {
+            left: 60%;
+            top: 6%;
+        }
+
+        .character3 {
+            left: 1%;
+            top: 22%;
+            width: 650px;
+        }
+
+        .character4 {
+            left: 57%;
+            top: 13%;
+        }
+
+        .character5 {
+            left: 11%;
+            top: 15%;
+        }
+
+        h2 {
+            font-size: 40px;
+            margin-left: 30px;
+            color: #f6f6f6;
+        }
+
+        h2 span {
+            display: block;
+            font-size: 20px;
+            color: #00c3ff;
+            padding-left: 10px
+        }
+
+        article p {
+            width: 500px;
+            font-size: 12px;
+            padding: 30px 10px 15px 23px
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(function () {
+
+            $('.nav li').click(function () {
+                var idx = $(this).index()
+                $('body,html').stop().animate({ 'scrollTop': 2000 * idx }, 1000, 'easeOutExpo')
+
+
+
+            })
+
+            // $(window).scroll(function(){
+            //     var scrT=parseInt($(window).scrollTop())
+
+
+            //     $('article').eq(0).css({'transform':'translateZ('+scrT+'px)'})
+            //     $('article').eq(1).css({'transform':'translateZ('+(-1000+scrT)+'px)'})
+            //     $('article').eq(2).css({'transform':'translateZ('+(-2000+scrT)+'px)'})
+            //     $('article').eq(3).css({'transform':'translateZ('+(-3000+scrT)+'px)'})
+            //     $('article').eq(4).css({'transform':'translateZ('+(-4000+scrT)+'px)'})
+
+            // })
+
+            $(window).on('scroll', function () {
+
+                var scrT = $(this).scrollTop()
+                // $('h1').text(scrT)
+
+                for (var i = 0; i < 5; i++) {
+                    $('section article').eq(i).css({ 'transform': 'translateZ(' + ((-2000 * i) + scrT) + 'px)' })
+                    if (scrT >= i * 2000 && scrT < (i + 1) * 2000) {
+                        $('.nav li').removeClass('on')
+                        $('.nav li').eq(i).addClass('on')
+                        $('article').removeClass('on')
+                        $('article').eq(i).addClass('on')
+                    }
+
+                }
+
+
+            })
+        })
+
+    </script>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <video src="overwatch/bgvideo.mp4" autoplay muted loop></video>
+    </div>
+
+    <h1><img src="overwatch/blizzard_logo.png" alt=""></h1>
+
+    <div class="nav">
+        <h3>영웅 선택</h3>
+        <ul>
+            <li class="on"><span></span>
+                <p>D.VA</p>
+            </li>
+            <li><span></span>
+                <p>둠피스트</p>
+            </li>
+            <li><span></span>
+                <p>레킹볼</p>
+            </li>
+            <li><span></span>
+                <p>메르시</p>
+            </li>
+            <li><span></span>
+                <p>자리야</p>
+            </li>
+        </ul>
+    </div>
+    <!-- section  -->
+    <section>
+        <article class="on">
+            <div class="characterimg character1">
+                <img src="overwatch/character1.png" alt="">
+            </div>
+
+            <div class="detail">
+                <h2><span>역할</span> 돌격</h2>
+
+                <p>D.Va의 메카는 날렵하고 강력합니다. 융합포는 근거리에 자동 사격을 퍼붓고, 부스터로 적이나 장애물에 돌진하거나 방어 매트릭스로 적이 발사하는 투사체를 무력화시킬 수 있습니다.
+                </p>
+            </div>
+        </article>
+
+        <article>
+            <div class="characterimg character2">
+                <img src="overwatch/character2.png" alt="">
+            </div>
+
+            <div class="detail">
+                <h2><span>역할</span> 공격</h2>
+
+                <p>둠피스트는 인공신체학으로 끌어올린 탁월한 기동성으로 최전선을 책임지는 강력한 투사입니다. 둠피스트는 철권포로 원거리에 피해를 주며, 지면을 강타해 적을 공중으로 띄워 균형을
+                    무너뜨리거나, 로켓 펀치로 싸움에 뛰어들 수 있습니다. 적들이 한곳에 모여 있다면 시야 밖으로 뛰어 올랐다가 대지로 강하게 내리꽂는 파멸의 일격을 가합니다.</p>
+            </div>
+        </article>
+
+        <article>
+            <div class="characterimg character3">
+                <img src="overwatch/character3.png" alt="">
+            </div>
+
+            <div class="detail">
+                <h2><span>역할</span> 돌격</h2>
+
+                <p>레킹볼은 전장을 굴러다니며 강력한 무기와 견고한 몸통으로 적들을 뭉개버립니다.</p>
+            </div>
+        </article>
+
+        <article>
+            <div class="characterimg character4">
+                <img src="overwatch/character4.png" alt="">
+            </div>
+
+            <div class="detail">
+                <h2><span>역할</span> 지원</h2>
+
+                <p>발키리 슈트 덕에 메르시는 아군을 마치 수호 천사처럼 가까이에서 지킬 수 있습니다. 또한, 카두세우스 지팡이로 아군을 치유, 부활 또는 강화할 수 있습니다.</p>
+            </div>
+        </article>
+
+        <article>
+            <div class="characterimg character5">
+                <img src="overwatch/character5.png" alt="">
+            </div>
+
+            <div class="detail">
+                <h2><span>역할</span> 돌격</h2>
+
+                <p>강력한 개인용 방벽을 전개하여 받은 피해를 흡수하고 그 힘을 강력한 입자포로 발산하는 자리야는 전장의 최전선에서 빠질 수 없는 자원입니다.</p>
+
+            </div>
+        </article>
+
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/swiper.css">
+
+    <style>
+        h1 {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            font-size: 100px
+        }
+
+        section {
+            height: 100vh;
+        }
+
+        #sect1 {
+            background: rgb(194, 122, 122);
+        }
+
+        #sect2 {
+            background: rgb(26, 184, 40);
+        }
+
+        #sect3 {
+            background: rgb(51, 40, 150);
+        }
+
+        #sect4 {
+            background: rgb(202, 212, 188);
+        }
+
+        ul.nav {
+            position: fixed;
+            top: 0;
+            right: 0
+        }
+
+        .nav li a {
+            display: block;
+            background: #000;
+            color: #fff;
+        }
+
+        .nav li a.on {
+            background: rgb(255, 1, 1);
+            color: #fff;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/swiper.js"></script>
+    <script>
+        $(function () {
+
+            $(window).scroll(function () {
+                var scrT = $(this).scrollTop()
+                $('h1').text(scrT)
+
+            })
+
+            $('.nav li a').click(function () {
+                var href = $(this).attr('href')
+                $('.nav li a').removeClass('on')
+                $(this).addClass('on')
+
+
+                //스크롤 시작점 설정
+                var scrT = $(href).offset().top
+                // alert(scrT)
+                $('.swiper-slide').animate({ 'scrollTop': scrT }, 1000)
+                //html,body를 scrT 스크롤탑의 위치를 
+            })
+
+        });   
+    </script>
+</head>
+
+<body>
+    <h1>0</h1>
+    <section id="sect1"></section>
+    <section id="sect2"></section>
+    <section id="sect3"></section>
+    <section id="sect4"></section>
+
+    <ul class="nav">
+        <li><a href="#sect1" class="on">section1</a></li>
+        <li><a href="#sect2">section2</a></li>
+        <li><a href="#sect3">section3</a></li>
+        <li><a href="#sect4">section4</a></li>
+    </ul>
+</body>
+
+</html>

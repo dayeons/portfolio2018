@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+    <link rel="stylesheet" href="section2.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../jquery.transit.min.js"></script>
+    <script src="section2.js"></script>
+
+    <script>
+    $(function(){
+
+$('.map a').click(function(e){
+
+    e.preventDefault()
+
+
+    var href=$(this).attr('href')
+
+    var scrT=$(href).offset().top
+
+    $('html,body').animate({'scrollTop':scrT},1800,'easeOutCubic')
+
+    });
+
+// =================================================================================
+
+$(window).scroll(function(){
+    var gap=-300
+    var scroT= $(window).scrollTop()
+    var list1=$('#world').offset().top
+    var list2=$('#award').offset().top
+    var list3=$('#concert').offset().top
+
+    if(scroT>=list1+gap && scroT<list2+gap){
+        $('.text1').animate({opacity:1},1000)
+        }
+    else if(scroT>=list2+gap && scroT<list3+gap){
+
+        $('.text2').animate({opacity:1},1000)
+        }       
+    else if(scroT>=list3+gap){
+
+        $('.text3').animate({opacity:1},1000)
+        
+        }
+});
+
+
+// =================================================================================
+
+
+$('.map a').mouseenter(function(e){
+    e.preventDefault()
+
+    $(this).children('img').stop().transition({
+                 scale: '1.12',
+                 x: '-50%', y: '-50%'
+             });
+
+    $(this).find('.name').stop().animate({opacity:1})
+})
+
+$('.map a').mouseleave(function(e){
+    e.preventDefault()
+
+    $(this).children('img').stop().transition({
+                 scale: '1',
+                 x: '-50%', y: '-50%'
+             });
+    $(this).find('.name').stop().animate({opacity:0})
+})
+
+
+// =================================================================================
+
+
+$('.dotli').find('img').mouseenter(function(){
+
+    var idx = $(this).index()
+
+    $('.dotcontents').find('h3').eq(idx).stop().animate({opacity:1})
+
+})
+
+$('.dotli').find('img').mouseleave(function(){
+
+    var idx = $(this).index()
+
+    $('.dotcontents').find('h3').eq(idx).stop().animate({opacity:0})
+})
+
+
+// =================================================================================
+
+});
+    
+    </script>
+</head>
+<body>
+    <div class="bg">
+      
+        <div class="programbg">
+            
+            <img src="images/bg_route.png" alt="" class="route">
+            <img src="images/program_balloon-left-01.png" alt="" class="bgi balloon1">
+            <img src="images/program_balloon-left-02.png" alt="" class="bgi balloon2">
+            <img src="images/program_balloon-left-01.png" alt="" class="bgi balloon3">
+            <img src="images/program_cloud-right-05.png" alt="" class="bgi cloud1">
+            <img src="images/main-top_cloud-right-01.png" alt="" class="bgi cloud2">
+            <img src="images/main-top_cloud-left-01.png" alt="" class="bgi cloud3">
+            
+            <div class="program">
+            
+                <div class="map">  
+                    <div class="title">
+                        <img src="images/title01.png" alt="">
+                    </div>
+                    <a href="#world">
+                        <img src="images/world.png" alt="" class="world">
+                         <h3 class="name name01"><img src="images/name01.png" alt=""></h3>
+                    </a>
+                    <a href="#award">
+                        <img src="images/award.png" alt="" class="award">
+                        <h3 class="name name02"><img src="images/name02.png" alt=""></h3>
+                    </a>
+                    <a href="#concert">
+                        <img src="images/concert.png" alt="" class="concert">
+                        <h3 class="name name03"><img src="images/name03.png" alt=""></h3>
+                    </a>
+                    <div class="dotli">
+                        <img src="images/footprint.png" alt="" class="dot dot1">
+                        <img src="images/footprint.png" alt="" class="dot dot2">
+                        <img src="images/footprint.png" alt="" class="dot dot3">
+                        <img src="images/footprint.png" alt="" class="dot dot4">
+                        <img src="images/footprint.png" alt="" class="dot dot5">
+                        <img src="images/footprint.png" alt="" class="dot dot6">
+                        <img src="images/footprint.png" alt="" class="dot dot7">
+                    </div>
+                   <div class="dotcontents">
+                       <h3 class="dname1">물품&켄넬보관소</h3>
+                       <h3 class="dname2">인포메이션</h3>
+                       <h3 class="dname3">어질리티대기실</h3>
+                       <h3 class="dname4">푸드존</h3>
+                       <h3 class="dname5">돗자리존</h3>
+                       <h3 class="dname6">텐트존</h3>
+                       <h3 class="dname7">이벤트존</h3>
+                   </div>
+                   
+                </div>
+
+                <ul class="programlist">
+                    <li id="world">
+                        <img src="images/world.png" alt="" class="listimg world2">
+                        <div class="text text1">
+                            <img src="images/redballoon1.png" alt="" class="red">
+                            <img src="images/blueballoon.png" alt="" class="blue">
+                            <img src="images/yellowballoon.png" alt="" class="yellow">
+                            <h1>댕댕이월드</h1>
+                            <h4>줄 없이도 자유롭게 뛰어놀 수 있는 세계 최대 규모 놀이터, 댕댕이월드!</h4>
+                            <p>줄 없이 자유롭게 뛰어놀 수 있는 개들의 낙원 "댕댕이월드"!
+                                약 3000평 이상의 세계 최대 댕댕이놀이터가
+                                댕댕이페스티벌 안에서 만들어집니다.
+                            </p>
+                            <span><a href="https://www.dangdangfestival.com/faq-fes" target="_blank">주의사항보기</a></span>
+                        </div>
+                    </li>
+                    <li id="award">
+                        <img src="images/award.png" alt="" class="listimg award2">
+                        <div class="text text2">
+                            <h1>댕댕어질리티 챔피언십</h1>
+                            <h4>제1회 댕댕어질리티 챔피언십이 열립니다.</h4>
+                            <p>누구나 참가할 수 있는 비기너, 노비스부터 프로댕댕이들의
+                                솜씨를 감상할 수 있는 점핑, 어질리티 종목까지!
+                                어질리티를 체험할 수 있는 어질리티놀이터도 마련됩니다.
+                            </p>
+                            <span><a href="https://www.dangdangfestival.com/agility" target="_blank">대회신청안내</a></span>
+                        </div>
+                    </li>
+                    <li id="concert">
+                        <img src="images/concert.png" alt="" class="listimg concert2">
+                        <div class="text text3">
+                            <h1>댕댕이스테이지</h1>
+                            <h4>유익한 세미나와 귀호강 음악까지!</h4>
+                            <p>개통령 강형욱의 세미나와 댕댕이들 귀호강 시켜줄 음악까지!
+                                댕댕이스테이지는 잔디에 돗자리를 깔고 감상하실 수 있습니다.
+                                댕댕이와 함께 누워 놀 수 있는 돗자리를 준비해주세요.
+                            </p>
+                            <span><a href="https://www.dangdangfestival.com/lineup-fes" target="_blank">출연진보기</a></span>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>  
+
+        </div>
+
+    </div>
+</body>
+</html>

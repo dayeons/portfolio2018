@@ -1,0 +1,190 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=doc-example/pie-label-margin
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+
+        
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+        <!-- Uncomment this line if you want to dataTool extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use gl extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to echarts-stat extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use map
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/map/js/china.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/map/js/world.js"></script>
+        -->
+        <!-- Uncomment these two lines if you want to use bmap extension
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/dist/extension/bmap.min.js"></script>
+        -->
+
+        <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+
+var option;
+
+
+
+option = {
+  title:{ 
+    text:`{term|2020}`,
+    left: "center",
+    position: "center",
+    textStyle: {
+      rich: {
+        term: {
+          fontSize: 22,
+          backgroundColor: "#005baa",
+          color:'#fff',
+          fontFamily: 'Gmarket Sans',
+          width: 110,
+          height: 35,
+          borderRadius: 17.5,
+        }
+      }
+    },
+  },
+  tooltip: {
+    trigger: "axis",
+    axisPointer: {
+      type: "shadow",
+    },
+    formatter: function (params) {
+      // console.log(params);
+      // let xy = (params[0].data * -1).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+      // let xx = (params[1].data).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+
+      // return `${rez}` +`남자 :  ${xy} <br> 여자 : ${xx}`
+
+      let colorSpan = color => '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:' + color + '"></span>';
+      //console.log(colorSpan)
+      let rez = '<p style="margin:0">' + params[0].axisValue + '</p>';
+
+      //console.log(params); //quite useful for debug
+      function comma(data){
+        absData = Math.abs(data)
+        let x = absData.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+        return x
+      }
+      params.forEach(item => {
+          //console.log(item); //quite useful for debug
+          var x = '<p style="margin:0">'   + colorSpan(item.color) + ' ' + item.seriesName  + '<b class="fwb">' + comma(item.data) + '</b>' +'</p>'
+          rez += x;
+      });
+      return rez;
+    },
+  },
+  legend: {
+    data: ["여자 (Female) ", "남자 (Male) "],
+    left: "center",
+    bottom: "bottom",
+    textStyle: {
+      fontSize: 16,
+      fontFamily: "Noto Sans KR",
+      color:'#000'
+    },
+  },
+  color: ["#eb4f50", "#54b2cc"],
+  xAxis: [
+    {
+      type: "value",
+      axisLabel: {
+        formatter: function (v) {
+          return v < 0 ? (-v).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") : v.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+        },
+        textStyle:{
+            fontSize:14
+        }
+      },
+    },
+  ],
+  yAxis: [
+    {
+      type: "category",
+      axisTick: {
+        show: false,
+      },
+      axisLabel: {
+        textStyle:{
+          fontSize:14
+        }
+      },
+      data: [
+        "0~4",
+        "5~9",
+        "10~14",
+        "15~19",
+        "20~24",
+        "25~29",
+        "30~34",
+        "35~39",
+        "40~44",
+        "45~49",
+        "50~54",
+        "55~59",
+        "60~64",
+        "65~69",
+        "70~74",
+        "75~79",
+        "80~84",
+        "85세 이상",
+      ],
+    },
+  ],
+  series: [
+    {
+      name: "남자 (Male) ",
+      type: "bar",
+      stack: "Total",
+      label: {
+        show: true,
+        position: "right",
+        formatter: function (v) {
+          return v.data.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+        },
+      },
+      emphasis: {
+        focus: "series",
+      },
+      data: [ 3556, 4113, 3922, 4546, 6905, 10241, 10632, 10630, 9298, 9950, 10082, 9405, 8436, 5737, 4215, 3312, 2202, 1653 ]
+    },
+    {
+      name: "여자 (Female) ",
+      type: "bar",
+      stack: "Total",
+      label: {
+        show: true,
+        position: "left",
+        formatter: function (v) {
+          return v.data < 0 && (-v.data).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+        },
+      },
+      emphasis: {
+        focus: "series",
+      },
+      data: [3341, 3868, 3853, 4305, 7779, 11007, 10318, 10329, 9338, 10095, 10145, 9408, 8896, 6508, 5332, 4530, 3464, 3294].map((k) => -k),
+    },
+  ],
+};
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+}
+
+        </script>
+    </body>
+</html>
+    

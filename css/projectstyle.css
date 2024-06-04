@@ -1,0 +1,190 @@
+@charset "UTF-8" ;
+        html, body {position: relative; height: 100vh;overflow: hidden;
+            font-family: 'Nanum Gothic Coding', monospace;
+            font-family: 'Fjalla One', sans-serif;;}
+  
+          .projecttitle{
+            position: absolute;
+            left:70%;
+            top:5%;
+            z-index:2} 
+
+  
+          /* project swiper */
+          .projectimage{
+            position: absolute;
+            top: 0%;
+            right:4%;
+            width:50%;
+            overflow: hidden}
+          .projectimage img{width: 100%;}
+    
+  
+          .ex > * {
+            position: absolute;
+            text-transform: uppercase;
+            color:#fff;
+            z-index: 9}
+
+          .date{
+            top:100%;
+            left:35%;
+            font-size: 2em;}
+
+          .title{
+            top:50%;
+            left:10%;
+            font-size:4em;}
+  
+  
+
+
+
+
+
+          .swiper-pagination-fraction{
+          bottom:60%;
+          left: 65%;
+          width: 10%;height:50px;
+          color: #4055B3;
+          font-size:2.5em;}
+
+          .swiper-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: #FFE38F;}
+
+          .swiper-slide {
+            font-size: 18px;
+            /* Center slide text vertically */
+            display: flex;
+            align-items: center;
+            width:68%;
+          }
+
+
+        .swiper-container .swiper-slide {opacity: .3}
+        .swiper-container .swiper-slide-active {opacity:1} 
+  
+
+
+        /* overview */
+
+     .overview{
+        width:30%;
+        height:100%;
+        position: relative;
+        right: -110%;
+        top:80%;
+        opacity: 0;
+       }
+
+        .swiper-container .swiper-slide-active .overview{
+          opacity:1;
+          transition: all .5s linear;
+          transition-delay: .3s}
+  
+        .overview > * {position: absolute;}
+
+  
+        .overview p{
+          right:0%;
+          width: 100%;
+          color:#333;
+          line-height:30px;
+          font-size: .8em}
+          
+        .overview p span{
+          display: block;
+          margin:20px;
+          font-size: 1.7em}
+
+        /* process 버튼 */
+  
+        .process{
+          width:100%;
+          display: flex;
+          right:0%;top:115%}
+        .process a{
+          width: 50%;
+          padding:8px 25px;
+          color:#fff;
+          font-size:0.8em;
+          margin:5%;
+          text-align: center}
+
+        .processiframe,.button-one {
+          background-color:#4055B3;
+          border-radius:5px;
+          box-shadow: 0 5px #fff;}
+  
+  
+  
+  
+        /* iframe */
+
+        .iframe_display{
+          position: fixed;
+          top:100%;
+          left:-5%;
+          width:80%;
+          height:100%;
+          z-index: 9999}
+
+        .cancel{
+          position: absolute;
+          top:4%;
+          right:8%;
+          width:4%;
+          cursor: pointer;}
+
+        iframe{width:100%;height: 100%;}
+
+
+
+
+
+        @media screen and (max-width:600px) {
+          .projecttitle{left:5%}
+          .projecttitle img{width:70%}
+          .overview p,.date{
+            display: none
+          }
+          .swiper-slide{
+            width:100%;
+            height: 100%;
+            margin-bottom:50px
+          }
+
+          .swiper-pagination-fraction{
+            top:30%;
+            width:20%
+          }
+          .swiper-container-vertical > .swiper-scrollbar{right:2%}
+          .swiper-container .swiper-slide {opacity: 0.1}
+          .swiper-container .swiper-slide-active {opacity:1} 
+      
+          .projectimage{
+            width: 100%;
+          }
+          .title{
+            font-size:1.5em;
+            top:50%
+          }
+
+
+          
+          .overview{width:100%;height:100%}
+          .process{
+            width:100%;
+            height: 85px;
+            right:110%;
+            margin-top:50px;
+            z-index: 99;
+          }
+          .iframe_display{
+            width: 100%;
+            left:0%;}
+         
+          }

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <style>
+        .work {
+            position: relative;
+            ;
+            height: 90vh;
+            width: 25%;
+            border: 3px solid rgb(0, 252, 13);
+        }
+
+        .work_slidewrap {
+            display: flex;
+            width: 2030%;
+            height: 90vh;
+            margin-left: -62%
+        }
+
+        .work_slidewrap li {
+            width: 3%;
+            ;
+            border: 1px solid #000;
+        }
+
+        .work_slidewrap li:nth-child(2) {
+            width: 5%;
+        }
+
+        .work_slidewrap li img {
+            width: 100%;
+            height: 500px;
+            transition: all 1s linear;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/jquery.mousewheel.js"></script>
+    <script>
+        $(function () {
+
+            $('.work').mousewheel(function (event, deltaX) {
+
+
+
+                if (deltaX > 0) {
+                    // alert('왼쪽') 
+                    $(".work_slidewrap").stop().animate({ 'margin-left': '0%' }, 1000, function () {
+                        $("li.slide").last().prependTo(".work_slidewrap")
+                        $(".work_slidewrap").css({ 'margin-left': '-62%' })
+                    })
+
+                    $('.work_slidewrap li:nth-child(1)').stop().animate({ 'width': '5%' }, 1000)
+                    $('.work_slidewrap li:nth-child(2)').stop().animate({ 'width': '3%' }, 1000)
+
+
+                } else if (deltaX < 0) {
+                    //alert('오른쪽')
+                    $(".work_slidewrap").stop().animate({ 'margin-left': '-122%' }, 1000, function () {
+                        $("li.slide").first().appendTo(".work_slidewrap")
+                        $(".work_slidewrap").css({ 'margin-left': '-62%' })
+                    })
+
+                    $('.work_slidewrap li:nth-child(3)').stop().animate({ 'width': '5%' }, 1000)
+                    $('.work_slidewrap li:nth-child(2)').stop().animate({ 'width': '3%' }, 1000)
+
+                }
+            })
+
+
+
+
+
+
+
+
+
+        });//function
+    </script>
+</head>
+
+<body>
+    <section class="work">
+        <div class="work_slidewrap">
+            <li class="slide on">30</li>
+            <li class="slide">29</li>
+            <li class="slide">28</li>
+            <li class="slide">27</li>
+            <li class="slide">26</li>
+            <li class="slide">25</li>
+            <li class="slide">24</li>
+            <li class="slide">23</li>
+            <li class="slide">22</li>
+            <li class="slide">21</li>
+            <li class="slide">20</li>
+            <li class="slide">19</li>
+            <li class="slide">18</li>
+            <li class="slide">17</li>
+            <li class="slide">16</li>
+            <li class="slide">15</li>
+            <li class="slide">14</li>
+            <li class="slide">13</li>
+            <li class="slide">12</li>
+            <li class="slide">11</li>
+            <li class="slide">10</li>
+            <li class="slide">9</li>
+            <li class="slide">8</li>
+            <li class="slide">7</li>
+            <li class="slide">6</li>
+            <li class="slide">5</li>
+            <li class="slide">4</li>
+            <li class="slide">3</li>
+            <li class="slide">2</li>
+            <li class="slide">1</li>
+            </ul>
+    </section>
+</body>
+
+</html>

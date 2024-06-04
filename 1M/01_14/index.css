@@ -1,0 +1,100 @@
+@charset "UTF-8";
+*{box-sizing: border-box}
+body{background: #fff;}
+.wrap{overflow: hidden;margin: auto}
+
+
+header{height:70px;display:block;padding-top:20px;
+             border-bottom: 1px solid #000;
+        margin-top: 15px;width: 100%;
+        background: #fff;overflow: hidden;}
+h1{float: left;padding-left:30px}
+h1 img{width: 140px;}
+.nav{float: right;}
+.nav li{float: left;;margin-right:20px;padding-top:10px;cursor: pointer;}
+
+
+.sub{background: #eee;width: 100%;}
+
+.subnav{overflow: hidden;
+    padding-top:20px;height: 200px;display: none}
+
+.level1{float: left;width:18%;text-align: center;}
+.level2{font-size:12px;overflow: hidden;padding: 10px 0}
+
+
+form .login{padding: 25px;display: none;width: 100%;}
+
+h2{font-size: 18px}
+
+input{width:100%;height:40px;margin: 5px 0}
+
+
+
+/* header */
+
+
+
+
+
+
+.product{ overflow: hidden; background: white}
+.shoes{transition: all .3s linear; width: 100%; }
+.shoes:hover{transform: scale(1.1)}
+
+
+.top{display:flex;justify-content: space-between;    
+    height: 50px;font-size: 12px;
+    background: rgba(122, 122, 122);color: #fff;
+    overflow: hidden;}
+
+.name{padding: 14px 0 0 20px;float: left; }
+.price{line-height:50px;float:right;}
+
+
+
+
+
+.right{float: right;width: 50px;background: #000;cursor: pointer;}
+.right.on{background: rgb(207, 207, 207)}
+
+
+
+.bottom{display: none;background: #fff;overflow: hidden;}
+.explain{font-size: 12px;padding: 10px;border-bottom: 1px solid #000}
+
+
+
+
+
+
+
+.size{padding: 10px;}
+
+.sizenav{display: flex;justify-content:space-around}
+.sizenav li{padding:15px;border: 1px solid #000;cursor: pointer;
+            text-align:center;width: 18%}
+.sizenav li.on{background: #eee}
+
+.cart{text-align: center;margin-top:20px ;padding:20px;background: #000;color: rgb(161, 161, 161);cursor: pointer;}
+.cart.on{font-weight: bold;color: #fff}
+
+
+
+
+
+
+
+footer{background: rgb(156, 156, 156);margin-top: 50px}
+.footernav{width: 380px;margin: auto;color: #fff}
+.footernav ul{display: flex;justify-content: space-around;font-size: 20px;padding-top: 15px}
+.footernav img{width:100px}
+
+
+
+
+
+
+
+
+

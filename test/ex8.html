@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<title>My Example</title>
+ 
+<style>
+  p {
+    background: gold;
+    padding: 20px;
+  }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $( function() {
+    $( "button" ).click( function() {
+        $('p').animate({
+            width:"toggle",  
+        },1000)
+
+    });//width : toggle
+  });
+</script>
+<button>Toggle away!</button>
+<p>Click the button... say... 3 times or more...</p>

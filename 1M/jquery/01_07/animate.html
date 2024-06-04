@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animate</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <style>
+        button {
+            padding: 10px;
+            font-size: 20px
+        }
+
+        .box {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('.right').click(function () {
+                $('.box').animate({ 'left': '+=100px' })
+
+            })
+            $('.left').click(function () {
+                $('.box').animate({ 'left': '-=100px' })
+
+            })
+        });
+
+
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <button class="left">left</button>
+    <button class="right">right</button>
+</body>
+
+</html>

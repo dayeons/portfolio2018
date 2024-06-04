@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="js1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        $(function () {
+            $('.nav1 li a').click(function () {
+                var target = $(this).attr('href')
+                //alert(target)
+                $('.tab1Contents li').stop().fadeOut()
+                $(target).stop().fadeIn(1000)
+
+                $('.nav1 li').removeClass('on')
+                $(this).parent('li').addClass('on')
+            })
+
+
+
+            $('.nav3 li').click(function () {
+                var idx = $(this).index()
+                //alert(idx)
+                $('.nav3 li').removeClass('on')
+                $(this).addClass('on')
+
+                $('.time li').fadeOut()
+                $('.time li').eq(idx).stop().fadeIn()
+
+                $('.summary li').fadeOut()
+                $('.summary li').eq(idx).stop().fadeIn()
+
+            })
+
+        })//function
+    </script>
+
+</head>
+
+<body>
+
+    <div class="tab1Wrap">
+        <ul class="tab1Contents">
+            <li id="tab1" class="on"><img src="tab1.jpg" alt=""></li>
+            <li id="tab2"><img src="tab2.png" alt=""></li>
+            <li id="tab3"><img src="tab3.jpg" alt=""></li>
+            <li id="tab4"><img src="tab4.jpg" alt=""></li>
+            <li id="tab5"><img src="tab5.jpg" alt=""></li>
+        </ul>
+        <ul class="nav1">
+            <li class="on"><span></span><a href="#tab1"><img src="tab1.jpg" alt=""></a></li>
+            <li><a href="#tab2"><span></span><img src="tab2.png" alt=""></a></li>
+            <li><a href="#tab3"><span></span><img src="tab3.jpg" alt=""></a></li>
+            <li><a href="#tab4"><span></span><img src="tab4.jpg" alt=""></a></li>
+            <li><a href="#tab5"><span></span><img src="tab5.jpg" alt=""></a></li>
+        </ul>
+
+    </div>
+    <div class="tab2Wrap">
+        <ul class="tab2Contents">
+            <li class="on"><img src="i1.jpg" alt=""></li>
+            <li><img src="i2.jpg" alt=""></li>
+            <li><img src="i3.jpg" alt=""></li>
+            <li><img src="i4.jpg" alt=""></li>
+        </ul>
+        <ul class="nav2">
+            <li class="on">숨37도 홀리데이 스페셜 키트 증정 이벤트</li>
+            <li>H.Point X 삐뿔즈 '돌잔치 페스티벌' 개최</li>
+            <li>H.Point, 공식 페이스북 페이지 오픈!</li>
+            <li>현대백화점 '스마일리 팬페스트' 공모전 개최</li>
+        </ul>
+    </div>
+
+    <div class="tab3Wrap">
+        <ul class="nav3">
+            <li class="on"><span></span> 08:00</li>
+            <li><span></span> 10:00</li>
+            <li><span></span>12:00</li>
+            <li><span></span>14:00</li>
+            <li><span></span>16:00</li>
+            <li><span></span>18:00</li>
+            <li><span></span>20:00</li>
+        </ul>
+        <ul class="time">
+            <li class="on"><img src="time_img01.jpg" alt=""></li>
+            <li><img src="time_img02.jpg" alt=""></li>
+            <li><img src="time_img03.jpg" alt=""></li>
+            <li><img src="time_img04.jpg" alt=""></li>
+            <li><img src="time_img05.jpg" alt=""></li>
+            <li><img src="time_img06.jpg" alt=""></li>
+            <li><img src="time_img07.jpg" alt=""></li>
+        </ul>
+        <ul class="summary">
+            <li class="on"><img src="summary1.jpg" alt=""></li>
+            <li><img src="summary2.jpg" alt=""></li>
+            <li><img src="summary3.jpg" alt=""></li>
+            <li><img src="summary4.jpg" alt=""></li>
+            <li><img src="summary5.jpg" alt=""></li>
+            <li><img src="summary6.jpg" alt=""></li>
+            <li><img src="summary7.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+
+</html>

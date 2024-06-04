@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>mobile example/ 브라우저 스니핑</title>
+ 
+<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+ 
+<script>
+window.onload=function(){
+	// alert(navigator.userAgent);
+	if((navigator.userAgent.match(/iPhone/i)) || // 아이폰
+		(navigator.userAgent.match(/iPod/i)) || // 아이팟
+		(navigator.userAgent.match(/android/i))) // 안드로이드 계열
+	{
+		window.location.href="mobile.html";
+	}else{
+		// alert("desktop.html");
+		window.location.href="desktop.html";
+	}
+};
+</script>
+</head>
+ 
+<body>
+</body>
+</html>

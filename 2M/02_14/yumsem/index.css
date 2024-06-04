@@ -1,0 +1,418 @@
+@charset "UTF-8";
+*{box-sizing: border-box}
+body{font-size: 12px}
+
+
+.headernav{
+    height:356px;
+    width:100px;
+    text-align: center;
+    background-image: url(yum/gnb_bg.gif);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    position: fixed;
+    top:20px;
+    left:30px;
+    z-index: 99;
+    cursor: pointer
+}
+
+.headernav ul{background: #191919;}
+
+.headernav ul li{
+    padding: 11px;
+    color: #888;
+    border-top: 1px solid #393939
+}
+
+.headernav ul li:hover{color: #fff}
+
+
+h1{
+    width: 100px;
+    height: 118px;
+    background: #0b0a09;
+}
+
+h2{margin-top: 10px}
+
+.gnb{
+    position: fixed;
+    z-index: 99;
+    right:1%;
+    top:20px;
+    display: block;
+    width: 210px;
+}
+
+.gnb2{float: left;
+    padding-top:5px;
+}
+
+.gnb li{
+    margin-bottom:10px;
+    float: right;
+}
+
+/* header */
+
+
+.sect1{
+    position: relative;
+    width: 100%;
+    height:900px;
+    overflow: hidden
+}
+
+.topWrap{
+    display: flex;
+    width: 300%;
+    margin: auto
+}
+.topWrap li{
+    position: relative;
+    width: 33.333%;
+    height:900px;
+    background-size:cover
+}
+
+
+.topWrap li:nth-child(1){background-image: url(yum/main_visual_01.jpg)}
+.topWrap li:nth-child(2){background-image: url(yum/main_visual_04.jpg)}
+.topWrap li:nth-child(3){background-image: url(yum/main_visual_02.jpg)}
+
+.toptitle{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.sect1 a{
+    position: absolute;
+    top:60%
+}
+.sect1 a.prev{left:2%;}
+.sect1 a.next{right:2%;}
+
+
+
+.topPointer{
+    position: absolute;
+    top:60%;
+    left: 50%;
+    transform: translateX(-50%);
+    width:100%;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    }
+
+.topPointer li{
+    width:15px;
+    height: 15px;
+    background:#fff;
+    margin: 5px;
+    cursor: pointer;
+    opacity:.5;
+    border-radius:50%;
+    text-align: center;
+    line-height:30px
+}
+
+.topPointer li.on{
+    background: #fbb813;
+    opacity: 1;
+}
+
+
+
+/* top */
+
+
+
+.sect2{
+    position: relative;
+    width: 100%;
+    height:900px
+}
+
+.subWrap{
+    position: relative;
+    width: 100%;
+}
+
+.subWrap li{
+    position: absolute;
+    width: 100%;
+    height: 900px;
+}
+
+
+.subWrap li:nth-child(1){background-image: url(yum/main_con_visual_01.jpg)}
+.subWrap li:nth-child(2){background-image: url(yum/main_con_visual_02.jpg)}
+.subWrap li:nth-child(3){background-image: url(yum/main_con_visual_03.jpg)}
+.subWrap li:nth-child(4){background-image: url(yum/main_con_visual_04.jpg)}
+
+
+.subWrap li img.subicon{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-90%)
+}
+
+
+
+.sect2 a{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+.sect2 a.prev{left: 2%;}
+.sect2 a.next{right: 2%;}
+
+.subslide{display:none;}
+.subslide.on{display: block;}
+
+
+.subPointer{
+    position: absolute; 
+    left: 50%;
+    top: 16%; 
+    transform: translateX(-50%)
+}
+
+.subPointer li{
+    float: left; 
+    margin: 10px 24px; 
+    width: 50px; 
+    height: 50px;
+    background-size: cover; 
+    transition: all .3s linear; 
+    cursor: pointer;
+}
+
+
+.subPointer li:nth-child(1){background-image: url(yum/main_con01_off.png)}
+.subPointer li:nth-child(2){background-image: url(yum/main_con02_off.png)}
+.subPointer li:nth-child(3){background-image: url(yum/main_con03_off.png)}
+.subPointer li:nth-child(4){background-image: url(yum/main_con04_off.png)}
+
+.subPointer li:nth-child(1).on{background-image: url(yum/main_con01_on.png)}
+.subPointer li:nth-child(2).on{background-image: url(yum/main_con02_on.png)}
+.subPointer li:nth-child(3).on{background-image: url(yum/main_con03_on.png)}
+.subPointer li:nth-child(4).on{background-image: url(yum/main_con04_on.png)}
+
+
+
+
+
+/*  */
+
+.sect3{
+    position: relative;
+    width: 100%;
+    height:700px
+}
+.story{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.story_li{
+    display: block;
+    width:1000px;
+    position: absolute;
+    top:-15%;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.story_li li{
+    float: left;
+    padding-left:75px;
+}
+
+.storytitle{
+    display: block;
+    margin:22px 0px 0px 77px
+}
+
+
+/*  */
+
+
+.sect4{
+    position: relative;
+    width: 100%;
+    height:100vh
+}
+
+.sect4 > * {position: absolute;}
+
+.logo{
+    top:42%;
+    left:50%;
+    transform: translateX(-50%);
+}
+.rotate{
+    top:-21%;
+    left:14%;
+}
+
+/*  */
+.contentnav{
+    position: static;
+    opacity:0;
+    z-index: 999;
+    top:10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width:300px
+}
+
+.contentnav.on{
+    position: fixed;
+    opacity:1;
+    transition: all .5s linear
+}
+
+.contentnav li a{
+    float: left;
+    width: 141px;
+    height: 45px;
+    text-align:center;
+    padding: 12px;
+    display: block;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    color: #888
+ }   
+
+
+.contentnav li.on a{
+    background: #000;
+    border: 1px solid #000;
+    color:#fff
+}
+
+
+
+
+/*  */
+.sect5{
+    width:100%;
+    height:2300px;
+    border: 1px solid red;
+    position: relative;
+    margin-top: 100px
+}
+
+
+h3{
+    position: absolute;
+    top:5%;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.menu_p{
+    position: absolute;
+    top:8%;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+
+.menuWrap{
+    position: absolute;
+    top:20%;
+    left:12%
+}
+
+.menu1,.menu2{
+    width: 90%;
+    height:800px;
+    display: block;
+}
+
+
+
+.menu1 ul li,.menu2 ul li{
+    float: left;
+    padding:0 25px;
+    width: 226px;
+    height: 216px;
+    position: relative;
+    text-align: center;
+    color: #888;
+}
+
+
+
+.menu1 li span,.menu2 li span{
+    position: absolute;
+    top:-6%;
+    left: -1%;
+}
+
+h4{
+    width: 310px;
+    height: 30px;
+    position: absolute;
+    left: 33%;
+    padding-top:70px;
+    margin:-150px 0;
+}
+
+h4 img{width: 100%;}
+
+
+/*  */
+.footerWrap{
+    position: relative;
+    width: 1200px;
+    margin:auto;
+    margin-top:100px;
+    color: #888;
+    font-size: 14px;
+    padding: 100px 10px;
+}
+
+.footer{
+    display: block;
+    text-align: center
+}
+
+.footer address{
+    line-height: 20px;
+    margin-top: 18px;
+}
+
+
+.footernav{
+    display: block;
+    margin: 20px auto;
+    line-height: 18px;
+}
+
+.footernav li{
+    float: left;
+    width: 20%;
+    height: 50px;
+}
+
+.footernav li img{
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+.footernav li p{
+    padding-top: 5px;
+    margin-left:55px
+}

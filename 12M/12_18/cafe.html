@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dunkin donuts</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="cafe.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('.gnb li a').click(function () {
+                var target = $(this).attr('href')
+                //alert(target)
+                $('#tab1 li').stop().fadeOut()
+                $(target).stop().fadeIn(1000)
+                $(this).parent('li').addClass('on')
+            })
+
+            $('.gnb li a').click(function () {
+                var target = $(this).attr('href')
+                //alert(target)
+                $('#tab2 li').stop().fadeOut()
+                $(target).stop().fadeIn(1000)
+                $(this).parent('li').addClass('on')
+
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="nav">
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#menu">MENU</a></li>
+                <li><a href="#where">WHERE</a></li>
+            </ul>
+        </div>
+        <div id="home">
+            <h1>도넛</h1>
+        </div>
+    </div>
+    <!-- header---------------------- -->
+
+    <div id="about">
+        <h2>BRAND INFO</h2>
+        <P>던킨도너츠는 70년의 역사를 지닌 세계 최대의 커피&도넛 전문 브랜드로,<br>
+            전세계 26개국에서 11,300여개의 점포를 운영하고 있습니다.</P>
+        <h3>WORLD NO.1<br>
+            COOFFEE & DONUTS</h3>
+        <p> 던킨도너츠 코리아는 1994년 이태원 1호점을 선보인 이후 매년 성장을 거듭하며<br>
+            독보적인 시장점유율을 자랑하는 1위 브랜드로 자리잡았습니다.<br><br>
+            2016년 현재, 전국 770여개 던킨도너츠 매장에서는<br>
+            달콤한 도넛과 향긋한 커피, 차별화된 다양한 음료, 간편한 한 끼 식사 모닝콤보와 핫 밀등<br>
+            다양한 제품들로 달콤한 휴식을 즐길 수 있습니다.</p>
+        <div class="imgbox"><img src="dunkin/xtrong_top.png" alt=""></div>
+    </div>
+    <!-- #about- -->
+    <div id="menu">
+        <h4><img src="dunkin/tit_dunkin_menu.png" alt=""></h4>
+        <ul class="gnb">
+            <li><a href="#tab1">COFFEE</a></li>
+            <li><a href="#tab2">DONUTS</a></li>
+        </ul>
+
+        <div class="tabmenu">
+            <ul id="tab1" class="on">
+                <li><img src="dunkin/americano.png" alt=""> <span>아메리카노(S)</span>
+                    깊은 카카오의 풍미와 풍부한 바디감을 느낄 수 있는 던킨 아메리카노</li>
+                <li><span>카페라떼(S)</span>
+                    진한 에스프레소와 따뜻한 우유의 만남</li>
+                <li><span>카푸치노(S)</span>
+                    진한 에스프레소와 따뜻한 우유, 부드러운 우유거품이 조화로운 커피</li>
+                <li><span>카페모카(S)</span>
+                    진한 에스프레소와 달콤한 초코, 부드러운 휘핑크림이 조화로운 커피</li>
+                <li><span>카라멜마끼아또(S)</span>
+                    진한 에스프레소와 따뜻한 우유, 달콤한 카라멜이 조화로운 커피</li>
+                <li><span>바닐라라떼(S)</span>
+                    진한 에스프레소와 향긋한 바닐라가 조화로운 달콤한 커피</li>
+            </ul>
+
+            <ul id="tab2">
+                <li><span>던킨 글레이즈드</span>
+                    더욱 촉촉하고 부드러워진 달콤한 정통 도넛</li>
+                <li><span>사랑에 빠진 하트</span>
+                    상큼한 스트로베리와 부드러운 우유필링 2가지 맛의 하트 도넛</li>
+                <li><span>스트로베리필드</span>
+                    예쁜 딸기가 상큼, 새하얀 슈가파우더가 입안에서 스르륵</li>
+                <li><span>바바리안필드</span>
+                    신선하고 부드러운 바바리안 크림과 부드러운 도넛이 조화를 이룬 도넛</li>
+                <li><span>바바리안필드</span>
+                    신선하고 부드러운 바바리안 크림과 부드러운 도넛이 조화를 이룬 도넛</li>
+                <li><span>뉴욕 크림치즈</span>
+                    부드러운 도넛 속에 더욱 진하고 부드러운 크림치즈가 입안 가득한 도넛</li>
+            </ul>
+
+        </div>
+        <!-- tabmenu -->
+        <h5><img src="dunkin/aboutmain.jpg" alt=""></h5>
+
+    </div>
+    <!-- #menu -->
+
+
+
+    <div class="banner"></div>
+    <div id="where">
+        <h2>매장찾기</h2>
+        <h5><img src="dunkin/find.jpg" alt=""></h5>
+        <ul class="site">
+            <li>종로구청</li>
+            <li>주소 서울 종로구 삼봉로 94 94빌딩 1층 104호</li>
+            <li>연락처 02-2160-8490</li>
+            <li>운영시간 주중 : 7:00~23:00</li>
+            <li>주말 : 8:00~22:00</li>
+            <li>휴일 : 월~토(일요일휴무)</li>
+        </ul>
+
+
+    </div>
+
+    <div class="footer">
+
+        <h6><img src="dunkin/footer_logo.png" alt=""></h6>
+        <ul>
+            <li>서울특별시 서초구 남부순환로 2620(양재동 11-149번지)</li>
+            <li>사업자 등록번호 : 303-81-09535비알코리아(주) 대표이사 조상호</li>
+            <li>TEL : 080-555-3131개인정보관리책임자 : 김창대</li>
+            <li>COPYRIGHT Ⓒ 2016 BRKOREA COMPANY. ALL RIGHTS RESERVED.</li>
+        </ul>
+    </div>
+
+
+</body>
+
+</html>

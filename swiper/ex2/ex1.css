@@ -1,0 +1,62 @@
+*{box-sizing: border-box}
+html, body {
+    position: relative;
+    height: 100%;
+    }
+    
+    body {
+    background: rgb(185, 185, 185);
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color:#000;
+    margin: 0;
+    padding: 0;
+    }
+    .swiper-container {
+    width:100%;
+    height:100%;
+
+    }
+    .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    }
+    .swiper-slide img{width: 100%;height: 100%;}
+
+
+.nav-container{position: absolute;left: 10%;top:27%;z-index: 99999;
+    width:700px;height:700px;}
+
+.btn{position: absolute;left: 10%;top:17.5%;z-index: 99999;
+    width:117px;height:100px;text-align: center;background:rgb(255, 153, 0);}
+
+
+
+
+.nav-swiper li{background:rgba(0, 0, 0, 0.767);color: rgb(216, 216, 216);
+     width: 16.666%;padding-top:40px;padding-bottom:40px; text-align: center;cursor: pointer;}
+
+.nav-swiper li.on{color: rgb(255, 153, 0);font-weight: bold}
+
+
+
+
+
+.contents{z-index: 999;position: absolute;top:16%;left:20%;width:480px;color: #fff}
+h2{line-height: 2;font-size:40px}
+h3{line-height: 2;font-size: 30px}
+.contents p{color: rgb(180, 180, 180);line-height:2;width:380px;margin-top:20px}

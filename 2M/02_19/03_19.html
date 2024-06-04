@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>percentslide</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+
+
+            var myVar = setInterval(autoslide, 2000);
+
+
+            function autoslide() {
+                $(".slideWrap").animate({ 'margin-left': '-100%' }, 1000, function () {
+
+                    $("li").first().appendTo(".slideWrap")
+                    $(".slideWrap").css({ 'margin-left': '0%' })
+                })
+
+            }
+
+
+        });//function
+
+
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        .slideContainer {
+            width: 960px;
+            border: 1px solid #000;
+            height: 400px;
+            overflow: hidden;
+            ;
+        }
+
+
+        .slideWrap {
+            width: 2000px;
+            overflow: hidden;
+        }
+
+        .slideWrap li {
+            float: left;
+            overflow: hidden;
+        }
+
+        .slideWrap li img {
+            width: 960px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slideContainer">
+
+        <ul class="slideWrap">
+            <li class="slide on"><img src="images(1).jpg" alt=""></li>
+            <li class="slide"><img src="images(2).jpg" alt=""></li>
+            <li class="slide"><img src="images(3).jpg" alt=""></li>
+
+        </ul>
+
+    </div>
+</body>
+
+</html>

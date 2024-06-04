@@ -1,0 +1,192 @@
+@charset "UTF-8";
+*{box-sizing: border-box}
+.BG{
+    height:100vh;
+    background-image: url(img/bg_charInfo_kr_W.png);
+    background-repeat: no-repeat;
+    background-size:100%;
+    background-position: bottom
+}
+
+.header{
+    position: fixed;
+    top:0;
+    width: 100%;
+    height:300px;
+    background: #b7e7f7;
+    display: block
+}
+
+.headernav{
+    float:right;
+    margin:50px 100px 0 0
+}
+
+.headernav li{
+    float: left;
+    padding: 20px
+}
+
+.headernav li.on{font-weight: bold}
+/* header===========================  */
+
+
+.wrap{
+    width:1200px;
+    height:400px;
+    position: absolute;
+    top:16%;
+    left:20%
+}
+
+
+.nav{
+    position: absolute;
+    width:28%;
+    height:100%;
+    text-align:center;
+    font-size:18px;
+    font-weight: bold;
+    background:#f9f9f9;
+    padding:30px 0 0 0px
+}
+
+h1{margin-bottom: 20px}
+
+.nav ul li{padding: 10px 10px 10px 20px;}
+
+.nav ul li:nth-child(1) a.on{color:#86c0e6;}
+.nav ul li:nth-child(2) a.on{color:#f3adad;}
+.nav ul li:nth-child(3) a.on{color:#fddc7f;}
+.nav ul li:nth-child(4) a.on{color:#ab95e0;}
+.nav ul li:nth-child(5) a.on{color:#94ccd9;}
+.nav ul li:nth-child(6) a.on{color:#636466;}
+
+/* nav ======================================= */
+
+.tabcontents{
+    position: absolute;
+    left:28%;
+}
+
+.content{
+    color: #fff;
+    width: 864px;
+    height:400px;
+    position: absolute;
+    top: 28%;
+    left:28%;
+    opacity: 0
+}
+
+.content.on{opacity: 1;}
+
+#tab1{background: #86c0e6;}
+#tab2{background: #f3adad;}
+#tab3{background: #fddc7f;}
+#tab4{background: #ab95e0;}
+#tab5{background: #94ccd9;}
+#tab6{background: #636466;}
+
+.content > * {position: absolute;}
+
+
+.content img{
+    opacity: 0;
+}
+
+.content.on img{
+    opacity: 1;
+    transition: all .5s ease
+}
+
+/* ========================= */
+/* picture=================  */
+#tab1 .pic{
+    right:-80px
+}
+
+#tab1.on .pic{
+    right:80px;
+    top:20px
+}
+
+#tab2 .pic{
+    top:-100px;
+}
+#tab2.on .pic{
+    right:-55px;
+    top:-20px;
+}
+
+#tab3 .pic{
+    right:-80px
+}
+#tab3.on .pic{
+    right:90px;
+    top:80px
+}
+
+#tab4 .pic{
+    right:180px
+}
+#tab4.on .pic{
+    right:-85px;
+    top:124px
+}
+
+#tab5 .pic{
+    right:150px
+}
+#tab5.on .pic{
+    right:-75px;
+    top:130px
+}
+
+#tab6 .pic{
+    top:-100px
+}
+#tab6.on .pic{
+    right:74px;
+    top:47px
+}
+
+/* title==================== */
+.content .title{
+    font-size:30px;
+    left:0%;
+    top: 15%;
+    opacity: 0;
+}
+.content.on .title{
+    opacity: 1;
+    left:10%;
+    transition: all  .2s ease
+}
+
+/* sub======================= */
+.content .sub{
+    font-size:18px;
+    right:0%;
+    top:35%;
+    opacity: 0;
+}
+.content.on .sub{
+    opacity: 1;
+    right:44%;
+    transition: all .5s ease
+}
+
+/* ex======================== */
+.content .ex{
+    left:0%;
+    top:50%;
+    width:355px;
+    opacity: 0;
+    font-size: 14px
+}
+.content.on .ex{
+    left:15%;
+    opacity: 1;
+    transition: all .5s ease
+}

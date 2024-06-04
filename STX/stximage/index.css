@@ -1,0 +1,83 @@
+@charset "UTF-8";
+*{box-sizing: border-box}
+body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image:url(img/event1.jpg)
+}
+.header{
+    position: fixed;
+    width: 160px;
+    height:100vh;
+    background: url(img/header_bg.gif);
+    z-index: 99;
+}
+h1{
+    width: 160px;
+    padding:12px;
+    text-align: center;
+    background: #fff;
+}
+
+.nav{
+    width: 160px;
+    text-align:end;
+    padding:15px 10px;
+    margin-top:30px
+}
+.nav li a{
+    display:block;
+    padding:10px;
+}
+.nav li span{
+    display: inline-block;
+    margin-left:6px;
+    width:12px;
+    height: 14px;
+    background-image: url(img/tiny_irbg.png);
+    background-position:133px -1200px;
+    opacity: 0;}
+
+.nav li span.on{opacity: 1;}
+
+
+
+
+
+/* header */
+.wrap{
+    position: absolute;
+    display: flex;
+    margin-left:160px;
+}
+.slide{
+    width:380px;
+    height:100vh;
+    overflow: auto
+}
+.slide img{vertical-align: top}
+/* 이미지 갭을 없앨려면 vertical-align: top  */
+
+
+
+a.next{
+    position: fixed;
+    right: 0;
+}
+a.prev{
+    position: fixed;
+    right: 72px
+}
+
+.btn a{
+    background: rgb(61, 61, 61,.8);
+    margin-left: 2px;
+    top: 50%;
+    transform: translateY(-50%)
+}
+.btn a.on:hover{background: rgba(255, 0, 0, 0.8);}
+
+
+a.prev{display: none}
+.btn a.on{background: rgb(61, 61, 61,.8);}

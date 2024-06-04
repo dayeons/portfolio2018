@@ -1,0 +1,80 @@
+/* Change the class name in HTML to use different shapes (reveal-circle, reveal-triangle, reveal-octagon) */
+main {
+
+  -webkit-animation: reveal-circle 2000ms 0ms infinite alternate ease-in-out;
+          animation: reveal-circle 2000ms 0ms infinite alternate ease-in-out;
+  background:url(homeimg/7U7J.gif);
+left:28%;
+  height: 80vmin;
+}
+main.reveal-circle {
+  -webkit-animation-name: reveal-circle;
+          animation-name: reveal-circle;
+  --hue: 343;
+
+}
+
+
+@-webkit-keyframes reveal-circle {
+  from { -webkit-clip-path: circle(0vmin); clip-path: circle(0vmin) }
+  to { -webkit-clip-path: circle(20vmin); clip-path: circle(20vmin) }
+}
+
+@keyframes reveal-circle {
+  from { -webkit-clip-path: circle(0vmin); clip-path: circle(0vmin) }
+  to { -webkit-clip-path: circle(20vmin); clip-path: circle(20vmin) }
+}
+
+
+
+
+body, main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+body {
+  height: 100vh;
+  color: hsl(23, 12%, 12%);
+  background: currentColor; 
+  overflow: hidden;
+
+  font-size: 14vmin;
+}
+main p:nth-of-type(even) {
+  color: #fcfdff;
+}
+
+
+
+
+/*
+@media screen and (orientation: portrait) {
+  form {
+    flex-direction: column;
+  }
+}
+*/
+
+
+body > p {
+  z-index: 1;
+  -webkit-transform: translate(50%, 250%);
+          transform: translate(50%, 250%);/*35vmin);*/
+  color: #fcfdff;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+}
+
+body > p:nth-of-type(2) {
+  -webkit-transform: translate(50%, -150%);
+          transform: translate(50%, -150%);
+}
+
+h5{font-size: 30px;position: absolute;bottom:28%;z-index: 9999;}
+
+.reveal-triangle{color: #fff;position: relative}
+/* background: url(homeimg/about1.png) */
+/* .arc{position: absolute;top:10%;left:50%;transform: translateX(-50%)} */

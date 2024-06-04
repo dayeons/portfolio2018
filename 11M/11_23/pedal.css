@@ -1,0 +1,50 @@
+*{box-sizing: border-box}
+
+body{background: url(http://heopoint.dothome.co.kr/CSS/Pedal/images/bg.jpg)}
+.headerbg{position: fixed; 
+     width: 100%;
+     height: 100px; top :0; 
+     z-index: 99;
+     background:url(http://heopoint.dothome.co.kr/CSS/Pedal/images/bg-header.jpg) }
+.head{width: 960px; margin: auto }
+h1{float: left;padding-top: 47px;  padding-left: 46px}
+.nav{float: right;}
+.nav li{float: left; line-height: 100px;color: #b5c1ad; padding: 3px}
+
+
+ 
+
+.wrap{width: 960px; margin: auto;}
+
+.visual{height: 570px;position: relative;border-bottom: 1px solid white}
+.date{ color:#b5c1ad;font-size: 3px}
+
+.visual > *{position: absolute;}
+
+
+h2{background-position: top right; top:140px; right:100px; color: #b5c1ad;font-size: 30px}
+.slogan{width: 220px; height: 300px;font-size:80%;
+    background-position: right bottom; right: 6px; bottom: 60px; color: white}
+
+.triangles{background-position: top left; left:133px;top: 142px}
+.bg-triangle{background-position: top right; right: 329px;}
+
+
+
+.content{width: 940px;margin: auto; column-count: 4; }
+h3{margin:20px 20px ;color:#b5c1ad}
+article{width: 220px; margin-bottom:30px;}
+.box li{border-bottom: 1px solid #807c72; padding: 10px; font-size: 70%; color:#b5c1ad;;}
+
+
+
+
+
+
+
+
+.footerbg{background: url(http://heopoint.dothome.co.kr/CSS/Pedal/images/bg-header.jpg);
+           width: 100%;overflow: hidden; padding: 10px;}
+.footer{width: 800px;margin: auto; float: right}
+
+.footer li{float:left; padding: 5px;font-size: 5px;color: #807c72}

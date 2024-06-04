@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>영화상세</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="index.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/colorbox.css">
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/swiper.js"></script>
+    <script src="/js/jquery.colorbox.js"></script>
+    <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="custom.js"></script>
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="search">
+            <a href="#"><i class="fa fa-search" style="font-size:36px;color: #ff9900"></i></a>
+        </div>
+        <!--모바일 태블릿   -->
+
+        <div class="headernav">
+            <div class="logo">
+                <a href="/cinema/index.html"><img src="img/bl_top_logo.png" alt=""></a>
+            </div>
+            <ul>
+                <li><a href="#moviedetails">영화</a></li>
+                <li><a href="http://heunshome.com/theater/move_ticket.html">예매</a></li>
+                <li><a href="http://leeyouyeon.com/DAEHANCINEMA/about.html">극장</a></li>
+                <li><a href="http://heunshome.com/theater/movie_event.html">이벤트</a></li>
+            </ul>
+        </div>
+        <!-- 웹페이지  header-->
+
+        <div class="tabletnav">
+            <a href="#"><i class="fa fa-bars" style="font-size:28px;color: #ff9900"></i></a>
+        </div>
+        <!--모바일 태블릿   -->
+    </div>
+    <!-- header -------------------------------------------------------------->
+
+    <div class="mainwrap">
+        <ul class="mainImg">
+            <li id="tab1" class="on">
+                <a href="https://youtube.com/embed/sjjeWA2uTcI" class="preview">
+                    <img src="img/play-button.png" alt="" class="play"></a>
+            </li>
+            <li id="tab2">
+                <a href="https://www.youtube.com/embed/kWcL2KplPQ8" class="preview">
+                    <img src="img/play-button.png" alt="" class="play"></a>
+            </li>
+            <li id="tab3">
+                <a href="https://www.youtube.com/embed/NL2FwcjsvbY" class="preview">
+                    <img src="img/play-button.png" alt="" class="play"></a>
+            </li>
+            <li id="tab4">
+                <a href="https://www.youtube.com/embed/Tkq1v_VgMCQ" class="preview">
+                    <img src="img/play-button.png" alt="" class="play"></a>
+            </li>
+            <li id="tab5">
+                <a href="https://www.youtube.com/embed/ptyTOCU2gqw" class="preview">
+                    <img src="img/play-button.png" alt="" class="play"></a>
+            </li>
+            <li id="tab6">
+                <a href="https://www.youtube.com/embed/qvPxCxo58yE" class="preview">
+                    <img src="img/play-button.png" alt="" class="play"></a>
+            </li>
+            <li id="tab7">
+                <a href="https://www.youtube.com/embed/R-Pn86zFgq4" class="preview">
+                    <img src="img/play-button.png" alt="" class="play"></a>
+            </li>
+            <li id="tab8">
+                <a href="https://www.youtube.com/embed/iPIf43E6krU" class="preview">
+                    <img src="img/play-button.png" alt="" class="play"></a>
+            </li>
+            <li id="tab9">
+                <a href="https://www.youtube.com/embed/g4zSTAYoa64" class="preview">
+                    <img src="img/play-button.png" alt="" class="play"></a>
+            </li>
+        </ul>
+        <!-- mainImg -->
+
+        <ul class="mainNav">
+            <li class="on"><a href="#tab1"><img src="img/movie_image1.jpg" alt=""><span>마약왕</span></a></li>
+            <li><a href="#tab2"><img src="img/movie_image2.jpg" alt=""><span>아쿠아맨</span></a></li>
+            <li><a href="#tab3"><img src="img/movie_image3.jpg" alt=""><span>범블비</span></a></li>
+            <li><a href="#tab4"><img src="img/movie_image4.jpg" alt=""><span>스윙키즈</span></a></li>
+            <li><a href="#tab5"><img src="img/movie_image5.jpg" alt=""><span>그린치</span></a></li>
+            <li><a href="#tab6"><img src="img/movie_image6.jpg" alt=""><span>보헤미안 랩소디</span></a></li>
+            <li><a href="#tab7"><img src="img/movie_image7.jpg" alt=""><span>PMC:더 벙커</span></a></li>
+            <li><a href="#tab8"><img src="img/movie_image22.jpg" alt=""><span>스파이더맨:더 유니버스</span></a></li>
+            <li><a href="#tab9"><img src="img/movie_image24.jpg" alt=""><span>국가부도의 날</span></a></li>
+        </ul>
+        <!-- mainNav -->
+
+        <div class="aclick">
+            <a href="#" class="back"><img src="img/back.png" alt=""></a>
+            <a href="#" class="next"><img src="img/next.png" alt=""></a>
+        </div>
+
+    </div>
+    <!-- mainwrap --------------------------------------------------------------->
+    <div class="contents" id="moviedetails">
+        <ul class="tabmenu">
+            <li><a href="#tabtoday" class="on"><button>현재상영작</button></a></li>
+            <li><a href="#tabtomorrow"><button>상영예정작</button></a></li>
+        </ul>
+        <!-- tabmenu -->
+        <div class="ultab">
+            <ul id="tabtoday" class="poster">
+                <li><img src="img/movie_image1.jpg" alt="">
+                    <div class="moviehover">
+                        <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                        <a href="#movie1"><button class="btn2">상세보기</button></a>
+                    </div>
+                </li>
+                <li><img src="img/movie_image2.jpg" alt="">
+                    <div class="moviehover">
+                        <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                        <a href="#movie2"><button class="btn2">상세보기</button></a>
+                    </div>
+                </li>
+                <li><img src="img/movie_image3.jpg" alt="">
+                    <div class="moviehover">
+                        <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                        <a href="#"><button class="btn2">상세보기</button></a>
+                    </div>
+                </li>
+                <li><img src="img/movie_image4.jpg" alt="">
+                    <div class="moviehover">
+                        <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                        <a href="#"><button class="btn2">상세보기</button></a>
+                    </div>
+                </li>
+                <li><img src="img/movie_image5.jpg" alt="">
+                    <div class="moviehover">
+                        <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                        <a href="#"><button class="btn2">상세보기</button></a>
+                    </div>
+                </li>
+                </li>
+                <!--     <li><img src="img/movie_image6.jpg" alt="">
+                <div class="moviehover">
+                    <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                    <a href="#"><button class="btn2">상세보기</button></a>
+                 </div></li>
+            </li>
+            <li><img src="img/movie_image7.jpg" alt="">
+                <div class="moviehover">
+                    <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                    <a href="#"><button class="btn2">상세보기</button></a>
+                 </div></li>
+            </li>
+            <li><img src="img/movie_image8.jpg" alt="">
+                <div class="moviehover">
+                    <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                    <a href="#"><button class="btn2">상세보기</button></a>
+                 </div></li>
+            </li>
+            <li><img src="img/movie_image9.jpg" alt="">
+                <div class="moviehover">
+                    <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                    <a href="#"><button class="btn2">상세보기</button></a>
+                 </div></li>
+            </li>
+            <li><img src="img/movie_image10.jpg" alt="">
+                <div class="moviehover">
+                    <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                    <a href="#"><button class="btn2">상세보기</button></a>
+                 </div></li>
+            </li>-->
+            </ul>
+            <ul id="tabtomorrow" class="poster">
+                <li><img src="img/movie_image11.jpg" alt="">
+                    <div class="moviehover">
+                        <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                        <a href="#movie1"><button class="btn2">상세보기</button></a>
+                    </div>
+                </li>
+                <li><img src="img/movie_image12.jpg" alt="">
+                    <div class="moviehover">
+                        <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                        <a href="#movie1"><button class="btn2">상세보기</button></a>
+                    </div>
+                </li>
+                <li><img src="img/movie_image13.jpg" alt="">
+                    <div class="moviehover">
+                        <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                        <a href="#movie1"><button class="btn2">상세보기</button></a>
+                    </div>
+                </li>
+                <li><img src="img/movie_image14.jpg" alt="">
+                    <div class="moviehover">
+                        <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                        <a href="#movie1"><button class="btn2">상세보기</button></a>
+                    </div>
+                </li>
+                <li><img src="img/movie_image15.jpg" alt="">
+                    <div class="moviehover">
+                        <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                        <a href="#movie1"><button class="btn2">상세보기</button></a>
+                    </div>
+                </li>
+                <!--       <li><img src="img/movie_image16.jpg" alt="">
+                <div class="moviehover">
+                    <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                    <a href="#movie1"><button class="btn2">상세보기</button></a>
+                 </div>
+            </li>
+            <li><img src="img/movie_image17.jpg" alt="">
+                <div class="moviehover">
+                    <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                    <a href="#movie1"><button class="btn2">상세보기</button></a>
+                 </div>
+            </li>
+            <li><img src="img/movie_image18.jpg" alt="">
+                <div class="moviehover">
+                    <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                    <a href="#movie1"><button class="btn2">상세보기</button></a>
+                 </div>
+            </li>
+            <li><img src="img/movie_image19.jpg" alt="">
+                <div class="moviehover">
+                    <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                    <a href="#movie1"><button class="btn2">상세보기</button></a>
+                 </div>
+            </li>
+            <li><img src="img/movie_image20.jpg" alt="">
+                <div class="moviehover">
+                    <a href="http://heunshome.com/theater/move_ticket.html"><button class="btn1">예매하기</button></a>
+                    <a href="#movie1"><button class="btn2">상세보기</button></a>
+                 </div>
+            </li>-->
+            </ul>
+        </div>
+        <!-- ultab -->
+    </div>
+    <!-- contents ---------------------------------------------------->
+    <div class="ulcontents">
+        <div class="boxcontents">
+            <div id="movie1" class="box">
+                <div class="fl">
+                    <h3>마약왕</h3>
+                    <div class="info">
+                        <div class="score">
+                            <img src="img/score1.png" alt="">
+                        </div>
+                        <div class="Synopsis">
+                            <h4>줄거리</h4>
+                            <p>국가는 범죄자, 세상은 왕이라 불렀다<br><br>
+                                “애국이 별게 아니다! <br>
+                                일본에 뽕 팔믄 그게 바로 애국인기라!”<br>
+                                마약도 수출하면 애국이 되던 1970년대 대한민국,<br>
+                                하급 밀수업자였던 이두삼은 우연히 마약 밀수에 가담했다가 <br>
+                                마약 제조와 유통 사업에 본능적으로 눈을 뜨게 되면서 사업에 뛰어든다. <br>
+                                <br>
+                                “이 나라는 내가 먹여 살렸다 아이가”<br>
+                                뛰어난 눈썰미, 빠른 위기대처능력, 신이 내린 손재주로 단숨에 마약업을 장악한 이두삼<br>
+                                사업적인 수완이 뛰어난 로비스트 김정아(배두나)가 합류하면서 <br>
+                                그가 만든 마약은 '메이드인 코리아'라는 브랜드를 달게 된다. <br>
+                                마침내 이두삼은 대한민국을 넘어 아시아까지 세력을 확장하며 백색 황금의 시대를 열게 된다 <br>
+                                <br>
+                                한편, 마약으로 인해 세상은 점점 불안해지기 시작하고 <br>
+                                승승장구하는 이두삼을 주시하는 한 사람 김인구(조정석)가 움직이기 시작하는데…<br>
+
+                            </p>
+                        </div>
+                        <div class="cast">
+                            <h4>감독 및 출연</h4>
+                            <ul>
+                                <li><img src="img/movie1_cast1.jpg" alt=""><span>우민호<br>감독</span> </li>
+                                <li><img src="img/movie1_cast2.jpg" alt=""><span>송강호<br>배우</span> </li>
+                                <li><img src="img/movie1_cast3.jpg" alt=""><span>조정석<br>배우</span> </li>
+                                <li><img src="img/movie1_cast4.jpg" alt=""><span>배두나<br>배우</span> </li>
+                                <li><img src="img/movie1_cast5.jpg" alt=""><span>김소진<br>배우</span> </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="Steelcut">
+                        <ul class="steelnav">
+                            <li class="on"><span></span> <a href="#cut1"><img src="img/steelcut1.jpg" alt=""></a></li>
+                            <li><span></span> <a href="#cut2"><img src="img/steelcut2.jpg" alt=""></a></li>
+                            <li><span></span> <a href="#cut3"><img src="img/steelcut3.jpg" alt=""></a></li>
+                            <li><span></span> <a href="#cut4"><img src="img/steelcut4.jpg" alt=""></a></li>
+                            <li><span></span> <a href="#cut5"><img src="img/steelcut5.jpg" alt=""></a></li>
+                        </ul>
+                        <ul class="steelcontents">
+                            <li id="cut1" class="on"><img src="img/steelcut1.jpg" alt=""></li>
+                            <li id="cut2"><img src="img/steelcut2.jpg" alt=""></li>
+                            <li id="cut3"><img src="img/steelcut3.jpg" alt=""></li>
+                            <li id="cut4"><img src="img/steelcut4.jpg" alt=""></li>
+                            <li id="cut5"><img src="img/steelcut5.jpg" alt=""></li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="fr">
+                    <div class="grade"><img src="img/grade1.png" alt=""></div>
+                </div>
+            </div>
+            <!-- movie1 -->
+            <!-- 
+            <div id="movie2" class="box">
+                <div class="fl">
+                    <h3>아쿠아맨</h3>
+                    <div class="info">
+                        <div class="score">
+                            <img src="img/score2.png" alt="">
+                        </div>
+                        <div class="Synopsis">
+                            <h4>줄거리</h4>
+                            <p>땅의 아들이자 바다의 왕, 심해의 수호자인 슈퍼히어로 아쿠아맨의 탄생을 그린 액션 블록버스터</p>
+                        </div>
+                        <div class="cast">
+                            <h4>감독 및 출연</h4>
+                            <ul>
+                                <li><img src="img/movie2_cast1.jpg" alt=""><span>제임스 완<br>감독</span> </li>
+                                <li><img src="img/movie2_cast2.jpg" alt=""><span>제이슨 모모아<br>배우</span> </li>
+                                <li><img src="img/movie2_cast3.jpg" alt=""><span>엠버 허드<br>배우</span> </li>
+                                <li><img src="img/movie2_cast4.jpg" alt=""><span>니콜 키드먼<br>배우</span> </li>
+                                <li><img src="img/movie2_cast5.jpg" alt=""><span>패트릭 윌슨<br>배우</span> </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="Steelcut">
+                        <ul class="steelnav">
+                            <li><a href="#cut1"><img src="img/steelcut1.jpg" alt=""></a></li>
+                            <li><a href="#cut2"><img src="img/steelcut2.jpg" alt=""></a></li>
+                            <li><a href="#cut3"><img src="img/steelcut3.jpg" alt=""></a></li>
+                            <li><a href="#cut4"><img src="img/steelcut4.jpg" alt=""></a></li>
+                            <li><a href="#cut5"><img src="img/steelcut5.jpg" alt=""></a></li>
+                        </ul>
+                        <ul class="steelcontents">
+                            <li id="cut1" class="on"><img src="img/steelcut1.jpg" alt=""></li>
+                            <li id="cut2"><img src="img/steelcut2.jpg" alt=""></li>
+                            <li id="cut3"><img src="img/steelcut3.jpg" alt=""></li>
+                            <li id="cut4"><img src="img/steelcut4.jpg" alt=""></li>
+                            <li id="cut5"><img src="img/steelcut5.jpg" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fr">
+                    <div class="grade"><img src="img/grade2.png" alt=""></div>
+                </div>
+            </div> -->
+            <!-- movie2 -->
+        </div>
+        <!-- boxcontents --------->
+    </div>
+    <!-- ulcontent -->
+    <div class="subbg"></div>
+    <!-- subbg -------------------------------------------------------->
+    <h2>BOX OFFICE</h2>
+    <div class="boxoffice">
+        <div class="office">
+            <div class="boximgWrap">
+                <ul class="boximg">
+                    <li class="on"><img src="img/movie_image2.jpg" alt=""></li>
+                    <li><img src="img/movie_image1.jpg" alt=""></li>
+                    <li><img src="img/movie_image4.jpg" alt=""></li>
+                    <li><img src="img/movie_image6.jpg" alt=""></li>
+                    <li><img src="img/movie_image5.jpg" alt=""></li>
+                    <li><img src="img/movie_image21.jpg" alt=""></li>
+                    <li><img src="img/movie_image23.jpg" alt=""></li>
+                    <li><img src="img/movie_image22.jpg" alt=""></li>
+                    <li><img src="img/movie_image24.jpg" alt=""></li>
+                    <li><img src="img/movie_image25.jpg" alt=""></li>
+                </ul>
+                <a href="http://heunshome.com/theater/move_ticket.html">
+                    <div class="ticket">예매하기</div>
+                </a>
+            </div>
+            <!-- boximgWrap -->
+            <div class="besttable">
+                <ul class="best">
+                    <li>
+                        <p class="ranking">순위</p>
+                        <p class="name">영화명</p>
+                        <p class="weekend">주말관객수</p>
+                        <p class="cul">전국누계</p>
+                    </li>
+
+                    <li class="on">
+                        <p class="ranking"><span>1</span></p>
+
+                        <p class="name">아쿠아맨</p>
+                        <p class="weekend">966,252명</p>
+                        <p class="cul">1,250,073명</p>
+                    </li>
+                    <li>
+                        <p class="ranking"><span>2</span></p>
+                        <p class="name">마약왕</p>
+                        <p class="weekend">755,699명</p>
+                        <p class="cul">1,210,340명</p>
+                    </li>
+                    <li>
+                        <p class="ranking"><span>3</span></p>
+                        <p class="name">스윙키즈</p>
+                        <p class="weekend">371,481명</p>
+                        <p class="cul">661,140명</p>
+                    </li>
+                    <li>
+                        <p class="ranking"><span>4</span></p>
+                        <p class="name">보헤미안 랩소디</p>
+                        <p class="weekend">305,752명</p>
+                        <p class="cul">8,502,066명</p>
+                    </li>
+                    <li>
+                        <p class="ranking"><span>5</span></p>
+                        <p class="name">그린치</p>
+                        <p class="weekend">162,927명</p>
+                        <p class="cul">199,383명</p>
+                    </li>
+                    <li>
+                        <p class="ranking"><span>6</span></p>
+                        <p class="name">극장판 짱구는 못말려: 아뵤! 쿵후 보이즈 ~라면 대란~</p>
+                        <p class="weekend">100,844명</p>
+                        <p class="cul">112,539명</p>
+                    </li>
+                    <li>
+                        <p class="ranking"><span>7</span></p>
+                        <p class="name">극장판 포켓몬스터 모두의 이야기</p>
+                        <p class="weekend">74,513명</p>
+                        <p class="cul">87,007명</p>
+                    </li>
+                    <li>
+                        <p class="ranking"><span>8</span></p>
+                        <p class="name">스파이더맨:뉴 유니버스</p>
+                        <p class="weekend">63,603명</p>
+                        <p class="cul">541,794명</p>
+                    </li>
+                    <li>
+                        <p class="ranking"><span>9</span></p>
+                        <p class="name">국가부도의 날</p>
+                        <p class="weekend">37,566명</p>
+                        <p class="cul">3,723,371명</p>
+                    </li>
+                    <li>
+                        <p class="ranking"><span>10</span></p>
+                        <p class="name">호두까기 인형과 4개의 왕국</p>
+                        <p class="weekend">27,426명</p>
+                        <p class="cul">471,619명</p>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li> * 한국박스오피스 : 한국 주말(금~일) 관객수를 영화진흥위원회 영화관 입장권 통합전산망이 집계한 순위</li>
+                    <li> * 집계기간 : 2018년 12월 21일 ~ 2018년 12월 23일 | 매주 월요일 업데이트</li>
+                </ul>
+            </div>
+            <!-- besttable -->
+        </div>
+        <!-- office -->
+    </div>
+    <!-- boxoffice ------------------------------------------------------>
+    <div class="introduce">
+        <div class="introbg">
+            <img src="img/dh_photo47.png" alt="">
+            <div class="introtop">
+
+                <p>대한민국 대표극장 "최첨단 영화관"</p>
+                <p class="brand"><em>DaeHan Cinema Brand Story</em></p>
+                <p class="year"> <em>- SINCE 1958 -</em></p>
+                <p>다양성영화부터 블록버스터까지.<br>
+                    모든 영화를 만날수 있는 영화 진짜 멀티플렉스 대한극장입니다.</p>
+                <a href="http://leeyouyeon.com/DAEHANCINEMA/about.html"><button>view</button></a>
+            </div>
+        </div>
+
+        <div class="introbottom">
+            <ul>
+                <a href="http://heunshome.com/theater/movie_event.html">
+                    <li><img src="img/restaurant-membership-card-tool.png" alt=""><span>멤버십 이벤트</span></li>
+                </a>
+                <a href="http://heunshome.com/theater/movie_event.html">
+                    <li><img src="img/clapperboard.png" alt=""><span>영화 이벤트</span></li>
+                </a>
+                <a href="http://heunshome.com/theater/movie_event.html">
+                    <li><img src="img/people-watching-a-movie.png" alt=""><span>영화관 이벤트</span></li>
+                </a>
+            </ul>
+
+        </div>
+    </div>
+    <!-- introduce -------------------------------------------------------->
+    <footer>
+        <div class="footernav">
+            <ul>
+                <li><a href="">회사소개</a></li>
+                <li><a href="">개인정보 취급방침</a></li>
+                <li><a href="">이용약관</a></li>
+                <li><a href="">사이트맵</a></li>
+                <li><a href="">제휴문의</a></li>
+                <li><a href="">FAQ</a></li>
+                <li><a href="">공지사항</a></li>
+                <li><a href="">전자공고</a></li>
+            </ul>
+        </div>
+        <div class="footer">
+            <div class="site">
+                <ul>
+                    <li><a href="">Instagram</a></li>
+                    <li><a href="">Fackbook</a></li>
+                    <li><a href="">twitter</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>서울특별시 중구 충무로 4가 125-18 대한극장(세기상사) 사업자등록번호: 201-81-48800 대표이사:김정희 통신판매업 신고번호:04-580-365호 <br>
+                    Copyright 2001 Daehan Cinema Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- footer ---------------------------------------------------------->
+</body>
+
+</html>

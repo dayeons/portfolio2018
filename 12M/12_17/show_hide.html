@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     .box{width:200px;margin: auto;text-align: center}
+     .box img{width:100%;display: block}
+     button{background: rgb(255, 0, 0);color: #fff;padding: 10px;font-size: 20px;cursor: pointer;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(function(){
+        $('.show').click(function(){
+           // $('img').show(1000)
+            $('img').fadeIn(1000)
+        })
+        $('.hide').click(function(){
+           // $('img').hide(1000)
+            $('img').fadeOut(1000)
+        })
+
+    })
+</script>
+</head>
+<body>
+    <div class="box">
+        <img src="character.png" alt="">
+        <button class="show">show</button>
+        <button class="hide">hide</button>
+    </div>
+    
+</body>
+</html>

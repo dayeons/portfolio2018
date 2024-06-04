@@ -1,0 +1,90 @@
+* { box-sizing: border-box; }
+body{background: #f1f1f1;}
+.main{max-width:1920px;width: 100%;overflow: hidden;position: relative;}
+h1{position: absolute;top:50px;left:100px}
+.main ul{width:300%;display: flex;margin-left: -100%}
+.main ul li{width:33.3333%;}
+
+.click{position: absolute;
+    top: 50%;transform: translateY(-50%);
+    z-index: 999;width: 40px;height:50px;
+    text-align: center;padding-top:10px;
+    background: rgb(255, 255, 255,.8);}
+a.prev{left: 30px;}
+a.next{right: 30px;}
+
+.mouse{position: absolute;
+    bottom:5%;left:50%;transform:translate(-50%);height:80px;
+    background-image:url(guess/icon_visual_darr.png);
+    background-repeat: no-repeat;background-position:center 45px}
+.mouse:hover{background-position:center 60px;transition: all .5s ease}
+
+
+
+
+
+
+
+.banner{max-width:1340px;margin:50px auto;overflow: hidden;cursor: pointer;}
+.banner div img{width:100%}
+.left{float: left;width:500px;height:350px;position: relative;}
+.right{float: right;;width:833px;height:680px}
+
+
+.overlay {position: absolute;
+    bottom:6%;left: 5%;
+    background-color: rgb(255, 255, 255,.5);
+    overflow: hidden;
+    width: 90%;height: 0;
+    transition: .5s ease;}
+  
+.left:hover .overlay {height: 90%;}
+.text {position: absolute;
+    top: 50%;left: 50%;transform: translate(-50%, -50%);
+    text-align: center;line-height: 50px;font-weight: bold}
+ .text span{display: block} 
+
+
+footer{width:100%;height: 320px;background: #222;margin-top:10%;font-size:13px}
+.footernav{max-width:1000px;margin:auto;height: 320px;padding: 40px 0 65px;}
+.footernav ul{display: flex}
+.footernav ul li{padding-right:40px;color:#d6d6d6;cursor: pointer;}
+.info{color: #555;padding: 50px 0}
+.info p{padding: 2px 0}
+.info strong{font-size:14px}
+.info span:before {margin: 0 6px;content: "|";}
+
+.copyright{margin:10px 0}
+
+/* ---- isotope ---- */
+
+.nav,.grid {
+    max-width:1060px;margin:auto;overflow: hidden;
+}
+.nav li{float:left;
+    width:16.66%;height: 50px;line-height: 25px;;font-size:.8vw;text-align: center;
+    padding:10px 0;cursor: pointer;}
+.nav li.on{color:red;font-weight: bold}
+/* clear fix */
+.grid:after {
+content: '';
+display: block;
+clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+width: 25%}
+.grid-item--width2{width:50%}
+
+.grid-item {
+float: left;
+}
+
+.grid-item img {
+display: block;
+max-width: 100%;
+}
+

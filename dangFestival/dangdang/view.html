@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>original / renewal</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            $('.nav ul li a').click(function (e) {
+                e.preventDefault()
+                var href = $(this).attr('href')
+                //alert(href)
+                $('iframe').attr('src', href)
+
+                $('#scene').removeClass()
+
+                var idx = $(this).index()
+                $('.nav ul li a').removeClass('on')
+                $(this).addClass('on')
+
+            })
+        })
+    </script>
+    <style>
+        @charset "UTF-8";
+
+        * {
+            box-sizing: border-box
+        }
+
+        .nav {
+            width: 700px;
+            margin: 10px auto;
+            height: 80px;
+        }
+
+        .nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav ul li a {
+            display: block;
+            cursor: pointer;
+            padding: 20px;
+            color: rgb(255, 75, 75)
+        }
+
+        .nav ul li a.on {
+            background: #eee;
+            font-weight: bold
+        }
+
+        #scene {
+            width: 100%;
+            height: 88vh;
+            margin: auto;
+            border: 1px solid #00000013;
+        }
+
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav">
+        <ul>
+            <li><a href="https://www.dangdangfestival.com/" class="on">original</a></li>
+            <li><a href="/dangFestival/dangdang/index.html">renewal</a></li>
+
+        </ul>
+    </div>
+
+    <div id="scene" class="original">
+        <iframe src="https://www.dangdangfestival.com/" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+
+</body>
+
+</html>

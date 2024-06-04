@@ -1,0 +1,40 @@
+*{box-sizing: border-box}
+body{background:url(dark-wood.jpg);}
+.wrap{width:942px;margin: auto;background: #fff }
+header{overflow: hidden;background: url(header.jpg)no-repeat
+     ; color: #fff;
+     ; width: 940px;height: 130px;margin: 0px; text-indent: -99999px; }
+    
+.nav{overflow: hidden;background: #aeaca8;color: white}
+.nav ul li{display: block; float: left; padding: 10px;}
+.nav ul li.on{color: rgb(255, 0, 0)}
+
+
+
+figure{border: 1px solid rgb(0, 0, 0); width: 300px; padding: 5px; float: left;margin: 0;}
+.txt{width: 320px; float: right ;padding-top: 20px}
+.top{overflow: hidden; padding:5px 5px }
+.bottom{overflow: hidden; padding:5px 5px }
+
+
+
+
+
+
+.fl{float: left;  width: 659px; display: block}
+.fr{float: right;width: 280px; padding: 10px}
+
+
+.nav2 li a{display: block}
+.nav2,h3,h4{color:#de6581;} 
+h4{padding-left: 10px; font-size: 25px}
+
+.level{width: 250px; height:35px;margin-top: 10px; margin-bottom: 10px;
+    font-size: 12px;border-bottom: 1px solid #eeeeee;}
+
+
+
+
+
+
+footer{background:#aeaca8; color: #fff;clear: both;}
