@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,105 +11,106 @@
     <link rel="stylesheet" href="section2.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="../jquery.transit.min.js"></script>
     <script src="section2.js"></script>
 
     <script>
-    $(function(){
+        $(function () {
 
-$('.map a').click(function(e){
+            $('.map a').click(function (e) {
 
-    e.preventDefault()
-
-
-    var href=$(this).attr('href')
-
-    var scrT=$(href).offset().top
-
-    $('html,body').animate({'scrollTop':scrT},1800,'easeOutCubic')
-
-    });
-
-// =================================================================================
-
-$(window).scroll(function(){
-    var gap=-300
-    var scroT= $(window).scrollTop()
-    var list1=$('#world').offset().top
-    var list2=$('#award').offset().top
-    var list3=$('#concert').offset().top
-
-    if(scroT>=list1+gap && scroT<list2+gap){
-        $('.text1').animate({opacity:1},1000)
-        }
-    else if(scroT>=list2+gap && scroT<list3+gap){
-
-        $('.text2').animate({opacity:1},1000)
-        }       
-    else if(scroT>=list3+gap){
-
-        $('.text3').animate({opacity:1},1000)
-        
-        }
-});
+                e.preventDefault()
 
 
-// =================================================================================
+                var href = $(this).attr('href')
+
+                var scrT = $(href).offset().top
+
+                $('html,body').animate({ 'scrollTop': scrT }, 1800, 'easeOutCubic')
+
+            });
+
+            // =================================================================================
+
+            $(window).scroll(function () {
+                var gap = -300
+                var scroT = $(window).scrollTop()
+                var list1 = $('#world').offset().top
+                var list2 = $('#award').offset().top
+                var list3 = $('#concert').offset().top
+
+                if (scroT >= list1 + gap && scroT < list2 + gap) {
+                    $('.text1').animate({ opacity: 1 }, 1000)
+                }
+                else if (scroT >= list2 + gap && scroT < list3 + gap) {
+
+                    $('.text2').animate({ opacity: 1 }, 1000)
+                }
+                else if (scroT >= list3 + gap) {
+
+                    $('.text3').animate({ opacity: 1 }, 1000)
+
+                }
+            });
 
 
-$('.map a').mouseenter(function(e){
-    e.preventDefault()
-
-    $(this).children('img').stop().transition({
-                 scale: '1.12',
-                 x: '-50%', y: '-50%'
-             });
-
-    $(this).find('.name').stop().animate({opacity:1})
-})
-
-$('.map a').mouseleave(function(e){
-    e.preventDefault()
-
-    $(this).children('img').stop().transition({
-                 scale: '1',
-                 x: '-50%', y: '-50%'
-             });
-    $(this).find('.name').stop().animate({opacity:0})
-})
+            // =================================================================================
 
 
-// =================================================================================
+            $('.map a').mouseenter(function (e) {
+                e.preventDefault()
+
+                $(this).children('img').stop().transition({
+                    scale: '1.12',
+                    x: '-50%', y: '-50%'
+                });
+
+                $(this).find('.name').stop().animate({ opacity: 1 })
+            })
+
+            $('.map a').mouseleave(function (e) {
+                e.preventDefault()
+
+                $(this).children('img').stop().transition({
+                    scale: '1',
+                    x: '-50%', y: '-50%'
+                });
+                $(this).find('.name').stop().animate({ opacity: 0 })
+            })
 
 
-$('.dotli').find('img').mouseenter(function(){
-
-    var idx = $(this).index()
-
-    $('.dotcontents').find('h3').eq(idx).stop().animate({opacity:1})
-
-})
-
-$('.dotli').find('img').mouseleave(function(){
-
-    var idx = $(this).index()
-
-    $('.dotcontents').find('h3').eq(idx).stop().animate({opacity:0})
-})
+            // =================================================================================
 
 
-// =================================================================================
+            $('.dotli').find('img').mouseenter(function () {
 
-});
-    
+                var idx = $(this).index()
+
+                $('.dotcontents').find('h3').eq(idx).stop().animate({ opacity: 1 })
+
+            })
+
+            $('.dotli').find('img').mouseleave(function () {
+
+                var idx = $(this).index()
+
+                $('.dotcontents').find('h3').eq(idx).stop().animate({ opacity: 0 })
+            })
+
+
+            // =================================================================================
+
+        });
+
     </script>
 </head>
+
 <body>
     <div class="bg">
-      
+
         <div class="programbg">
-            
+
             <img src="images/bg_route.png" alt="" class="route">
             <img src="images/program_balloon-left-01.png" alt="" class="bgi balloon1">
             <img src="images/program_balloon-left-02.png" alt="" class="bgi balloon2">
@@ -116,16 +118,16 @@ $('.dotli').find('img').mouseleave(function(){
             <img src="images/program_cloud-right-05.png" alt="" class="bgi cloud1">
             <img src="images/main-top_cloud-right-01.png" alt="" class="bgi cloud2">
             <img src="images/main-top_cloud-left-01.png" alt="" class="bgi cloud3">
-            
+
             <div class="program">
-            
-                <div class="map">  
+
+                <div class="map">
                     <div class="title">
                         <img src="images/title01.png" alt="">
                     </div>
                     <a href="#world">
                         <img src="images/world.png" alt="" class="world">
-                         <h3 class="name name01"><img src="images/name01.png" alt=""></h3>
+                        <h3 class="name name01"><img src="images/name01.png" alt=""></h3>
                     </a>
                     <a href="#award">
                         <img src="images/award.png" alt="" class="award">
@@ -144,16 +146,16 @@ $('.dotli').find('img').mouseleave(function(){
                         <img src="images/footprint.png" alt="" class="dot dot6">
                         <img src="images/footprint.png" alt="" class="dot dot7">
                     </div>
-                   <div class="dotcontents">
-                       <h3 class="dname1">물품&켄넬보관소</h3>
-                       <h3 class="dname2">인포메이션</h3>
-                       <h3 class="dname3">어질리티대기실</h3>
-                       <h3 class="dname4">푸드존</h3>
-                       <h3 class="dname5">돗자리존</h3>
-                       <h3 class="dname6">텐트존</h3>
-                       <h3 class="dname7">이벤트존</h3>
-                   </div>
-                   
+                    <div class="dotcontents">
+                        <h3 class="dname1">물품&켄넬보관소</h3>
+                        <h3 class="dname2">인포메이션</h3>
+                        <h3 class="dname3">어질리티대기실</h3>
+                        <h3 class="dname4">푸드존</h3>
+                        <h3 class="dname5">돗자리존</h3>
+                        <h3 class="dname6">텐트존</h3>
+                        <h3 class="dname7">이벤트존</h3>
+                    </div>
+
                 </div>
 
                 <ul class="programlist">
@@ -198,10 +200,11 @@ $('.dotli').find('img').mouseleave(function(){
                     </li>
                 </ul>
 
-            </div>  
+            </div>
 
         </div>
 
     </div>
 </body>
+
 </html>

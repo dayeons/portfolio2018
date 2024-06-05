@@ -4,7 +4,7 @@ $(function(){
         $('.mainbanner').animate({'top':'5%','opacity':'0'})
         $('.btn').delay(500).animate({'bottom':'20%','opacity':'0'})
         $('.mainimg').delay(1000).animate({'right':'-300px'},1000,function(){
-           
+
         })
     
     }

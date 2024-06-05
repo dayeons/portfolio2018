@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/swiper.css">
-    <style>
-        body {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/swiper.css">
+  <style>
+    body {
       background: #eee;
       font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
       font-size: 14px;
-      color:#000;
+      color: #000;
       margin: 0;
       padding: 0;
     }
+
     .tabcontent {
-      width: 100%;overflow: hidden;
+      width: 100%;
+      overflow: hidden;
       height: 300px;
       margin: 20px 0;
     }
+
     .swiper-slide {
       text-align: center;
       font-size: 18px;
@@ -39,64 +43,75 @@
       -webkit-align-items: center;
       align-items: center;
     }
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
+
 <body>
-        <div class="tabcontent swiper1 on">
-                <div class="swiper-wrapper">
-                        <div class="tabcontent-slide"><a href="#"><img src="img/musical1.jpg" alt=""><strong>뮤지컬 지킬앤하이드（MUSICAL JEKYLL＆HYDE）</strong></a></div>
-                        <div class="tabcontent-slide"><a href="#"><img src="img/musical2.jpg" alt=""><strong>뮤지컬 ( 잭더리퍼 ) 10주년 기념공연</strong></a></div>
-                        <div class="tabcontent-slide"><a href="#"><img src="img/musical3.jpg" alt=""><strong>[서울] [Special Seats] 뮤지컬 라이온 킹 인터내셔널 투어(Musical The Lion King)</strong></a></div>
-                        <div class="tabcontent-slide"><a href="#"><img src="img/musical4.jpg" alt=""><strong>뮤지컬 ＜호프：읽히지 않은 책과 읽히지 않은 인생＞</strong></a></div>
-                        <div class="tabcontent-slide"><a href="#"><img src="img/musical6.jpg" alt=""><strong>[부산] 뮤지컬 ＜엘리자벳＞</strong></a></div>
-                        <div class="tabcontent-slide"><a href="#"><img src="img/musical6.jpg" alt=""><strong>[광주] 뮤지컬 ＜엘리자벳＞</strong></a></div>
-                        <div class="tabcontent-slide"><a href="#"><img src="img/musical7.jpg" alt=""><strong>뮤지컬 스토리 오브 마이 라이프</strong></a></div>
-                        <div class="tabcontent-slide"><a href="#"><img src="img/musical5.jpg" alt=""><strong>뮤지컬 라이온 킹 인터내셔널 투어-서울(Musical The Lion King)</strong></a></div>
-                        <div class="tabcontent-slide"><a href="#"><img src="img/musical8.jpg" alt=""><strong>뮤지컬 더데빌（Musical THE DEVIL）</strong></a></div>
-                        <div class="tabcontent-slide"><a href="#"><img src="img/musical9.jpg" alt=""><strong>뮤지컬 [파이팅콜]</strong></a></div>
-                </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination swiper-pagination1"></div>
-              </div>
-            
-              <!-- Swiper -->
-              <div class="tabcontent swiper2">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">Slide 1</div>
-                  <div class="swiper-slide">Slide 2</div>
-                  <div class="swiper-slide">Slide 3</div>
-                  <div class="swiper-slide">Slide 4</div>
-                  <div class="swiper-slide">Slide 5</div>
-                  <div class="swiper-slide">Slide 6</div>
-                  <div class="swiper-slide">Slide 7</div>
-                  <div class="swiper-slide">Slide 8</div>
-                  <div class="swiper-slide">Slide 9</div>
-                  <div class="swiper-slide">Slide 10</div>
-                </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination swiper-pagination2"></div>
-              </div>
-              <script src="/js/swiper.js"></script>
-              <script>
-                    var swiper1 = new Swiper('.swiper1', {
-                        slidesPerView: 5,
-                        spaceBetween: 30,
-                        slidesPerGroup: 2,
-                      pagination: {
-                        el: '.swiper-pagination1',
-                        clickable: true,
-                      },
-                    });
-                    var swiper2 = new Swiper('.swiper2', {
-                        slidesPerView: 5,
-                        spaceBetween: 30,
-                        slidesPerGroup: 2,
-                      pagination: {
-                        el: '.swiper-pagination2',
-                        clickable: true,
-                      },
-                    });
-                    </script>
+  <div class="tabcontent swiper1 on">
+    <div class="swiper-wrapper">
+      <div class="tabcontent-slide"><a href="#"><img src="img/musical1.jpg" alt=""><strong>뮤지컬 지킬앤하이드（MUSICAL
+            JEKYLL＆HYDE）</strong></a></div>
+      <div class="tabcontent-slide"><a href="#"><img src="img/musical2.jpg" alt=""><strong>뮤지컬 ( 잭더리퍼 ) 10주년
+            기념공연</strong></a></div>
+      <div class="tabcontent-slide"><a href="#"><img src="img/musical3.jpg" alt=""><strong>[서울] [Special Seats] 뮤지컬 라이온
+            킹 인터내셔널 투어(Musical The Lion King)</strong></a></div>
+      <div class="tabcontent-slide"><a href="#"><img src="img/musical4.jpg" alt=""><strong>뮤지컬 ＜호프：읽히지 않은 책과 읽히지 않은
+            인생＞</strong></a></div>
+      <div class="tabcontent-slide"><a href="#"><img src="img/musical6.jpg" alt=""><strong>[부산] 뮤지컬 ＜엘리자벳＞</strong></a>
+      </div>
+      <div class="tabcontent-slide"><a href="#"><img src="img/musical6.jpg" alt=""><strong>[광주] 뮤지컬 ＜엘리자벳＞</strong></a>
+      </div>
+      <div class="tabcontent-slide"><a href="#"><img src="img/musical7.jpg" alt=""><strong>뮤지컬 스토리 오브 마이
+            라이프</strong></a></div>
+      <div class="tabcontent-slide"><a href="#"><img src="img/musical5.jpg" alt=""><strong>뮤지컬 라이온 킹 인터내셔널 투어-서울(Musical
+            The Lion King)</strong></a></div>
+      <div class="tabcontent-slide"><a href="#"><img src="img/musical8.jpg" alt=""><strong>뮤지컬 더데빌（Musical THE
+            DEVIL）</strong></a></div>
+      <div class="tabcontent-slide"><a href="#"><img src="img/musical9.jpg" alt=""><strong>뮤지컬 [파이팅콜]</strong></a></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination swiper-pagination1"></div>
+  </div>
+
+  <!-- Swiper -->
+  <div class="tabcontent swiper2">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
+      <div class="swiper-slide">Slide 4</div>
+      <div class="swiper-slide">Slide 5</div>
+      <div class="swiper-slide">Slide 6</div>
+      <div class="swiper-slide">Slide 7</div>
+      <div class="swiper-slide">Slide 8</div>
+      <div class="swiper-slide">Slide 9</div>
+      <div class="swiper-slide">Slide 10</div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination swiper-pagination2"></div>
+  </div>
+  <script src="../js/swiper.js"></script>
+  <script>
+    var swiper1 = new Swiper('.swiper1', {
+      slidesPerView: 5,
+      spaceBetween: 30,
+      slidesPerGroup: 2,
+      pagination: {
+        el: '.swiper-pagination1',
+        clickable: true,
+      },
+    });
+    var swiper2 = new Swiper('.swiper2', {
+      slidesPerView: 5,
+      spaceBetween: 30,
+      slidesPerGroup: 2,
+      pagination: {
+        el: '.swiper-pagination2',
+        clickable: true,
+      },
+    });
+  </script>
 </body>
+
 </html>
