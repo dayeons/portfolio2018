@@ -20,7 +20,7 @@
 }
 
 .clearfix {
-    *zoom: 1;
+    zoom: 1;
 }
 
 /* General Demo Style */
