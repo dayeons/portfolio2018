@@ -1,91 +1,148 @@
-.wrap{width: 100%;height:100vh;overflow: hidden;
-	position: relative;}
+.wrap {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
 
-.container{position: absolute;overflow: auto;
-			width: 50%;height: 100%;}
+.container {
+  position: absolute;
+  overflow: auto;
+  width: 50%;
+  height: 100%;
+}
 
-.iframe_display{position: absolute;left:50%;
-	width:100%;height:100%;z-index: 9999;}
+.iframe_display {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
 
-.iframe_display img{position: absolute;left:20px;width: 60px;}
-.iframe_display img.on{transform: rotate(180deg)}
+.iframe_display img {
+  position: absolute;
+  left: 20px;
+  width: 60px;
+}
+.iframe_display img.on {
+  transform: rotate(180deg);
+}
 
+iframe {
+  width: 100%;
+  height: 100%;
+}
 
-iframe{width:100%;height: 100%;}
-
-
-.header{width: 48%;background: #fff;z-index: 1;
-	height: 10%; position: fixed;display:flex;overflow: hidden;}
-.menu{padding:20px;cursor: pointer;}
-.menu img{width: 45px;}
-.logo{padding: 10px;cursor: pointer;}
-
+.header {
+  width: 48%;
+  background: #fff;
+  z-index: 1;
+  height: 10%;
+  position: fixed;
+  display: flex;
+  overflow: hidden;
+}
+.menu {
+  padding: 20px;
+  cursor: pointer;
+}
+.menu img {
+  width: 45px;
+}
+.logo {
+  padding: 10px;
+  cursor: pointer;
+}
 
 /* isotope */
 
-.nav{width:700px;height:50px;position: absolute;top:10%;left:12%;overflow: hidden;}
-.nav li{float: left;width:15%;text-align: center;cursor: pointer;margin: 10px;font-weight: bold}
-.nav li.on{color:red}
-.grid {overflow: hidden;
-	list-style: none;
-	max-width:800px;
-	height:98vh;
-	margin-top:150px; 
-	position: relative;
-	padding:0px 0 0px 100px;
+.nav {
+  width: 700px;
+  height: 50px;
+  position: absolute;
+  top: 10%;
+  left: 12%;
+  overflow: hidden;
 }
-.grid-item{
-	float: left;
-	margin:20px;
-	background: #fff;
-	padding: 8px;
-	position: relative;
-	
+.nav li {
+  float: left;
+  width: 15%;
+  text-align: center;
+  cursor: pointer;
+  margin: 10px;
+  font-weight: bold;
+}
+.nav li.on {
+  color: red;
+}
+.grid {
+  overflow: hidden;
+  list-style: none;
+  max-width: 800px;
+  height: 98vh;
+  margin-top: 150px;
+  position: relative;
+  padding: 0px 0 0px 100px;
+}
+.grid-item {
+  float: left;
+  margin: 20px;
+  background: #fff;
+  padding: 8px;
+  position: relative;
 }
 
 .grid-item a,
 .grid-item a img {
-	width:200px;height:300px;
-	display: block;
-	position: relative;
+  width: 200px;
+  height: 300px;
+  display: block;
+  position: relative;
 }
 .grid-item a {
-	overflow: hidden;
+  overflow: hidden;
 }
 .grid-item a div {
-	position: absolute;
-	background: #333;
-	background: rgba(75,75,75,0.7);
-	width: 100%;
-	height: 100%;
-	padding:40px 0;
+  position: absolute;
+  background: #333;
+  background: rgba(75, 75, 75, 0.7);
+  width: 100%;
+  height: 100%;
+  padding: 40px 0;
 }
 .grid-item a div span {
-	display: block;
-	padding:0;
-	text-align: center;
-	margin:20px 15px 20px 15px;
-	text-transform: uppercase;
-	font-weight: normal;
-	color: rgba(255,255,255,0.9);
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-	
+  display: block;
+  padding: 0;
+  text-align: center;
+  margin: 20px 15px 20px 15px;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
-.grid-item a div span.more{width:70px;height:70px;border-radius: 50px;
-	background: rgb(255, 255, 255,.3);margin: auto;line-height:70px;text-align: center}
-.grid-item a div span.more:hover{color: #000}
-
-
+.grid-item a div span.more {
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  background: rgb(255, 255, 255, 0.3);
+  margin: auto;
+  line-height: 70px;
+  text-align: center;
+}
+.grid-item a div span.more:hover {
+  color: #000;
+}
 
 .grid:after {
-	content: '';
-	display: block;
-	clear: both;
-	}
-	
-	/* ---- .grid-item ---- */
-	
-	.grid-sizer,
-	.grid-item {
-	width: 15%}
+  content: "";
+  display: block;
+  clear: both;
+}
 
+/* ---- .grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+  width: 15%;
+}
